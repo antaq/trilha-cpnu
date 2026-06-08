@@ -1,0 +1,6 @@
+# Ferramentas locais de preview/editor
+.claude/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

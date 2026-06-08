@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trilha de Formação Inicial (CPNU) · Grade Horária — ANTAQ</title>
+<meta name="description" content="Agenda cronológica da Trilha de Formação Inicial — Técnico em Regulação de Serviços de Transportes Aquaviários (CPNU) da ANTAQ — 8 a 19 de junho de 2026."/>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  :root{
+    --azul-escuro:#003366;
+    --azul-medio:#004488;
+    --azul-vibrante:#0066CC;
+    --azul-claro:#F0F9FF;
+    --azul-borda:#BAE6FD;
+    --dourado:#FFD700;
+    --manha:#D97706;        /* âmbar */
+    --manha-bg:#FEF3C7;
+    --manha-borda:#FCD34D;
+    --vesp:#0066CC;          /* azul */
+    --vesp-bg:#DBEAFE;
+    --vesp-borda:#93C5FD;
+    --tinta:#1f2937;
+    --tinta-suave:#475569;
+    --tinta-fraca:#94a3b8;
+    --fundo:#eef2f7;
+    --branco:#ffffff;
+    --borda:#e2e8f0;
+    --sombra:0 10px 25px -8px rgba(0,51,102,.18);
+    --sombra-sm:0 4px 12px -4px rgba(0,51,102,.15);
+    --topo-sticky:148px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--fundo);
+    color:var(--tinta);
+    font-family:'Open Sans','Segoe UI',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.font-mont{font-family:'Montserrat',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  /* fita dourada no topo */
+  .fita-topo{height:5px;background:linear-gradient(90deg,var(--dourado) 0%,#FFE873 50%,var(--dourado) 100%);}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:linear-gradient(135deg,#002244 0%,#003366 50%,#004488 100%);
+    color:#fff;
+    padding:34px clamp(20px,5vw,72px) 30px;
+    overflow:hidden;
+    border-bottom:4px solid var(--dourado);
+  }
+  .hero__accent{position:absolute;left:0;top:0;height:100%;width:7px;background:var(--dourado);}
+  .hero__watermark{
+    position:absolute;right:-30px;bottom:-70px;font-size:340px;line-height:0;
+    color:#fff;opacity:.05;pointer-events:none;z-index:0;
+  }
+  .hero__inner{position:relative;z-index:1;max-width:1120px;margin:0 auto;}
+  .hero__topo{display:flex;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap;}
+  .hero__logo{height:46px;width:auto;}
+  .hero__org{border-left:1px solid rgba(255,255,255,.25);padding-left:16px;}
+  .hero__org b{display:block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#cfe0f5;}
+  .hero__org span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#9db8da;}
+  .hero__sel{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .hero__sel .traco{width:40px;height:3px;background:var(--dourado);}
+  .hero__sel span{font-size:.82rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#bcd3f0;}
+  .hero__titulo{margin:0;line-height:1.12;}
+  .hero__titulo .l1{display:block;font-size:clamp(1.05rem,2vw,1.45rem);font-weight:700;color:#dce8f7;letter-spacing:.01em;}
+  .hero__titulo .l2{display:block;font-size:clamp(1.2rem,2.35vw,1.62rem);font-weight:900;color:var(--dourado);letter-spacing:-.012em;margin-top:.14em;}
+  .hero__titulo .cpnu{color:#fff;font-weight:800;}
+  .hero__sub{font-size:clamp(1rem,2.2vw,1.4rem);font-weight:600;color:#e8f0fb;margin:14px 0 4px;}
+  .hero__periodo{display:inline-flex;align-items:center;gap:10px;margin-top:6px;font-size:1rem;color:#cfe0f5;}
+  .hero__periodo i{color:var(--dourado);}
+  /* cartões de estatística */
+  .stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
+  .stat{
+    flex:1 1 150px;min-width:140px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:14px;padding:16px 18px;
+    backdrop-filter:blur(4px);
+  }
+  .stat__num{font-family:'Montserrat';font-size:1.9rem;font-weight:800;color:var(--dourado);line-height:1;}
+  .stat__lbl{display:block;margin-top:6px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#cfe0f5;font-weight:600;}
+
+  /* ===== STICKY TOOLBAR ===== */
+  .sticky{position:sticky;top:0;z-index:50;background:var(--branco);border-bottom:1px solid var(--borda);box-shadow:0 4px 16px -10px rgba(0,0,0,.25);}
+  .toolbar{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px clamp(16px,4vw,40px);}
+  .busca{flex:1 1 280px;display:flex;align-items:center;gap:10px;background:#f1f5f9;border:1px solid var(--borda);border-radius:10px;padding:9px 14px;transition:.15s;}
+  .busca:focus-within{border-color:var(--azul-vibrante);box-shadow:0 0 0 3px rgba(0,102,204,.12);background:#fff;}
+  .busca i{color:var(--tinta-fraca);}
+  .busca input{border:0;background:transparent;outline:0;width:100%;font-size:.95rem;font-family:inherit;color:var(--tinta);}
+  .seg{display:inline-flex;background:#f1f5f9;border:1px solid var(--borda);border-radius:10px;padding:3px;gap:2px;}
+  .seg button{
+    border:0;background:transparent;cursor:pointer;font-family:'Montserrat';font-weight:600;font-size:.82rem;
+    color:var(--tinta-suave);padding:7px 14px;border-radius:8px;transition:.15s;white-space:nowrap;
+  }
+  .seg button .ponto{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+  .seg button[data-turno="Manhã"] .ponto{background:var(--manha);}
+  .seg button[data-turno="Vespertino"] .ponto{background:var(--vesp);}
+  .seg button:hover{color:var(--azul-escuro);}
+  .seg button.ativo{background:var(--azul-escuro);color:#fff;box-shadow:var(--sombra-sm);}
+  .seg button.ativo .ponto{background:#fff;}
+  .resultado{font-size:.82rem;color:var(--tinta-suave);white-space:nowrap;}
+  .resultado strong{color:var(--azul-escuro);font-family:'Montserrat';}
+
+  /* navegação por dia */
+  .dia-nav{max-width:1120px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:0 clamp(16px,4vw,40px) 12px;scrollbar-width:thin;}
+  .chip{
+    flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-width:52px;padding:6px 10px;border-radius:10px;border:1px solid var(--borda);background:#fff;
+    cursor:pointer;transition:.15s;line-height:1.1;
+  }
+  .chip b{font-family:'Montserrat';font-size:1.05rem;font-weight:800;color:var(--azul-escuro);}
+  .chip span{font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;color:var(--tinta-fraca);font-weight:600;margin-top:2px;}
+  .chip:hover{border-color:var(--azul-vibrante);transform:translateY(-1px);}
+  .chip.ativo{background:var(--azul-escuro);border-color:var(--azul-escuro);}
+  .chip.ativo b{color:var(--dourado);}
+  .chip.ativo span{color:#cfe0f5;}
+  .chip.vazio{opacity:.32;pointer-events:none;}
+
+  /* ===== TIMELINE ===== */
+  .wrap{max-width:1120px;margin:0 auto;padding:30px clamp(16px,4vw,40px) 60px;}
+  .semana{display:flex;align-items:center;gap:14px;margin:8px 0 22px;}
+  .semana:not(:first-child){margin-top:46px;}
+  .semana__tag{display:inline-flex;align-items:center;gap:9px;background:var(--azul-escuro);color:#fff;font-family:'Montserrat';font-weight:700;font-size:.86rem;letter-spacing:.05em;padding:8px 16px;border-radius:999px;}
+  .semana__tag i{color:var(--dourado);}
+  .semana__range{font-size:.82rem;color:var(--tinta-suave);text-transform:capitalize;}
+  .semana__linha{flex:1;height:1px;background:linear-gradient(90deg,var(--borda),transparent);}
+
+  .dia{scroll-margin-top:var(--topo-sticky);margin-bottom:30px;}
+  .dia__cab{display:flex;align-items:center;gap:18px;margin-bottom:16px;}
+  .dia__medalhao{
+    flex:0 0 auto;width:78px;height:78px;border-radius:18px;
+    background:linear-gradient(140deg,var(--azul-escuro),var(--azul-vibrante));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;
+    box-shadow:var(--sombra);border-bottom:3px solid var(--dourado);
+  }
+  .dia__num{font-family:'Montserrat';font-size:2rem;font-weight:900;line-height:1;}
+  .dia__mes{font-size:.66rem;font-weight:700;letter-spacing:.16em;margin-top:2px;color:var(--dourado);}
+  .dia__meta{flex:1 1 auto;min-width:0;}
+  .dia__weekday{margin:0;font-size:1.3rem;font-weight:800;color:var(--azul-escuro);text-transform:capitalize;}
+  .dia__data{margin:2px 0 6px;font-size:.86rem;color:var(--tinta-suave);}
+  .dia__resumo{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--tinta-suave);font-weight:600;}
+  .dia__resumo i{color:var(--azul-vibrante);margin-right:5px;}
+
+  /* botão "Entrar na aula" (Teams) no canto direito do cabeçalho do dia */
+  .dia__aula-link{margin-left:auto;flex:0 0 auto;align-self:center;display:inline-flex;align-items:center;gap:9px;
+    background:#fff;color:var(--azul-escuro);border:1px solid var(--vesp-borda);border-radius:11px;
+    padding:10px 15px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;
+    box-shadow:var(--sombra-sm);transition:.15s ease;white-space:nowrap;cursor:pointer;}
+  .dia__aula-link:hover{background:var(--azul-escuro);color:#fff;border-color:var(--azul-escuro);transform:translateY(-1px);box-shadow:var(--sombra);}
+  .dia__aula-link:focus-visible{outline:3px solid rgba(0,102,204,.35);outline-offset:2px;}
+  .dia__aula-link svg{display:block;flex:0 0 auto;}
+  .dia__aula-link .nova-aba{font-size:.72rem;opacity:.6;}
+  @media (max-width:640px){
+    .dia__aula-link{padding:10px;}
+    .dia__aula-link .rotulo,.dia__aula-link .nova-aba{display:none;}
+  }
+  @media print{ .dia__aula-link{display:none!important;} }
+
+  .dia__aulas{display:flex;flex-direction:column;gap:12px;border-left:2px dashed var(--azul-borda);margin-left:38px;padding-left:34px;position:relative;}
+
+  /* ===== CARD AULA ===== */
+  .aula{
+    position:relative;display:flex;align-items:stretch;background:#fff;border:1px solid var(--borda);
+    border-radius:14px;box-shadow:var(--sombra-sm);overflow:hidden;
+    border-left:5px solid var(--vesp);
+    transition:opacity .5s ease,transform .5s ease,box-shadow .2s;
+  }
+  /* animação só quando há JS (sem JS, cards aparecem normalmente) */
+  html.js .aula{opacity:0;transform:translateY(14px);}
+  html.js .aula.vis{opacity:1;transform:none;}
+  .aula:hover{box-shadow:var(--sombra);transform:translateY(-2px);}
+  .aula--manha{border-left-color:var(--manha);}
+  /* marcador na linha do tempo */
+  .aula::before{
+    content:"";position:absolute;left:-41px;top:28px;width:13px;height:13px;border-radius:50%;
+    background:var(--vesp);border:3px solid #fff;box-shadow:0 0 0 2px var(--vesp-borda);
+  }
+  .aula--manha::before{background:var(--manha);box-shadow:0 0 0 2px var(--manha-borda);}
+
+  .aula__hora{
+    flex:0 0 96px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    padding:14px 8px;background:var(--azul-claro);border-right:1px solid var(--borda);
+  }
+  .aula--manha .aula__hora{background:#FFFBEB;}
+  .aula__inicio{font-family:'Montserrat';font-weight:800;font-size:1.18rem;color:var(--azul-escuro);}
+  .aula--manha .aula__inicio{color:#92400E;}
+  .aula__fim{font-size:.78rem;color:var(--tinta-fraca);font-weight:600;}
+  .aula__dur{margin-top:4px;font-size:.66rem;font-weight:700;letter-spacing:.04em;color:var(--tinta-suave);background:#fff;border:1px solid var(--borda);border-radius:999px;padding:2px 8px;}
+
+  .aula__corpo{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:14px;padding:14px 16px;}
+  .aula__icone{flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;background:var(--vesp-bg);color:var(--vesp);}
+  .aula--manha .aula__icone{background:var(--manha-bg);color:var(--manha);}
+  .aula__txt{min-width:0;}
+  .aula__top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .aula__num{flex:0 0 auto;font-family:'Montserrat';font-weight:700;font-size:.68rem;letter-spacing:.04em;color:#fff;background:var(--azul-escuro);border-radius:6px;padding:3px 8px;}
+  .aula__titulo{margin:0;font-size:1.04rem;font-weight:700;color:var(--azul-escuro);line-height:1.25;}
+  .aula__instrutor{margin:5px 0 0;font-size:.86rem;color:var(--tinta-suave);}
+  .aula__instrutor i{color:var(--azul-vibrante);margin-right:6px;}
+
+  .aula__tags{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:8px;padding:14px 16px 14px 0;}
+  .tag{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap;}
+  .tag--vespertino{background:var(--vesp-bg);color:#1E40AF;border:1px solid var(--vesp-borda);}
+  .tag--manha{background:var(--manha-bg);color:#92400E;border:1px solid var(--manha-borda);}
+  .tag--ch{background:#f1f5f9;color:var(--tinta-suave);border:1px solid var(--borda);}
+
+  /* vazio */
+  .vazio{text-align:center;padding:70px 20px;color:var(--tinta-fraca);}
+  .vazio i{font-size:3rem;color:var(--azul-borda);}
+  .vazio p{margin:16px 0 18px;font-size:1.05rem;}
+  .vazio button{font-family:'Montserrat';font-weight:600;background:var(--azul-escuro);color:#fff;border:0;border-radius:10px;padding:10px 20px;cursor:pointer;transition:.15s;}
+  .vazio button:hover{background:var(--azul-vibrante);}
+
+  /* ===== FOOTER ===== */
+  footer{background:#fff;border-top:1px solid var(--borda);}
+  .footer-accent{height:8px;background:var(--azul-escuro);} .footer-accent2{height:4px;background:var(--azul-vibrante);}
+  .footer-in{max-width:1120px;margin:0 auto;padding:28px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;}
+  .footer-in img{height:38px;width:auto;}
+  .footer-ref{font-size:.8rem;color:var(--tinta-suave);text-align:right;}
+  .footer-ref b{color:var(--azul-escuro);}
+  .footer-legenda{display:flex;gap:18px;flex-wrap:wrap;font-size:.78rem;color:var(--tinta-suave);}
+  .footer-legenda .leg{display:inline-flex;align-items:center;gap:7px;}
+  .leg .ponto{width:11px;height:11px;border-radius:50%;}
+  .leg .ponto.m{background:var(--manha);} .leg .ponto.v{background:var(--vesp);}
+
+  /* voltar ao topo */
+  .topo-btn{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--azul-escuro);color:#fff;font-size:1rem;box-shadow:var(--sombra);z-index:60;opacity:0;visibility:hidden;transition:.25s;}
+  .topo-btn.show{opacity:1;visibility:visible;}
+  .topo-btn:hover{background:var(--azul-vibrante);}
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width:640px){
+    :root{--topo-sticky:166px;}
+    .aula{flex-wrap:wrap;}
+    .aula__hora{flex:0 0 100%;flex-direction:row;justify-content:flex-start;gap:10px;border-right:0;border-bottom:1px solid var(--borda);padding:9px 14px;}
+    .aula__dur{margin-top:0;margin-left:auto;}
+    .aula__corpo{flex:1 1 100%;}
+    .aula__tags{flex:1 1 100%;flex-direction:row;align-items:center;justify-content:flex-start;padding:0 16px 14px;}
+    .dia__aulas{margin-left:10px;padding-left:22px;}
+    .aula::before{left:-29px;}
+    .dia__cab{gap:12px;}
+    .dia__medalhao{width:64px;height:64px;}
+    .dia__num{font-size:1.6rem;}
+    .resultado{display:none;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .aula{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ===== IMPRESSÃO ===== */
+  @media print{
+    body{background:#fff;}
+    .sticky,.topo-btn,.hero__watermark{display:none!important;}
+    .hero{border-bottom:3px solid var(--azul-escuro);}
+    .aula{opacity:1!important;transform:none!important;box-shadow:none;border:1px solid #cbd5e1;break-inside:avoid;}
+    .dia{break-inside:avoid;}
+    .wrap{padding-top:18px;}
+  }
+</style>
+</head>
+<body>
+<div class="fita-topo"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero__accent"></div>
+  <i class="fa-solid fa-graduation-cap hero__watermark" aria-hidden="true"></i>
+  <div class="hero__inner">
+    <div class="hero__topo">
+      <img class="hero__logo" src="Imagens/logo-antaq-branca.png" alt="ANTAQ — Agência Nacional de Transportes Aquaviários"/>
+      <div class="hero__org">
+        <b>Agência Nacional de Transportes Aquaviários</b>
+        <span>Programa de Capacitação Interna</span>
+      </div>
+    </div>
+
+    <div class="hero__sel"><span class="traco"></span><span>Grade Horária</span></div>
+    <h1 class="hero__titulo">
+      <span class="l1">Trilha de Formação Inicial</span>
+      <span class="l2">Técnico em Regulação de Serviços de Transportes Aquaviários <span class="cpnu">(CPNU)</span></span>
+    </h1>
+    <p class="hero__sub">Cronograma de disciplinas e instrutores</p>
+    <p class="hero__periodo"><i class="fa-regular fa-calendar-days"></i> <span id="periodo">8 a 19 de junho de 2026</span></p>
+
+    <div class="stats">
+      <div class="stat"><span class="stat__num" id="st-disc">13</span><span class="stat__lbl">Disciplinas</span></div>
+      <div class="stat"><span class="stat__num" id="st-ch">40 h/a</span><span class="stat__lbl">Carga horária</span></div>
+      <div class="stat"><span class="stat__num" id="st-dias">9</span><span class="stat__lbl">Dias de aula</span></div>
+      <div class="stat"><span class="stat__num" id="st-sem">2</span><span class="stat__lbl">Semanas</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== TOOLBAR STICKY ===================== -->
+<div class="sticky">
+  <div class="toolbar">
+    <label class="busca">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input id="busca" type="search" placeholder="Buscar disciplina ou instrutor…" aria-label="Buscar disciplina ou instrutor"/>
+    </label>
+    <div class="seg" role="group" aria-label="Filtrar por turno">
+      <button data-turno="todos" class="ativo">Todos</button>
+      <button data-turno="Manhã"><span class="ponto"></span>Manhã</button>
+      <button data-turno="Vespertino"><span class="ponto"></span>Vespertino</button>
+    </div>
+    <div class="resultado">Mostrando <strong id="cont">13 de 13</strong></div>
+  </div>
+  <nav class="dia-nav" id="diaNav" aria-label="Ir para o dia"></nav>
+</div>
+
+<!-- ===================== TIMELINE ===================== -->
+<main class="wrap"><div id="timeline"></div></main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-accent"></div><div class="footer-accent2"></div>
+  <div class="footer-in">
+    <img src="Imagens/logo-antaq-azul.png" alt="ANTAQ"/>
+    <div class="footer-legenda">
+      <span class="leg"><span class="ponto m"></span> Turno da manhã</span>
+      <span class="leg"><span class="ponto v"></span> Turno vespertino</span>
+    </div>
+    <div class="footer-ref">
+      <b>Trilha de Formação Inicial (CPNU)</b> — Grade Horária<br/>
+      Técnico em Regulação de Serviços de Transportes Aquaviários<br/>
+      Processo nº 50300.007135/2026-37 · SEI nº 2922562
+    </div>
+  </div>
+</footer>
+
+<button class="topo-btn" id="topoBtn" title="Voltar ao topo" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+/* ===================== DADOS ===================== */
+const DISCIPLINAS = [
+  {n:0,  nome:"Abertura Institucional", ch:2.5, data:"2026-06-08", inicio:"14:00", fim:"16:30", turno:"Vespertino", instrutor:"DG, Diretores e Superintendências", icon:"fa-door-open"},
+  {n:1,  nome:"Governança e Competências da ANTAQ", ch:1.5, data:"2026-06-09", inicio:"14:00", fim:"16:30", turno:"Vespertino", instrutor:"Rafael Galvão", icon:"fa-sitemap"},
+  {n:2,  nome:"Ética, Integridade e Processo Administrativo", ch:2, data:"2026-06-17", inicio:"10:00", fim:"12:00", turno:"Manhã", instrutor:"Joelma Barbosa", icon:"fa-scale-balanced"},
+  {n:3,  nome:"Análise de Dados Básico", ch:2, data:"2026-06-11", inicio:"09:00", fim:"11:00", turno:"Manhã", instrutor:"Isaac Monteiro", icon:"fa-chart-column"},
+  {n:4,  nome:"Fiscalização Responsiva e Processo de Fiscalização e Sancionador", ch:4, data:"2026-06-15", inicio:"08:00", fim:"12:00", turno:"Manhã", instrutor:"Fábio Fonseca e Flávia Mendonça", icon:"fa-clipboard-check"},
+  {n:5,  nome:"Portos: Marco Regulatório, Arrendamentos e Avaliação de Empreendimentos", ch:4, data:"2026-06-10", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"Renildo Barros", icon:"fa-anchor"},
+  {n:6,  nome:"Lei das Agências Reguladoras e Ciclo Regulatório", ch:4, data:"2026-06-11", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / Michely Vieira Santos", icon:"fa-gavel"},
+  {n:7,  nome:"Teoria da Regulação e Tópicos Regulatórios", ch:5, data:"2026-06-12", inicio:"13:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / José Gonçalves Moreira Neto", icon:"fa-book"},
+  {n:8,  nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:5, data:"2026-06-10", inicio:"08:00", fim:"13:00", turno:"Manhã", instrutor:"Eduardo Pessoa Queiroz / Rodrigo Português", icon:"fa-ship"},
+  {n:9,  nome:"Gestão Ambiental no Setor Aquaviário", ch:2, data:"2026-06-19", inicio:"16:00", fim:"18:00", turno:"Vespertino", instrutor:"Uirá Cavalcante Oliveira", icon:"fa-leaf"},
+  {n:10, nome:"Planejamento da Fiscalização", ch:2, data:"2026-06-18", inicio:"14:00", fim:"16:00", turno:"Vespertino", instrutor:"Pedro Henrique Soares", icon:"fa-clipboard-list"},
+  {n:11, nome:"Boas Relações de Trabalho e Gestão de Pessoas", ch:2, data:"2026-06-18", inicio:"16:00", fim:"18:00", turno:"Vespertino", instrutor:"Joelson Miranda", icon:"fa-users"},
+  {n:12, nome:"Serviço Público, Concessões, Outorgas e Processo Administrativo no Setor Aquaviário", ch:4, data:"2026-06-16", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"Ygor Di Paula Julliano Silva da Costa", icon:"fa-file-contract"},
+];
+
+/* ===================== HELPER DOM (seguro: sem innerHTML) ===================== */
+function h(tag, attrs, ...kids){
+  const el=document.createElement(tag);
+  if(attrs) for(const k in attrs){
+    const v=attrs[k];
+    if(v==null) continue;
+    if(k==="class") el.className=v;
+    else if(k==="dataset") Object.assign(el.dataset,v);
+    else if(k.startsWith("on")) el.addEventListener(k.slice(2).toLowerCase(),v);
+    else el.setAttribute(k,v);
+  }
+  for(const kid of kids.flat()){
+    if(kid==null||kid===false) continue;
+    el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+  }
+  return el;
+}
+const fa = cls => h("i",{class:cls,"aria-hidden":"true"});
+
+/* ===================== HELPERS ===================== */
+const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const dObj   = iso => { const [y,m,d]=iso.split("-").map(Number); return new Date(y,m-1,d); };
+const pad    = n => String(n).padStart(2,"0");
+const cap    = s => s.charAt(0).toUpperCase()+s.slice(1);
+const norm   = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const numBR  = n => (Number.isInteger(n) ? String(n) : String(n).replace(".",","));
+const fmtH   = n => numBR(n)+"h";
+const fmtHA  = n => numBR(n)+" h/a";
+const hhmm   = t => t.replace(":","h");
+
+function agrupaPorDia(lista){
+  const mapa = new Map();
+  for(const d of lista){ if(!mapa.has(d.data)) mapa.set(d.data,[]); mapa.get(d.data).push(d); }
+  return [...mapa.entries()].sort((a,b)=>a[0].localeCompare(b[0]))
+    .map(([iso,itens])=>({iso, itens: itens.sort((x,y)=>x.inicio.localeCompare(y.inicio))}));
+}
+
+const ORDENADAS  = [...DISCIPLINAS].sort((a,b)=> a.data.localeCompare(b.data) || a.inicio.localeCompare(b.inicio));
+const DIAS_TODOS = agrupaPorDia(ORDENADAS);
+
+/* nº da aula = posição cronológica do dia (08=1, 09=2, ...); link do Teams por dia */
+const AULA_POR_DIA = new Map(DIAS_TODOS.map((dia,i)=>[dia.iso, i+1]));
+const linkAula = aula => `https://bit.ly/TrilhaCPNU_Aula${aula}`;
+
+/* semanas (segunda-feira inicia nova semana) */
+function montaSemanas(dias){
+  const semanas=[]; let atual=null;
+  dias.forEach((dia,i)=>{
+    const dt=dObj(dia.iso);
+    if(i===0 || dt.getDay()===1){ atual={n:semanas.length+1, isos:[]}; semanas.push(atual); }
+    atual.isos.push(dia.iso);
+  });
+  return semanas.map(s=>{
+    const a=dObj(s.isos[0]), b=dObj(s.isos[s.isos.length-1]);
+    const mesA=a.toLocaleDateString("pt-BR",{month:"long"}), mesB=b.toLocaleDateString("pt-BR",{month:"long"});
+    const range = mesA===mesB ? `${pad(a.getDate())} a ${pad(b.getDate())} de ${mesA}`
+                              : `${pad(a.getDate())} de ${mesA} a ${pad(b.getDate())} de ${mesB}`;
+    return {n:s.n, range, set:new Set(s.isos)};
+  });
+}
+const SEMANAS  = montaSemanas(DIAS_TODOS);
+const semanaDe = iso => SEMANAS.find(s=>s.set.has(iso));
+
+/* ===================== ESTATÍSTICAS (HERO) ===================== */
+(function preencheStats(){
+  const totalCH = DISCIPLINAS.reduce((s,d)=>s+d.ch,0);
+  const a=dObj(DIAS_TODOS[0].iso), b=dObj(DIAS_TODOS[DIAS_TODOS.length-1].iso);
+  const mesA=a.toLocaleDateString("pt-BR",{month:"long"}), mesB=b.toLocaleDateString("pt-BR",{month:"long"});
+  document.getElementById("st-disc").textContent = DISCIPLINAS.length;
+  document.getElementById("st-ch").textContent   = fmtHA(totalCH);
+  document.getElementById("st-dias").textContent = DIAS_TODOS.length;
+  document.getElementById("st-sem").textContent  = SEMANAS.length;
+  document.getElementById("periodo").textContent = mesA===mesB
+    ? `${a.getDate()} a ${b.getDate()} de ${mesA} de ${b.getFullYear()}`
+    : `${a.getDate()} de ${mesA} a ${b.getDate()} de ${mesB} de ${b.getFullYear()}`;
+})();
+
+/* ===================== NAV POR DIA (chips) ===================== */
+(function montaChips(){
+  const nav=document.getElementById("diaNav");
+  const chips = DIAS_TODOS.map(dia=>{
+    const dt=dObj(dia.iso);
+    const wd=dt.toLocaleDateString("pt-BR",{weekday:"short"}).replace(".","");
+    return h("a",{class:"chip",href:`#dia-${dia.iso}`,dataset:{iso:dia.iso}},
+      h("b",null,pad(dt.getDate())),
+      h("span",null,wd)
+    );
+  });
+  nav.replaceChildren(...chips);
+})();
+
+/* ===================== RENDER TIMELINE ===================== */
+const elTimeline = document.getElementById("timeline");
+const elCont     = document.getElementById("cont");
+let termoBusca="", turnoAtivo="todos";
+
+function cardNode(a){
+  const cls = a.turno==="Manhã" ? "manha" : "vespertino";
+  const ico = a.turno==="Manhã" ? "fa-sun" : "fa-cloud-sun";
+  return h("article",{class:`aula aula--${cls}`},
+    h("div",{class:"aula__hora"},
+      h("span",{class:"aula__inicio"}, hhmm(a.inicio)),
+      h("span",{class:"aula__fim"},   hhmm(a.fim)),
+      h("span",{class:"aula__dur"},   fmtH(a.ch))
+    ),
+    h("div",{class:"aula__corpo"},
+      h("div",{class:"aula__icone"}, fa(`fa-solid ${a.icon}`)),
+      h("div",{class:"aula__txt"},
+        h("div",{class:"aula__top"},
+          h("span",{class:"aula__num"}, "Aula "+AULA_POR_DIA.get(a.data)),
+          h("h3",{class:"aula__titulo"}, a.nome)
+        ),
+        h("p",{class:"aula__instrutor"}, fa("fa-solid fa-chalkboard-user"), a.instrutor)
+      )
+    ),
+    h("div",{class:"aula__tags"},
+      h("span",{class:`tag tag--${cls}`}, fa(`fa-solid ${ico}`), " "+a.turno),
+      h("span",{class:"tag tag--ch"}, fmtHA(a.ch))
+    )
+  );
+}
+
+/* ícone do Microsoft Teams (SVG da marca, construído via createElementNS) */
+function iconeTeams(){
+  const NS="http://www.w3.org/2000/svg";
+  const mk=(tag,attrs)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;};
+  const svg=mk("svg",{viewBox:"0 0 24 24",width:"17",height:"17","aria-hidden":"true"});
+  svg.append(
+    mk("circle",{cx:"17.6",cy:"6.1",r:"3.3",fill:"#7B83EB"}),
+    mk("rect",{x:"3",y:"6",width:"13",height:"13",rx:"2.6",fill:"#5059C9"}),
+    mk("rect",{x:"5.7",y:"8.8",width:"7.6",height:"1.9",rx:".4",fill:"#fff"}),
+    mk("rect",{x:"8.55",y:"8.8",width:"1.9",height:"6.6",rx:".4",fill:"#fff"})
+  );
+  return svg;
+}
+function aulaLinkNode(iso){
+  const aula=AULA_POR_DIA.get(iso);
+  return h("a",{class:"dia__aula-link",href:linkAula(aula),target:"_blank",rel:"noopener noreferrer",
+               title:`Aula ${aula} — entrar pelo Microsoft Teams (abre em nova aba)`,
+               "aria-label":`Entrar na Aula ${aula} pelo Microsoft Teams (abre em nova aba)`},
+    iconeTeams(),
+    h("span",{class:"rotulo"},"Entrar na aula"),
+    fa("fa-solid fa-arrow-up-right-from-square nova-aba")
+  );
+}
+
+function diaNode(dia){
+  const dt=dObj(dia.iso);
+  const totalH=dia.itens.reduce((s,i)=>s+i.ch,0);
+  const nd=dia.itens.length;
+  return h("section",{class:"dia",id:`dia-${dia.iso}`},
+    h("header",{class:"dia__cab"},
+      h("div",{class:"dia__medalhao"},
+        h("span",{class:"dia__num"}, pad(dt.getDate())),
+        h("span",{class:"dia__mes"}, MESES[dt.getMonth()].toUpperCase())
+      ),
+      h("div",{class:"dia__meta"},
+        h("h2",{class:"dia__weekday"}, cap(dt.toLocaleDateString("pt-BR",{weekday:"long"}))),
+        h("p",{class:"dia__data"}, `${dt.getDate()} de ${dt.toLocaleDateString("pt-BR",{month:"long"})} de ${dt.getFullYear()}`),
+        h("div",{class:"dia__resumo"},
+          h("span",null, fa("fa-solid fa-book-open"), `${nd} ${nd>1?"disciplinas":"disciplina"}`),
+          h("span",null, fa("fa-regular fa-clock"), fmtHA(totalH))
+        )
+      ),
+      aulaLinkNode(dia.iso)
+    ),
+    h("div",{class:"dia__aulas"}, ...dia.itens.map(cardNode))
+  );
+}
+
+function semanaNode(s){
+  return h("div",{class:"semana"},
+    h("span",{class:"semana__tag"}, fa("fa-solid fa-calendar-week"), " Semana "+s.n),
+    h("span",{class:"semana__range"}, s.range),
+    h("span",{class:"semana__linha"})
+  );
+}
+
+function vazioNode(){
+  return h("div",{class:"vazio"},
+    fa("fa-regular fa-calendar-xmark"),
+    h("p",null,"Nenhuma disciplina encontrada com os filtros atuais."),
+    h("button",{onClick:limparFiltros},"Limpar filtros")
+  );
+}
+
+function filtra(){
+  const q=norm(termoBusca);
+  return DISCIPLINAS.filter(d=>{
+    if(turnoAtivo!=="todos" && d.turno!==turnoAtivo) return false;
+    if(q && !norm(d.nome+" "+d.instrutor+" "+d.n).includes(q)) return false;
+    return true;
+  });
+}
+
+function render(){
+  const lista=filtra();
+  const dias=agrupaPorDia(lista);
+  const nodes=[]; let semAtual=null;
+  dias.forEach(dia=>{
+    const s=semanaDe(dia.iso);
+    if(!semAtual || s.n!==semAtual){ nodes.push(semanaNode(s)); semAtual=s.n; }
+    nodes.push(diaNode(dia));
+  });
+  elTimeline.replaceChildren(...(nodes.length ? nodes : [vazioNode()]));
+  elCont.textContent = `${lista.length} de ${DISCIPLINAS.length}`;
+
+  const presentes=new Set(dias.map(d=>d.iso));
+  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("vazio",!presentes.has(c.dataset.iso)));
+
+  revelar(); espiar();
+}
+
+function limparFiltros(){
+  termoBusca=""; turnoAtivo="todos";
+  document.getElementById("busca").value="";
+  document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("ativo",b.dataset.turno==="todos"));
+  render();
+}
+
+/* ===================== INTERAÇÕES ===================== */
+document.getElementById("busca").addEventListener("input",e=>{termoBusca=e.target.value;render();});
+document.querySelectorAll(".seg button").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    turnoAtivo=btn.dataset.turno;
+    document.querySelectorAll(".seg button").forEach(b=>b.classList.remove("ativo"));
+    btn.classList.add("ativo");
+    render();
+  });
+});
+
+/* animação de entrada */
+const reduz = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+let obsRevelar;
+function revelar(){
+  if(reduz){ document.querySelectorAll(".aula").forEach(a=>a.classList.add("vis")); return; }
+  obsRevelar?.disconnect();
+  obsRevelar=new IntersectionObserver((entradas,obs)=>{
+    entradas.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("vis"); obs.unobserve(en.target);} });
+  },{threshold:.12});
+  document.querySelectorAll(".aula").forEach(a=>obsRevelar.observe(a));
+}
+
+/* scrollspy — destaca o chip do dia visível */
+let obsEspiar;
+function espiar(){
+  obsEspiar?.disconnect();
+  const chips=document.querySelectorAll(".chip");
+  const topo=getComputedStyle(document.documentElement).getPropertyValue("--topo-sticky").trim();
+  obsEspiar=new IntersectionObserver(entradas=>{
+    entradas.forEach(en=>{
+      if(en.isIntersecting){
+        const id=en.target.id.replace("dia-","");
+        chips.forEach(c=>c.classList.toggle("ativo",c.dataset.iso===id));
+      }
+    });
+  },{rootMargin:`-${topo} 0px -55% 0px`});
+  document.querySelectorAll(".dia").forEach(d=>obsEspiar.observe(d));
+}
+
+/* voltar ao topo */
+const topoBtn=document.getElementById("topoBtn");
+topoBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:reduz?"auto":"smooth"}));
+window.addEventListener("scroll",()=>topoBtn.classList.toggle("show",window.scrollY>520),{passive:true});
+
+/* ===================== INICIA ===================== */
+document.documentElement.classList.add("js");
+render();
+</script>
+</body>
+</html>
