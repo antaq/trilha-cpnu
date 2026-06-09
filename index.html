@@ -355,7 +355,8 @@ const DISCIPLINAS = [
   {n:5,  nome:"Portos: Marco Regulatório, Arrendamentos e Avaliação de Empreendimentos", ch:4, data:"2026-06-10", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"Renildo Barros", icon:"fa-anchor"},
   {n:6,  nome:"Lei das Agências Reguladoras e Ciclo Regulatório", ch:4, data:"2026-06-11", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / Michely Vieira Santos", icon:"fa-gavel"},
   {n:7,  nome:"Teoria da Regulação e Tópicos Regulatórios", ch:5, data:"2026-06-12", inicio:"13:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / José Gonçalves Moreira Neto", icon:"fa-book"},
-  {n:8,  nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:5, data:"2026-06-10", inicio:"08:00", fim:"13:00", turno:"Manhã", instrutor:"Eduardo Pessoa Queiroz / Rodrigo Português", icon:"fa-ship"},
+  {n:8,  nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:3, data:"2026-06-10", inicio:"10:00", fim:"13:00", turno:"Manhã", instrutor:"Eduardo Pessoa Queiroz", icon:"fa-ship"},
+  {n:13, nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:2, data:"2026-06-17", inicio:"08:00", fim:"10:00", turno:"Manhã", instrutor:"Rodrigo Português", icon:"fa-ship"},
   {n:9,  nome:"Gestão Ambiental no Setor Aquaviário", ch:2, data:"2026-06-19", inicio:"14:00", fim:"16:00", turno:"Vespertino", instrutor:"Uirá Cavalcante Oliveira", icon:"fa-leaf"},
   {n:10, nome:"Planejamento da Fiscalização", ch:2, data:"2026-06-18", inicio:"14:00", fim:"16:00", turno:"Vespertino", instrutor:"Pedro Henrique Soares", icon:"fa-clipboard-list"},
   {n:11, nome:"Boas Relações de Trabalho e Gestão de Pessoas", ch:2, data:"2026-06-18", inicio:"16:00", fim:"18:00", turno:"Vespertino", instrutor:"Joelson Miranda", icon:"fa-users"},
@@ -430,7 +431,7 @@ const semanaDe = iso => SEMANAS.find(s=>s.set.has(iso));
   const totalCH = DISCIPLINAS.reduce((s,d)=>s+d.ch,0);
   const a=dObj(DIAS_TODOS[0].iso), b=dObj(DIAS_TODOS[DIAS_TODOS.length-1].iso);
   const mesA=a.toLocaleDateString("pt-BR",{month:"long"}), mesB=b.toLocaleDateString("pt-BR",{month:"long"});
-  document.getElementById("st-disc").textContent = DISCIPLINAS.length;
+  document.getElementById("st-disc").textContent = new Set(DISCIPLINAS.map(d=>d.nome)).size;
   document.getElementById("st-ch").textContent   = fmtHA(totalCH);
   document.getElementById("st-dias").textContent = DIAS_TODOS.length;
   document.getElementById("st-sem").textContent  = SEMANAS.length;
