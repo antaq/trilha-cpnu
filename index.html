@@ -175,7 +175,7 @@
     position:relative;display:flex;align-items:stretch;background:#fff;border:1px solid var(--borda);
     border-radius:14px;box-shadow:var(--sombra-sm);overflow:hidden;
     border-left:5px solid var(--vesp);
-    transition:opacity .5s ease,transform .5s ease,box-shadow .2s;
+    transition:opacity .5s ease,transform .5s ease,box-shadow .2s,filter .3s ease;
   }
   /* animação só quando há JS (sem JS, cards aparecem normalmente) */
   html.js .aula{opacity:0;transform:translateY(14px);}
@@ -214,6 +214,17 @@
   .tag--vespertino{background:var(--vesp-bg);color:#1E40AF;border:1px solid var(--vesp-borda);}
   .tag--manha{background:var(--manha-bg);color:#92400E;border:1px solid var(--manha-borda);}
   .tag--ch{background:#f1f5f9;color:var(--tinta-suave);border:1px solid var(--borda);}
+
+  /* ===== AULA CONCLUÍDA (passada, conforme relógio do navegador) ===== */
+  .aula--concluida{filter:opacity(.72);background:#F2FFF7;}
+  .aula--concluida:hover{filter:opacity(1);}
+  .aula__icone{position:relative;}
+  .aula__check{
+    position:absolute;right:-5px;bottom:-5px;width:20px;height:20px;border-radius:50%;
+    background:#16A34A;color:#fff;font-size:.62rem;display:flex;align-items:center;justify-content:center;
+    border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);
+  }
+  .tag--concluida{background:#DCFCE7;color:#15803D;border:1px solid #86EFAC;}
 
   /* vazio */
   .vazio{text-align:center;padding:70px 20px;color:var(--tinta-fraca);}
@@ -393,6 +404,14 @@ const fmtH   = n => numBR(n)+"h";
 const fmtHA  = n => numBR(n)+" h/a";
 const hhmm   = t => t.replace(":","h");
 
+/* status temporal (relógio do navegador): aula concluída = já passou do horário de término */
+let AGORA_OVERRIDE = null;                 // debug/preview: window.__simularAgora("2026-06-15T12:00")
+const agora     = () => AGORA_OVERRIDE || new Date();
+const fimDate   = a => { const d=dObj(a.data); const [H,M]=a.fim.split(":").map(Number); d.setHours(H,M,0,0); return d; };
+const concluida = a => agora() > fimDate(a);
+/* dia já passou (D+1 ou mais): data do dia anterior à meia-noite de hoje */
+const diaPassado = iso => { const h0=new Date(+agora()); h0.setHours(0,0,0,0); return dObj(iso) < h0; };
+
 function agrupaPorDia(lista){
   const mapa = new Map();
   for(const d of lista){ if(!mapa.has(d.data)) mapa.set(d.data,[]); mapa.get(d.data).push(d); }
@@ -462,14 +481,17 @@ let termoBusca="", turnoAtivo="todos";
 function cardNode(a){
   const cls = a.turno==="Manhã" ? "manha" : "vespertino";
   const ico = a.turno==="Manhã" ? "fa-sun" : "fa-cloud-sun";
-  return h("article",{class:`aula aula--${cls}`},
+  const done = concluida(a);
+  const icone = h("div",{class:"aula__icone"}, fa(`fa-solid ${a.icon}`));
+  if(done) icone.append(h("span",{class:"aula__check",title:"Aula concluída"}, fa("fa-solid fa-check")));
+  return h("article",{class:"aula aula--"+cls+(done?" aula--concluida":"")},
     h("div",{class:"aula__hora"},
       h("span",{class:"aula__inicio"}, hhmm(a.inicio)),
       h("span",{class:"aula__fim"},   hhmm(a.fim)),
       h("span",{class:"aula__dur"},   fmtH(a.ch))
     ),
     h("div",{class:"aula__corpo"},
-      h("div",{class:"aula__icone"}, fa(`fa-solid ${a.icon}`)),
+      icone,
       h("div",{class:"aula__txt"},
         h("div",{class:"aula__top"},
           h("span",{class:"aula__num"}, "Aula "+AULA_POR_DIA.get(a.data)),
@@ -479,6 +501,7 @@ function cardNode(a){
       )
     ),
     h("div",{class:"aula__tags"},
+      done ? h("span",{class:"tag tag--concluida"}, fa("fa-solid fa-circle-check"), " Concluída") : null,
       h("span",{class:`tag tag--${cls}`}, fa(`fa-solid ${ico}`), " "+a.turno),
       h("span",{class:"tag tag--ch"}, fmtHA(a.ch))
     )
@@ -499,6 +522,7 @@ function iconeTeams(){
   return svg;
 }
 function aulaLinkNode(iso){
+  if(diaPassado(iso)) return null;          // aula já realizada (D+1+) → oculta o link "Entrar na aula"
   const aula=AULA_POR_DIA.get(iso);
   return h("a",{class:"dia__aula-link",href:linkAula(aula),target:"_blank",rel:"noopener noreferrer",
                title:`Aula ${aula} — entrar pelo Microsoft Teams (abre em nova aba)`,
@@ -630,6 +654,8 @@ window.addEventListener("scroll",()=>topoBtn.classList.toggle("show",window.scro
 
 /* ===================== INICIA ===================== */
 document.documentElement.classList.add("js");
+/* pré-visualizar a página como em outra data/hora (debug): window.__simularAgora("2026-06-15T12:00"); para voltar: window.__simularAgora(null) */
+window.__simularAgora = s => { AGORA_OVERRIDE = s ? new Date(s) : null; render(); };
 render();
 </script>
 </body>
