@@ -166,6 +166,10 @@
     .dia__aula-link{padding:10px;}
     .dia__aula-link .rotulo,.dia__aula-link .nova-aba{display:none;}
   }
+  .dia__aula-link--gravacao{border-color:#FCA5A5;color:#9F1239;}
+  .dia__aula-link--gravacao:hover{background:#9F1239;color:#fff;border-color:#9F1239;}
+  .dia__gravacao-ico{font-size:1.1rem;color:#DC2626;}
+  .dia__aula-link--gravacao:hover .dia__gravacao-ico{color:#fff;}
   @media print{ .dia__aula-link{display:none!important;} }
 
   .dia__aulas{display:flex;flex-direction:column;gap:12px;border-left:2px dashed var(--azul-borda);margin-left:38px;padding-left:34px;position:relative;}
@@ -455,7 +459,8 @@ const DIAS_TODOS = agrupaPorDia(ORDENADAS);
 
 /* nº da aula = posição cronológica do dia (08=1, 09=2, ...); link do Teams por dia */
 const AULA_POR_DIA = new Map(DIAS_TODOS.map((dia,i)=>[dia.iso, i+1]));
-const linkAula = aula => `https://bit.ly/TrilhaCPNU_Aula${aula}`;
+const linkAula     = aula => `https://bit.ly/TrilhaCPNU_Aula${aula}`;
+const linkGravacao = aula => `https://bit.ly/GravacaoTrilhaTRAula${aula}`;
 
 /* semanas (segunda-feira inicia nova semana) */
 function montaSemanas(dias){
@@ -561,8 +566,16 @@ function iconeTeams(){
   return svg;
 }
 function aulaLinkNode(iso){
-  if(diaPassado(iso)) return null;          // aula já realizada (D+1+) → oculta o link "Entrar na aula"
   const aula=AULA_POR_DIA.get(iso);
+  if(diaPassado(iso)){
+    return h("a",{class:"dia__aula-link dia__aula-link--gravacao",href:linkGravacao(aula),target:"_blank",rel:"noopener noreferrer",
+                 title:`Aula ${aula} — assistir gravação (abre em nova aba)`,
+                 "aria-label":`Assistir gravação da Aula ${aula} (abre em nova aba)`},
+      fa("fa-solid fa-circle-play dia__gravacao-ico"),
+      h("span",{class:"rotulo"},"Assistir gravação"),
+      fa("fa-solid fa-arrow-up-right-from-square nova-aba")
+    );
+  }
   return h("a",{class:"dia__aula-link",href:linkAula(aula),target:"_blank",rel:"noopener noreferrer",
                title:`Aula ${aula} — entrar pelo Microsoft Teams (abre em nova aba)`,
                "aria-label":`Entrar na Aula ${aula} pelo Microsoft Teams (abre em nova aba)`},
