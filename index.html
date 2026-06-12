@@ -215,6 +215,23 @@
   .tag--manha{background:var(--manha-bg);color:#92400E;border:1px solid var(--manha-borda);}
   .tag--ch{background:#f1f5f9;color:var(--tinta-suave);border:1px solid var(--borda);}
 
+  /* botões de download de materiais (aparecem após a aula ser concluída) */
+  .aula__dl{display:flex;flex-direction:column;align-items:flex-end;gap:5px;margin-top:4px;}
+  .aula__dl-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:999px;
+    background:#F0FDF4;color:#15803D;border:1px solid #86EFAC;
+    text-decoration:none;white-space:nowrap;transition:.15s;
+  }
+  .aula__dl-btn:hover{background:#15803D;color:#fff;border-color:#15803D;}
+  .aula__dl-btn .fa-file-powerpoint{color:#C55A11;}
+  .aula__dl-btn .fa-file-word{color:#1D4ED8;}
+  .aula__dl-btn .fa-file-pdf{color:#DC2626;}
+  .aula__dl-btn:hover .fa-file-powerpoint,
+  .aula__dl-btn:hover .fa-file-word,
+  .aula__dl-btn:hover .fa-file-pdf{color:inherit;}
+  @media(max-width:640px){.aula__dl{flex-direction:row;flex-wrap:wrap;align-items:flex-start;}}
+
   /* ===== AULA CONCLUÍDA (passada, conforme relógio do navegador) ===== */
   .aula--concluida{filter:opacity(.72);background:#F2FFF7;}
   .aula--concluida:hover{filter:opacity(1);}
@@ -359,14 +376,28 @@
 /* ===================== DADOS ===================== */
 const DISCIPLINAS = [
   {n:0,  nome:"Abertura Institucional", ch:2.5, data:"2026-06-08", inicio:"14:00", fim:"16:30", turno:"Vespertino", instrutor:"DG, Diretores e Superintendências", icon:"fa-door-open"},
-  {n:1,  nome:"Governança e Competências da ANTAQ", ch:1.5, data:"2026-06-09", inicio:"15:00", fim:"16:30", turno:"Vespertino", instrutor:"Rafael Galvão", icon:"fa-sitemap"},
+  {n:1,  nome:"Governança e Competências da ANTAQ", ch:1.5, data:"2026-06-09", inicio:"15:00", fim:"16:30", turno:"Vespertino", instrutor:"Rafael Galvão", icon:"fa-sitemap",
+         materiais:[{label:"Apresentação",arq:"materiais/aula-2-governanca/governanca-e-competencias.pptx",ext:"pptx"}]},
   {n:2,  nome:"Ética, Integridade e Processo Administrativo", ch:2, data:"2026-06-17", inicio:"10:00", fim:"12:00", turno:"Manhã", instrutor:"Joelma Barbosa", icon:"fa-scale-balanced"},
-  {n:3,  nome:"Análise de Dados Básico", ch:2, data:"2026-06-11", inicio:"09:00", fim:"11:00", turno:"Manhã", instrutor:"Isaac Monteiro", icon:"fa-chart-column"},
+  {n:3,  nome:"Análise de Dados Básico", ch:2, data:"2026-06-11", inicio:"09:00", fim:"11:00", turno:"Manhã", instrutor:"Isaac Monteiro", icon:"fa-chart-column",
+         materiais:[
+           {label:"Apresentação",arq:"materiais/aula-4-analise-de-dados/analise-de-dados.pptx",ext:"pptx"},
+           {label:"Roteiro",arq:"materiais/aula-4-analise-de-dados/analise-de-dados-roteiro.docx",ext:"docx"}
+         ]},
   {n:4,  nome:"Fiscalização Responsiva e Processo de Fiscalização e Sancionador", ch:4, data:"2026-06-15", inicio:"08:00", fim:"12:00", turno:"Manhã", instrutor:"Fábio Fonseca e Flávia Mendonça", icon:"fa-clipboard-check"},
   {n:5,  nome:"Portos: Marco Regulatório, Arrendamentos e Avaliação de Empreendimentos", ch:4, data:"2026-06-10", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"Renildo Barros", icon:"fa-anchor"},
-  {n:6,  nome:"Lei das Agências Reguladoras e Ciclo Regulatório", ch:4, data:"2026-06-11", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / Michely Vieira Santos", icon:"fa-gavel"},
-  {n:7,  nome:"Teoria da Regulação e Tópicos Regulatórios", ch:5, data:"2026-06-12", inicio:"13:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / José Gonçalves Moreira Neto", icon:"fa-book"},
-  {n:8,  nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:3, data:"2026-06-10", inicio:"10:00", fim:"13:00", turno:"Manhã", instrutor:"Eduardo Pessoa Queiroz", icon:"fa-ship"},
+  {n:6,  nome:"Lei das Agências Reguladoras e Ciclo Regulatório", ch:4, data:"2026-06-11", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / Michely Vieira Santos", icon:"fa-gavel",
+         materiais:[
+           {label:"Contabilidade Regulatória",arq:"materiais/aula-4-lei-das-agencias-reguladoras/contabilidade-regulatoria.pptx",ext:"pptx"},
+           {label:"Preços e Tarifas",arq:"materiais/aula-4-lei-das-agencias-reguladoras/precos-e-tarifas.pptx",ext:"pptx"}
+         ]},
+  {n:7,  nome:"Teoria da Regulação e Tópicos Regulatórios", ch:5, data:"2026-06-12", inicio:"13:00", fim:"18:00", turno:"Vespertino", instrutor:"José Renato Ribas Fialho / José Gonçalves Moreira Neto", icon:"fa-book",
+         materiais:[
+           {label:"Apostila",arq:"materiais/aula-5-teoria-da-regulacao/apostila-ciclo-regulatorio.pdf",ext:"pdf"},
+           {label:"Apresentação",arq:"materiais/aula-5-teoria-da-regulacao/ciclo-regulatorio.pptx",ext:"pptx"}
+         ]},
+  {n:8,  nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:3, data:"2026-06-10", inicio:"10:00", fim:"13:00", turno:"Manhã", instrutor:"Eduardo Pessoa Queiroz", icon:"fa-ship",
+         materiais:[{label:"Apresentação",arq:"materiais/aula-3-navegacao/navegacao-hidrovias-pgo.pptx",ext:"pptx"}]},
   {n:13, nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:2, data:"2026-06-17", inicio:"08:00", fim:"10:00", turno:"Manhã", instrutor:"Rodrigo Português", icon:"fa-ship"},
   {n:9,  nome:"Gestão Ambiental no Setor Aquaviário", ch:2, data:"2026-06-19", inicio:"14:00", fim:"16:00", turno:"Vespertino", instrutor:"Uirá Cavalcante Oliveira", icon:"fa-leaf"},
   {n:10, nome:"Planejamento da Fiscalização", ch:2, data:"2026-06-18", inicio:"14:00", fim:"16:00", turno:"Vespertino", instrutor:"Pedro Henrique Soares", icon:"fa-clipboard-list"},
@@ -482,6 +513,9 @@ function cardNode(a){
   const cls = a.turno==="Manhã" ? "manha" : "vespertino";
   const ico = a.turno==="Manhã" ? "fa-sun" : "fa-cloud-sun";
   const done = concluida(a);
+  const mats = a.materiais || [];
+  const mostraDl = mats.length && diaPassado(a.data);
+  const icoExt = e => e==="pdf" ? "fa-file-pdf" : e==="docx" ? "fa-file-word" : "fa-file-powerpoint";
   const icone = h("div",{class:"aula__icone"}, fa(`fa-solid ${a.icon}`));
   if(done) icone.append(h("span",{class:"aula__check",title:"Aula concluída"}, fa("fa-solid fa-check")));
   return h("article",{class:"aula aula--"+cls+(done?" aula--concluida":"")},
@@ -503,7 +537,12 @@ function cardNode(a){
     h("div",{class:"aula__tags"},
       done ? h("span",{class:"tag tag--concluida"}, fa("fa-solid fa-circle-check"), " Concluída") : null,
       h("span",{class:`tag tag--${cls}`}, fa(`fa-solid ${ico}`), " "+a.turno),
-      h("span",{class:"tag tag--ch"}, fmtHA(a.ch))
+      h("span",{class:"tag tag--ch"}, fmtHA(a.ch)),
+      mostraDl ? h("div",{class:"aula__dl"},
+        ...mats.map(m=>h("a",{class:"aula__dl-btn",href:m.arq,download:"",title:"Baixar: "+m.label},
+          fa(`fa-solid ${icoExt(m.ext)}`), " "+m.label
+        ))
+      ) : null
     )
   );
 }
