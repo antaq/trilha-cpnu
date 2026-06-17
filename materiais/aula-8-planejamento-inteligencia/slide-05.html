@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Premissas Basilares do PPF 2025-2028</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Cartão com borda lateral em gradiente */
+  .premise-card {
+    position: relative;
+    background: #F8FAFC;
+    border-radius: 14px;
+    padding: 22px 26px 22px 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.07);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    overflow: hidden;
+  }
+  .premise-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 8px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    background: linear-gradient(180deg, #0066CC 0%, #003366 100%);
+  }
+  .premise-icon {
+    flex-shrink: 0;
+    width: 64px; height: 64px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+    color: #fff;
+    font-size: 1.7rem;
+    box-shadow: 0 6px 14px -4px rgba(0,51,102,.45);
+  }
+  .premise-num {
+    position: absolute;
+    right: 18px; top: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: #003366;
+    opacity: .07;
+  }
+  .bg-pattern {
+    position: absolute;
+    bottom: -60px; right: -40px;
+    opacity: 0.035;
+    z-index: 0;
+    color: #003366;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-9 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Premissas Basilares do PPF 2025-2028</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Plano Plurianual de Fiscalização</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-list-ol text-xl" aria-hidden="true"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+    <div class="grid grid-cols-1 gap-4">
+
+      <!-- 1 -->
+      <div class="premise-card">
+        <span class="premise-num">01</span>
+        <div class="premise-icon"><i class="fas fa-coins"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-xl mb-0.5">Redução de Custos de Fiscalização</p>
+          <p class="text-gray-600 text-base leading-snug">Simplificar e reduzir a complexidade dos métodos fiscalizatórios.</p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="premise-card">
+        <span class="premise-num">02</span>
+        <div class="premise-icon"><i class="fas fa-shield-halved"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-xl mb-0.5">Promoção da Conformidade Normativa</p>
+          <p class="text-gray-600 text-base leading-snug">Ações preventivas para detectar infrações rapidamente.</p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="premise-card">
+        <span class="premise-num">03</span>
+        <div class="premise-icon"><i class="fas fa-microchip"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-xl mb-0.5">Integração de Soluções Tecnológicas</p>
+          <p class="text-gray-600 text-base leading-snug">Sistemas automatizados para monitoramento em tempo real e cruzamento de dados.</p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="premise-card">
+        <span class="premise-num">04</span>
+        <div class="premise-icon"><i class="fas fa-scale-balanced"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-xl mb-0.5">Foco no Risco e Proporcionalidade</p>
+          <p class="text-gray-600 text-base leading-snug">Fiscalização proporcional ao nível de risco identificado.</p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="premise-card">
+        <span class="premise-num">05</span>
+        <div class="premise-icon"><i class="fas fa-eye"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-xl mb-0.5">Transparência e Governança</p>
+          <p class="text-gray-600 text-base leading-snug">Transparência na execução fiscalizatória.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">5 / 61</p>
+  </div>
+
+  <!-- Marca decorativa -->
+  <div class="bg-pattern">
+    <i class="fas fa-list-ol text-9xl"></i>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

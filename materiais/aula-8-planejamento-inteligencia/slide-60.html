@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CEPAI/SP e OiBR</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Enunciado */
+  .question-box {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:16px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15); padding:18px 26px;
+  }
+
+  /* Alternativas */
+  .quiz-opt {
+    display:flex; align-items:center; gap:16px;
+    background:#F8FAFC; border:2px solid #E5E7EB; border-radius:12px;
+    padding:11px 20px; cursor:pointer; transition:all .2s ease;
+    box-shadow:0 2px 6px rgba(0,0,0,.04);
+  }
+  .quiz-opt:hover { background:#FFFFFF; border-color:#BAE6FD; box-shadow:0 6px 14px rgba(0,0,0,.08); transform:translateX(3px); }
+  .opt-badge {
+    flex-shrink:0; width:42px; height:42px; border-radius:999px;
+    background:#0066CC; color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.05rem;
+    display:flex; align-items:center; justify-content:center; transition:all .2s ease;
+  }
+  .opt-text { color:#374151; font-size:.92rem; line-height:1.4; }
+  .opt-mark { margin-left:auto; flex-shrink:0; font-size:1.4rem; opacity:0; transition:opacity .2s ease; }
+
+  .quiz-opt.correct { background:#DCFCE7; border-color:#16A34A; }
+  .quiz-opt.correct .opt-badge { background:#16A34A; }
+  .quiz-opt.correct .opt-mark { opacity:1; color:#16A34A; }
+  .quiz-opt.wrong { background:#FEE2E2; border-color:#DC2626; }
+  .quiz-opt.wrong .opt-badge { background:#DC2626; }
+  .quiz-opt.wrong .opt-mark { opacity:1; color:#DC2626; }
+  .quiz-opt.locked { pointer-events:none; }
+  .quiz-opt.locked:not(.correct):not(.wrong) { opacity:.5; }
+
+  /* Feedback + Reiniciar */
+  .quiz-feedback {
+    display:none; align-items:center; gap:14px;
+    background:#ECFDF5; border:1.5px solid #A7F3D0; border-radius:12px; padding:12px 22px;
+  }
+  .reset-btn {
+    background:#003366; color:#fff; border:none; border-radius:999px;
+    padding:10px 24px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:.82rem;
+    letter-spacing:.04em; cursor:pointer; display:inline-flex; align-items:center; gap:9px; transition:all .2s ease;
+  }
+  .reset-btn:hover { background:#0066CC; box-shadow:0 6px 14px rgba(0,102,204,.3); }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-40px; font-size:22rem; color:#003366; opacity:.04; z-index:0; pointer-events:none; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-7 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">CEPAI/SP e OiBR</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Selecione a alternativa correta</p>
+    </div>
+    <img src="Imagens/meme8.gif" alt="" style="height:180px;" />
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-4 z-10 min-h-0">
+
+    <!-- Enunciado -->
+    <div class="question-box mb-4">
+      <p class="text-brand-primary font-montserrat font-bold text-base mb-1 flex items-center gap-3">
+        <i class="fas fa-circle-question text-brand-secondary text-xl"></i> Questão
+      </p>
+      <p class="text-gray-700 leading-relaxed" style="font-size:.96rem;">
+        A respeito da atuação da <strong>Comissão Estadual de Prevenção de Acidentes e Incidentes (CEPAI/SP)</strong>
+        nos complexos portuários de <strong>Santos e São Sebastião</strong>, bem como do desenvolvimento e evolução do
+        aplicativo <strong>OiBR</strong>, assinale a alternativa correta:
+      </p>
+    </div>
+
+    <!-- Alternativas -->
+    <div class="flex flex-col gap-3">
+      <div class="quiz-opt" data-letter="A" onclick="answer(this)">
+        <div class="opt-badge">A</div>
+        <p class="opt-text">O aplicativo OiBR substituiu integralmente os relatórios manuais exigidos pelo Código ISPS, dispensando registros formais como o ROIP.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="B" onclick="answer(this)">
+        <div class="opt-badge">B</div>
+        <p class="opt-text">A criação do OiBR teve como principal motivação o atendimento à exigência legal imposta pela ANTAQ de registros digitais obrigatórios em todos os portos brasileiros.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="C" onclick="answer(this)">
+        <div class="opt-badge">C</div>
+        <p class="opt-text">A central de controle prevista no projeto OiBR visa apenas o armazenamento de dados, sendo as análises de segurança realizadas exclusivamente pelos terminais portuários.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="D" onclick="answer(this)">
+        <div class="opt-badge">D</div>
+        <p class="opt-text">O módulo EROIP, previsto para o OiBR, tem como função principal a emissão de registros de incidentes de proteção em até 24 horas, conforme diretrizes do Código ISPS.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="E" onclick="answer(this)">
+        <div class="opt-badge">E</div>
+        <p class="opt-text">O OiBR é de uso exclusivo da CEPAI/SP e não contempla a participação de entidades como ANTAQ, ABTRA ou operadores portuários convidados.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+    </div>
+
+    <!-- Feedback + Reiniciar -->
+    <div class="flex items-center justify-between mt-4 gap-6">
+      <div class="quiz-feedback" id="quizFeedback">
+        <i class="fas fa-circle-check text-green-600 text-2xl"></i>
+        <p class="text-green-800 font-montserrat font-semibold" style="font-size:.92rem;">
+          Resposta correta: <strong>D</strong> — o EROIP é o módulo de emissão de registro de incidente de proteção em até 24h, alinhado ao Código ISPS.
+        </p>
+      </div>
+      <button class="reset-btn" onclick="resetQuiz()"><i class="fas fa-rotate-left"></i> Reiniciar</button>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">60 / 61</p>
+  </div>
+
+  <!-- Marca decorativa -->
+  <i class="fas fa-clipboard-question bg-pattern"></i>
+</div>
+
+<script>
+  const CORRECT = 'D';
+  function answer(el){
+    document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.add('locked'));
+    const L = el.dataset.letter;
+    document.querySelectorAll('.quiz-opt').forEach(o=>{
+      const mark = o.querySelector('.opt-mark');
+      if(o.dataset.letter===CORRECT){ o.classList.add('correct'); mark.classList.add('fa-circle-check'); }
+    });
+    if(L!==CORRECT){ el.classList.add('wrong'); el.querySelector('.opt-mark').classList.add('fa-circle-xmark'); }
+    document.getElementById('quizFeedback').style.display='flex';
+  }
+  function resetQuiz(){
+    document.querySelectorAll('.quiz-opt').forEach(o=>{
+      o.classList.remove('locked','correct','wrong');
+      const mark = o.querySelector('.opt-mark');
+      mark.classList.remove('fa-circle-check','fa-circle-xmark');
+    });
+    document.getElementById('quizFeedback').style.display='none';
+  }
+</script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Novos Aplicativos da Fiscalização</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .apps-content {
+    flex:1; display:flex; flex-direction:column; justify-content:center;
+    padding:8px 64px 20px 64px; min-height:0; gap:26px; z-index:10;
+  }
+
+  .apps-row { display:grid; gap:26px; }
+  .row-top   { grid-template-columns: repeat(3, 1fr); }
+  .row-bottom {
+    grid-template-columns: repeat(2, 1fr);
+    width: 66%;
+    margin: 0 auto;
+  }
+
+  .app-card {
+    background-color:#F8FAFC; border-radius:18px; padding:28px 22px 24px 22px;
+    border-top:5px solid #0066CC; box-shadow:0 4px 14px rgba(0,0,0,.07);
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    transition:all .2s ease; position:relative; overflow:hidden;
+  }
+  .app-card:hover { box-shadow:0 14px 26px rgba(0,51,102,.12); background-color:#fff; transform:translateY(-3px); }
+  .row-top .app-card:nth-child(1) { border-top-color:#003366; }
+  .row-top .app-card:nth-child(2) { border-top-color:#1D4ED8; }
+  .row-top .app-card:nth-child(3) { border-top-color:#2563EB; }
+  .row-bottom .app-card:nth-child(1) { border-top-color:#3B82F6; }
+  .row-bottom .app-card:nth-child(2) { border-top-color:#0066CC; }
+
+  .app-icon-wrap {
+    width:80px; height:80px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }
+  .app-icon-wrap img { width:80px; height:80px; object-fit:contain; }
+
+  .app-name {
+    font-family:'Montserrat', sans-serif; font-weight:800; font-size:20px;
+    color:#003366; margin-bottom:8px; letter-spacing:.01em;
+  }
+  .app-desc { font-size:15px; color:#4B5563; line-height:1.45; }
+
+  .intro-line {
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    color:#1E40AF; font-family:'Montserrat', sans-serif; font-weight:600; font-size:15px;
+  }
+  .intro-line .chip {
+    background-color:#EFF6FF; border:1px solid #BFDBFE; border-radius:999px;
+    padding:6px 18px; display:inline-flex; align-items:center; gap:10px;
+  }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-40px; font-size:22rem; opacity:.035; z-index:0; color:#003366; pointer-events:none; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-2 z-20">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Novos Aplicativos da Fiscalização</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Ecossistema de ferramentas da SFC</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-grip text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="apps-content">
+
+    <div class="intro-line">
+      <span class="chip"><i class="fas fa-layer-group text-brand-secondary"></i> Conjunto integrado de 5 aplicações de apoio à fiscalização</span>
+    </div>
+
+    <!-- Linha superior: 3 cartões -->
+    <div class="apps-row row-top">
+      <div class="app-card">
+        <div class="app-icon-wrap"><img src="Imagens/app-cef.png" alt="CEF"/></div>
+        <p class="app-name">CEF</p>
+        <p class="app-desc">Controle de Equipamentos de Fiscalização.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-icon-wrap"><img src="Imagens/app-aerosfc.png" alt="AeroSFC"/></div>
+        <p class="app-name">AeroSFC</p>
+        <p class="app-desc">Controle de Aeronaves.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-icon-wrap"><img src="Imagens/app-agentesfc.png" alt="A Gente SFC"/></div>
+        <p class="app-name">A Gente SFC</p>
+        <p class="app-desc">Diretório de informações sobre unidades e colaboradores.</p>
+      </div>
+    </div>
+
+    <!-- Linha inferior: 2 cartões centralizados -->
+    <div class="apps-row row-bottom">
+      <div class="app-card">
+        <div class="app-icon-wrap"><img src="Imagens/app-ouvidoriasfc.png" alt="OuvidoriaSFC"/></div>
+        <p class="app-name">OuvidoriaSFC</p>
+        <p class="app-desc">Gestão de demandas de ouvidoria de fiscalização.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-icon-wrap"><img src="Imagens/app-reportsfc.png" alt="ReportSFC"/></div>
+        <p class="app-name">ReportSFC</p>
+        <p class="app-desc">Relatórios gerenciais de processos e procedimentos de fiscalização.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="px-16 pb-6 flex justify-between items-center z-20">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">29 / 61</p>
+  </div>
+
+  <div class="bg-pattern"><i class="fas fa-grip"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

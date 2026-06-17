@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 2 — Inteligência da Fiscalização</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container {
+    width:100vw; height:100vh; position:relative; display:flex; flex-direction:column;
+    background: linear-gradient(135deg, #002244 0%, #003366 50%, #004488 100%);
+    overflow:hidden; color:white;
+  }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+
+  /* Acentos à esquerda */
+  .accent-left-gold { position:absolute; left:0; top:0; width:12px; height:100%; background-color:#FFD700; z-index:20; }
+  .accent-left-blue { position:absolute; left:12px; top:0; width:4px; height:100%; background-color:#0066CC; z-index:20; }
+
+  /* Formas decorativas */
+  .shape-circle { position:absolute; border-radius:50%; z-index:0; }
+  .shape-1 { width:620px; height:620px; top:-180px; right:-160px; border:60px solid rgba(255,255,255,0.03); }
+  .shape-2 { width:420px; height:420px; bottom:-140px; right:18%; border:40px solid rgba(255,255,255,0.03); }
+  .bg-pattern { background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px); background-size:22px 22px; }
+
+  /* Número do módulo */
+  .module-num {
+    font-family:'Montserrat', sans-serif; font-weight:900; line-height:0.9;
+    font-size:188px; letter-spacing:-4px; color:#FFD700;
+    text-shadow:0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  /* Selo */
+  .seal {
+    display:inline-flex; align-items:center; gap:18px;
+    background:linear-gradient(90deg, rgba(255,215,0,0.16) 0%, rgba(255,215,0,0.04) 100%);
+    border:1.5px solid rgba(255,215,0,0.55); border-radius:999px;
+    padding:20px 40px;
+  }
+
+  /* Chips de conteúdo */
+  .chip {
+    display:flex; align-items:center; gap:16px;
+    background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.14);
+    border-radius:16px; padding:24px 22px;
+  }
+  .chip-icon {
+    width:60px; height:60px; border-radius:14px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:26px;
+    background:rgba(0,102,204,0.30); color:#7CC0FF;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Acentos à esquerda -->
+  <div class="accent-left-gold"></div>
+  <div class="accent-left-blue"></div>
+
+  <!-- Fundo decorativo -->
+  <div class="shape-circle shape-1"></div>
+  <div class="shape-circle shape-2"></div>
+  <div class="absolute inset-0 bg-pattern"></div>
+
+  <!-- Marca d'água: logo ANTAQ branca -->
+  <img src="Imagens/logo-antaq-branca.png" alt="" class="absolute"
+       style="top:50%; left:62%; width:52vw; max-width:780px; transform:translate(-50%,-50%);
+              opacity:0.06; z-index:0; pointer-events:none;" />
+
+  <!-- Ícone decorativo gigante -->
+  <div class="absolute text-white z-0"
+       style="bottom:-60px; right:-40px; font-size:520px; line-height:0; opacity:0.05; transform:translate(8%,8%);">
+    <i class="fas fa-satellite-dish"></i>
+  </div>
+
+  <!-- Logo ANTAQ topo -->
+  <div class="absolute z-10 flex items-center gap-4" style="top:56px; left:96px;">
+    <img src="Imagens/logo-antaq-branca.png" alt="Logo ANTAQ" style="height:46px; width:auto;" />
+    <div style="border-left:1px solid rgba(255,255,255,0.20); padding-left:16px;">
+      <p class="text-blue-200 font-montserrat font-bold tracking-widest uppercase" style="font-size:13px;">Trilha Técnica da Fiscalização</p>
+      <p class="text-blue-300 font-montserrat font-semibold tracking-wider uppercase" style="font-size:11px; opacity:0.85;">SFC / GPF — ANTAQ</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo central -->
+  <div class="relative z-10 flex-1 flex flex-col justify-center" style="padding-left:96px; padding-right:80px; padding-top:96px; padding-bottom:24px;">
+
+    <!-- Rótulo do módulo -->
+    <div class="flex items-center gap-4 mb-6">
+      <div style="width:72px; height:4px; background-color:#FFD700;"></div>
+      <p class="font-montserrat font-semibold tracking-[0.3em] uppercase text-blue-200" style="font-size:22px;">Módulo</p>
+    </div>
+
+    <!-- Número + Título -->
+    <div class="flex items-end gap-10 mb-12">
+      <span class="module-num">02</span>
+      <div class="pb-3" style="border-left:5px solid rgba(255,215,0,0.55); padding-left:36px;">
+        <h1 class="font-montserrat font-black text-white leading-tight" style="font-size:84px; letter-spacing:-1.5px;">
+          Inteligência da Fiscalização
+        </h1>
+        <p class="font-montserrat text-blue-100 font-light mt-4" style="font-size:30px; max-width:1180px; line-height:1.4;">
+          Parcerias e fontes de inteligência que ampliam a <strong class="font-semibold" style="color:#FFD700;">detecção</strong>, a <strong class="font-semibold" style="color:#FFD700;">análise</strong> e a <strong class="font-semibold" style="color:#FFD700;">atuação</strong> da fiscalização
+        </p>
+      </div>
+    </div>
+
+    <!-- Chips das fontes / parcerias -->
+    <div class="grid grid-cols-6 gap-4 mt-4" style="max-width:1520px;">
+      <div class="chip">
+        <div class="chip-icon"><i class="fas fa-shield-halved"></i></div>
+        <p class="font-montserrat font-semibold text-white" style="font-size:19px; line-height:1.2;">SISBIN</p>
+      </div>
+      <div class="chip">
+        <div class="chip-icon"><i class="fas fa-satellite"></i></div>
+        <p class="font-montserrat font-semibold text-white" style="font-size:19px; line-height:1.2;">RedeMAIS</p>
+      </div>
+      <div class="chip">
+        <div class="chip-icon"><i class="fas fa-database"></i></div>
+        <p class="font-montserrat font-semibold text-white" style="font-size:19px; line-height:1.2;">SINESP / INFOSEG</p>
+      </div>
+      <div class="chip">
+        <div class="chip-icon"><i class="fas fa-handshake"></i></div>
+        <p class="font-montserrat font-semibold text-white" style="font-size:19px; line-height:1.2;">ANTAQ / PRF</p>
+      </div>
+      <div class="chip">
+        <div class="chip-icon"><i class="fas fa-anchor"></i></div>
+        <p class="font-montserrat font-semibold text-white" style="font-size:19px; line-height:1.2;">Conportos</p>
+      </div>
+      <div class="chip">
+        <div class="chip-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+        <p class="font-montserrat font-semibold text-white" style="font-size:19px; line-height:1.2;">CEPAI/SP · OiBR</p>
+      </div>
+    </div>
+
+    <!-- Selo SISBIN -->
+    <div class="mt-14">
+      <span class="seal">
+        <i class="fas fa-shield-halved" style="color:#FFD700; font-size:30px;"></i>
+        <span class="font-montserrat font-bold text-white tracking-wide" style="font-size:26px;">SISBIN</span>
+        <span class="font-montserrat font-medium text-blue-200" style="font-size:18px; border-left:1px solid rgba(255,255,255,0.25); padding-left:18px;">Sistema Brasileiro de Inteligência</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="relative z-10 flex justify-between items-center" style="padding:0 96px 32px;">
+    <p class="text-blue-200 font-montserrat" style="font-size:13px; opacity:0.7;">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-blue-200 font-mono" style="font-size:13px; opacity:0.7;">35 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

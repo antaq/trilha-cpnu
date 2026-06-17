@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CEPAI/SP e o Aplicativo OiBR</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .content-wrapper {
+    display:flex; flex:1; flex-direction:row; gap:34px;
+    padding:8px 64px 18px 64px; min-height:0;
+  }
+  .left-col { flex:1.15; min-width:0; display:flex; flex-direction:column; gap:22px; justify-content:center; }
+  .right-col { flex:0.85; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+
+  .info-card {
+    background:#F8FAFC; border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,.07);
+    border:1px solid #E5E7EB; border-left:6px solid #0066CC;
+    padding:22px 28px; position:relative; overflow:hidden;
+  }
+  .info-card.gold { border-left-color:#0066CC; }
+  .info-card.deep { border-left-color:#003366; }
+  .card-bg-icon {
+    position:absolute; right:-10px; bottom:-18px; font-size:108px;
+    color:#0066CC; opacity:0.06; pointer-events:none;
+  }
+  .card-head { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .card-badge {
+    width:54px; height:54px; flex:0 0 54px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    background:#003366; color:#FFFFFF; font-size:26px;
+  }
+  .card-badge.blue { background:#0066CC; }
+  .card-title { font-family:'Montserrat', sans-serif; font-weight:800; font-size:27px; color:#003366; line-height:1.1; }
+  .card-sub { font-family:'Montserrat', sans-serif; font-weight:600; font-size:16px; color:#0066CC; text-transform:uppercase; letter-spacing:.06em; margin-top:2px; }
+
+  .bullet-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .bullet-list li { display:flex; align-items:flex-start; gap:11px; color:#374151; font-size:19px; line-height:1.4; }
+  .bullet-list li i { color:#0066CC; font-size:16px; margin-top:5px; flex:0 0 auto; }
+
+  .photo-figure {
+    border-radius:16px; overflow:hidden;
+    box-shadow:0 16px 32px -10px rgba(0,0,0,.32);
+    border:1px solid #E5E7EB; display:flex; flex-direction:column;
+  }
+  .photo-figure img { width:100%; height:430px; object-fit:cover; display:block; }
+  .photo-figure figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:14px; padding:11px 16px;
+    font-family:'Montserrat', sans-serif; display:flex; align-items:center; gap:10px;
+  }
+  .photo-figure figcaption i { color:#FFD700; }
+
+  .photo-tag {
+    margin-top:18px; background:#F0F9FF; border:2px solid #BAE6FD; border-radius:14px;
+    padding:16px 20px; display:flex; align-items:center; gap:14px;
+  }
+  .photo-tag i { color:#0066CC; font-size:26px; flex:0 0 auto; }
+  .photo-tag p { color:#1E40AF; font-size:15px; line-height:1.4; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-2 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">CEPAI/SP e o Aplicativo OiBR</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Segurança portuária em Santos e São Sebastião</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-mobile-screen text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="content-wrapper z-10">
+    <!-- Coluna esquerda: 2 blocos -->
+    <div class="left-col">
+      <!-- Bloco CEPAI/SP -->
+      <div class="info-card">
+        <i class="fas fa-people-roof card-bg-icon"></i>
+        <div class="card-head">
+          <div class="card-badge"><i class="fas fa-people-roof"></i></div>
+          <div>
+            <p class="card-title">CEPAI/SP — Papel e Importância</p>
+            <p class="card-sub">Comissão Estadual de Prevenção</p>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li><i class="fas fa-shield-halved"></i><span>Comissão Estadual para a <strong>segurança portuária</strong> em Santos e São Sebastião.</span></li>
+          <li><i class="fas fa-handshake-angle"></i><span><strong>Integração</strong> entre agentes portuários e órgãos reguladores.</span></li>
+          <li><i class="fas fa-triangle-exclamation"></i><span>Foco na <strong>prevenção de acidentes e incidentes</strong>.</span></li>
+        </ul>
+      </div>
+
+      <!-- Bloco OiBR -->
+      <div class="info-card deep">
+        <i class="fas fa-mobile-screen-button card-bg-icon"></i>
+        <div class="card-head">
+          <div class="card-badge blue"><i class="fas fa-mobile-screen-button"></i></div>
+          <div>
+            <p class="card-title">OiBR — Inovação na Segurança Portuária</p>
+            <p class="card-sub">Aplicativo de ocorrências</p>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li><i class="fas fa-clipboard-list"></i><span>Aplicativo para <strong>registro e análise de ocorrências</strong>.</span></li>
+          <li><i class="fas fa-comments"></i><span>Canal eficiente de <strong>comunicação e compartilhamento de boas práticas</strong>.</span></li>
+          <li><i class="fas fa-magnifying-glass-chart"></i><span>Análise detalhada por <strong>localização, tipo de operação e vítimas</strong>.</span></li>
+          <li><i class="fas fa-landmark"></i><span>Base para <strong>políticas públicas mais eficazes</strong>.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Coluna direita: foto -->
+    <div class="right-col">
+      <figure class="photo-figure">
+        <img src="Imagens/marimex-aerea.jpeg" alt="Vista aérea do Terminal da Marimex — Porto de Santos"/>
+        <figcaption><i class="fas fa-camera"></i>Vista aérea do Terminal da Marimex — Porto de Santos</figcaption>
+      </figure>
+      <div class="photo-tag">
+        <i class="fas fa-anchor"></i>
+        <p>Atuação concentrada nos complexos portuários de <strong>Santos</strong> e <strong>São Sebastião</strong> (SP).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">58 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

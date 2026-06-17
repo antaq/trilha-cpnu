@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conportos — Desafios e Resultados</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .panel {
+    border-radius:14px;
+    padding:20px 24px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    display:flex;
+    flex-direction:column;
+  }
+  .panel-head {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .panel-head .badge {
+    width:46px; height:46px;
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; color:#fff;
+    flex-shrink:0;
+  }
+  .panel-head h2 {
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    line-height:1.1;
+  }
+
+  .panel-challenges { background:#FFF7ED; border:1px solid #FED7AA; }
+  .panel-challenges .badge { background:#EA580C; }
+  .panel-challenges h2 { color:#9A3412; }
+
+  .panel-results { background:#F0FDF4; border:1px solid #BBF7D0; }
+  .panel-results .badge { background:#16A34A; }
+  .panel-results h2 { color:#166534; }
+
+  .item {
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:11px 0;
+  }
+  .item + .item { border-top:1px solid rgba(0,0,0,.06); }
+  .item i.bullet { font-size:16px; margin-top:3px; flex-shrink:0; }
+  .panel-challenges .item i.bullet { color:#EA580C; }
+  .panel-results .item i.bullet { color:#16A34A; }
+  .item p { color:#374151; font-size:.92rem; line-height:1.4; }
+  .item p strong { color:#1F2937; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Conportos — Desafios e Resultados</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Onde estamos e o que avançamos</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-scale-unbalanced text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex px-16 pb-6 z-10 min-h-0 gap-10">
+
+    <!-- Coluna esquerda: dois painéis -->
+    <div class="flex flex-col gap-6" style="flex:1 1 0; min-width:0;">
+
+      <!-- Desafios -->
+      <div class="panel panel-challenges" style="flex:1;">
+        <div class="panel-head">
+          <div class="badge"><i class="fas fa-triangle-exclamation"></i></div>
+          <h2>Desafios</h2>
+        </div>
+        <div class="item">
+          <i class="fas fa-skull-crossbones bullet"></i>
+          <p>Ameaça do <strong>terrorismo</strong> e do <strong>tráfico ilícito</strong> nas instalações portuárias.</p>
+        </div>
+        <div class="item">
+          <i class="fas fa-screwdriver-wrench bullet"></i>
+          <p><strong>Modernização das infraestruturas</strong> de segurança e dos sistemas de controle.</p>
+        </div>
+        <div class="item">
+          <i class="fas fa-people-arrows bullet"></i>
+          <p><strong>Coordenação entre diferentes entidades</strong> federais, estaduais e portuárias.</p>
+        </div>
+      </div>
+
+      <!-- Resultados positivos -->
+      <div class="panel panel-results" style="flex:1;">
+        <div class="panel-head">
+          <div class="badge"><i class="fas fa-circle-check"></i></div>
+          <h2>Resultados positivos</h2>
+        </div>
+        <div class="item">
+          <i class="fas fa-shield-halved bullet"></i>
+          <p>Implementação de <strong>controle de acesso</strong> e <strong>vigilância avançada</strong>.</p>
+        </div>
+        <div class="item">
+          <i class="fas fa-gauge-high bullet"></i>
+          <p>Maior <strong>eficiência operacional</strong> e <strong>redução de incidentes</strong>.</p>
+        </div>
+        <div class="item">
+          <i class="fas fa-handshake-angle bullet"></i>
+          <p><strong>Confiança de investidores</strong> e fortalecimento do comércio exterior.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Coluna direita: foto -->
+    <div class="flex flex-col justify-center" style="flex:0 0 38%;">
+      <figure style="border-radius:14px;overflow:hidden;box-shadow:0 12px 24px -8px rgba(0,0,0,.25);border:1px solid #E5E7EB;">
+        <img src="Imagens/daniel-santos.jpeg" alt="Daniel Santos (GRESP) em visita a terminal de contêineres no Porto de Santos (SP)" style="width:100%;height:560px;object-fit:cover;display:block;"/>
+        <figcaption style="background:#0F172A;color:#E2E8F0;font-size:13px;padding:10px 16px;font-family:'Montserrat', sans-serif;line-height:1.35;">
+          <i class="fas fa-camera mr-2" style="color:#38BDF8;"></i>Daniel Santos (GRESP) em visita a terminal de contêineres no Porto de Santos (SP)
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">56 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

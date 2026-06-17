@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel Interno da Fiscalização (PIF)</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .header-bar { background-color:#003366; height:12px; width:100%; }
+  .secondary-bar { background-color:#0066CC; height:6px; width:100%; }
+
+  .content-wrapper {
+    display:flex; flex:1; min-height:0;
+    flex-direction:row; gap:42px;
+    padding:14px 56px 18px 56px;
+    align-items:stretch;
+  }
+  .text-side { flex:1.02; min-width:0; display:flex; flex-direction:column; justify-content:center; gap:16px; }
+  .image-side { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+
+  /* Cartão com borda lateral */
+  .info-card {
+    background:#F8FAFC; border-left:5px solid #0066CC; border-radius:12px;
+    padding:16px 22px; box-shadow:0 2px 6px rgba(0,0,0,.06);
+  }
+  .info-card .ic-title {
+    font-family:'Montserrat',sans-serif; font-weight:700; color:#003366;
+    font-size:1.05rem; display:flex; align-items:center; gap:12px; margin-bottom:5px;
+  }
+  .info-card .ic-desc { color:#4B5563; font-size:.9rem; line-height:1.5; }
+
+  /* Caixa de destaque azul-clara (resumo / disponibilidade) */
+  .highlight-box {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:14px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15); padding:16px 22px;
+    display:flex; align-items:center; gap:16px;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    display:flex; align-items:center; flex-wrap:wrap; gap:8px;
+    background:#003366; border-radius:10px; padding:11px 18px;
+    font-family:'Montserrat',sans-serif; font-size:.72rem; color:#CBD5E1;
+  }
+  .breadcrumb .crumb { white-space:nowrap; }
+  .breadcrumb .crumb.active { color:#FFD700; font-weight:700; }
+  .breadcrumb .sep { color:#3B5C85; font-size:.6rem; }
+
+  /* Figura */
+  figure.shot {
+    margin:0; border-radius:14px; overflow:hidden;
+    box-shadow:0 16px 32px -10px rgba(0,0,0,.32); border:1px solid #E5E7EB;
+    background:#fff; display:flex; flex-direction:column;
+  }
+  figure.shot img { width:100%; height:auto; object-fit:cover; display:block; }
+  figure.shot figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:.62rem; padding:9px 16px;
+    font-family:'Montserrat',sans-serif; display:flex; align-items:center; gap:8px;
+  }
+
+  .est-pill {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Montserrat',sans-serif; font-weight:700; font-size:.68rem;
+    color:#1E3A8A; padding:4px 14px; border-radius:999px; background:#DBEAFE;
+    text-transform:uppercase; letter-spacing:.06em;
+  }
+
+  .bg-pattern { position:absolute; bottom:-60px; left:-40px; width:340px; height:340px; opacity:.03; z-index:0; color:#003366; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div class="header-bar"></div>
+  <div class="secondary-bar"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-14 pt-7 pb-2 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Painel Interno da Fiscalização (PIF)</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Business Intelligence para os gestores</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-gauge-high text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="content-wrapper z-10">
+    <!-- Texto à esquerda -->
+    <div class="text-side">
+      <div class="highlight-box">
+        <i class="fas fa-chart-pie text-brand-secondary text-3xl"></i>
+        <div>
+          <p class="text-brand-primary font-montserrat font-bold text-lg leading-snug mb-1">
+            Ferramenta de Business Intelligence <span class="est-pill"><i class="far fa-calendar-check"></i> desde 2015</span>
+          </p>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Criada para fornecer <strong>estatísticas sobre fiscalizações aos gestores da ANTAQ</strong>, abrangendo tempo, localização, infrações e indicadores de desempenho.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-card" style="border-left-color:#2563EB;">
+        <p class="ic-title"><i class="fas fa-arrow-trend-up text-brand-secondary"></i> Evolução contínua</p>
+        <p class="ic-desc">
+          Aprimorada ao longo dos anos com melhorias <strong>solicitadas pelos próprios fiscais</strong>: indicadores de <strong>reincidência de infrações</strong> e pesquisa de processos sancionadores por <strong>razão social ou CNPJ</strong>.
+        </p>
+      </div>
+
+      <div class="info-card" style="border-left-color:#16A34A;">
+        <p class="ic-title"><i class="fas fa-users text-brand-secondary"></i> Nova versão para todo o público interno</p>
+        <p class="ic-desc">
+          A versão atual está disponível para <strong>todos os servidores da ANTAQ</strong> por meio da Intranet SFC.
+        </p>
+      </div>
+
+      <!-- Breadcrumb de acesso -->
+      <div>
+        <p class="text-gray-400 text-xs font-montserrat font-bold uppercase tracking-widest mb-1.5 flex items-center gap-2">
+          <i class="fas fa-location-arrow text-brand-secondary"></i> Caminho de acesso
+        </p>
+        <div class="breadcrumb">
+          <span class="crumb">Intranet ANTAQ</span><span class="sep"><i class="fas fa-chevron-right"></i></span>
+          <span class="crumb">Setores</span><span class="sep"><i class="fas fa-chevron-right"></i></span>
+          <span class="crumb">SFC</span><span class="sep"><i class="fas fa-chevron-right"></i></span>
+          <span class="crumb">Assuntos da SFC</span><span class="sep"><i class="fas fa-chevron-right"></i></span>
+          <span class="crumb active">Painel Interno da Fiscalização</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imagem à direita -->
+    <div class="image-side">
+      <figure class="shot">
+        <img src="Imagens/pif-resumo.png" alt="Captura de tela do Resumo Executivo do Painel Interno da Fiscalização (PIF)"/>
+        <figcaption><i class="fas fa-camera"></i> Painel Interno da Fiscalização — tela de Resumo Executivo</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-14 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">25 / 61</p>
+  </div>
+
+  <div class="bg-pattern"><i class="fas fa-gauge-high text-9xl"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

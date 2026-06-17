@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exemplo: Ação Presencial (Alto Custo Fiscalizatório)</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .panel {
+    background-color:#F8FAFC;
+    border:1px solid #E5E7EB;
+    border-radius:16px;
+    box-shadow:0 6px 16px -6px rgba(0,0,0,.12);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .panel-head {
+    display:flex; align-items:center; gap:12px;
+    padding:14px 22px;
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    color:#fff;
+  }
+  .panel-body { padding:14px 22px 18px 22px; display:flex; flex-direction:column; gap:9px; flex:1; min-height:0; }
+
+  .inciso {
+    display:flex; align-items:center; gap:14px;
+    background:#fff;
+    border:1px solid #E5E7EB;
+    border-left:5px solid #94A3B8;
+    border-radius:10px;
+    padding:8px 16px;
+    transition: all 0.3s ease;
+  }
+  .inciso .rom {
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:15px;
+    color:#1E3A8A;
+    background:#DBEAFE;
+    border-radius:8px;
+    min-width:64px;
+    text-align:center;
+    padding:5px 0;
+    letter-spacing:.04em;
+  }
+  .inciso .txt { color:#374151; font-size:16px; line-height:1.25; }
+  .inciso .txt strong { color:#0F172A; }
+
+  /* Estado de destaque durante animação */
+  .inciso.anim-highlight {
+    background: #FFFBEB !important;
+    border-left-color: #F59E0B !important;
+    box-shadow: 0 0 0 3px rgba(245,158,11,0.30);
+  }
+  /* Incisos já migrados — ficam levemente apagados */
+  .inciso.anim-done {
+    opacity: 0.38;
+    transition: opacity 0.5s ease;
+  }
+  /* Incisos não selecionados — ficam bem apagados ao final */
+  .inciso.anim-skip {
+    opacity: 0.22;
+    transition: opacity 0.6s ease;
+  }
+
+  /* Itens priorizados à direita — começam invisíveis */
+  .prio-item {
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .prio-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* prioritized list — gradiente de prioridade pela ordem */
+  .prio { border-left:5px solid #2563EB; }
+  .prio:nth-child(1){ border-left-color:#003366; }
+  .prio:nth-child(2){ border-left-color:#1D4ED8; }
+  .prio:nth-child(3){ border-left-color:#2563EB; }
+  .prio:nth-child(4){ border-left-color:#3B82F6; }
+  .prio .rom { background:#003366; color:#fff; }
+  .prio:nth-child(2) .rom{ background:#1D4ED8; }
+  .prio:nth-child(3) .rom{ background:#2563EB; }
+  .prio:nth-child(4) .rom{ background:#3B82F6; }
+  .prio-rank {
+    font-family:'Montserrat', sans-serif; font-weight:800; font-size:13px;
+    color:#0066CC; min-width:26px; text-align:center;
+  }
+  .skip {
+    display:flex; align-items:center; gap:10px;
+    color:#9CA3AF; font-size:14px; font-style:italic;
+    padding:4px 16px;
+    opacity:0; transition: opacity 0.5s ease;
+  }
+  .skip.visible { opacity:1; }
+
+  .center-arrow {
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:#0066CC;
+  }
+
+  /* Clone voador */
+  .flying-clone {
+    position: fixed;
+    z-index: 200;
+    pointer-events: none;
+    border-radius: 10px;
+    transition: top 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.48s ease,
+                transform 0.48s ease;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Exemplo: Ação Presencial (Alto Custo Fiscalizatório)</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Como as infrações são priorizadas</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-person-walking text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+
+    <!-- Conceito — texto reduzido -->
+    <div style="background:#F0F9FF;border:2px solid #BAE6FD;border-radius:14px;box-shadow:0 8px 20px -8px rgba(0,102,204,.18);padding:10px 20px;margin-bottom:16px;">
+      <p class="text-gray-700 leading-snug flex items-center gap-3" style="font-size:15px;">
+        <i class="fas fa-arrow-up-wide-short text-brand-secondary" style="font-size:18px;flex-shrink:0;"></i>
+        <span>Prioriza-se a verificação das inconformidades normativas com <strong class="text-brand-primary">maior Probabilidade de Ocorrência</strong> e <strong class="text-brand-primary">maior Impacto no Mercado</strong>. Nem toda infração prevista na norma é verificada presencialmente.</span>
+      </p>
+    </div>
+
+    <!-- Duas colunas + seta -->
+    <div class="grid items-stretch" style="grid-template-columns: 1fr 70px 1fr; gap:0; min-height:0;">
+
+      <!-- COLUNA ESQUERDA: norma original -->
+      <div class="panel">
+        <div class="panel-head bg-brand-primary">
+          <i class="fas fa-scale-balanced"></i>
+          <div>
+            <div style="font-size:17px;">Resolução ANTAQ nº X — Art. X</div>
+            <div style="font-size:12px;font-weight:500;opacity:.85;letter-spacing:.04em;">SÃO INFRAÇÕES (INC. I A VI)</div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="inciso" id="inc-i">  <span class="rom">Inc. I</span>  <span class="txt"><strong>Deixar de</strong> prestar informação no prazo</span></div>
+          <div class="inciso" id="inc-ii"> <span class="rom">Inc. II</span> <span class="txt"><strong>Não encaminhar</strong> documentação obrigatória</span></div>
+          <div class="inciso" id="inc-iii"><span class="rom">Inc. III</span><span class="txt"><strong>Bloquear</strong> indevidamente o acesso ao serviço</span></div>
+          <div class="inciso" id="inc-iv"> <span class="rom">Inc. IV</span> <span class="txt"><strong>Não cumprir</strong> determinação da Agência</span></div>
+          <div class="inciso" id="inc-v">  <span class="rom">Inc. V</span>  <span class="txt"><strong>Não manter</strong> registros e controles atualizados</span></div>
+          <div class="inciso" id="inc-vi"> <span class="rom">Inc. VI</span> <span class="txt"><strong>Não informar</strong> alteração de condições operacionais</span></div>
+        </div>
+      </div>
+
+      <!-- SETA CENTRAL -->
+      <div class="center-arrow">
+        <i class="fas fa-arrow-right-long" style="font-size:38px;"></i>
+        <span class="font-montserrat font-bold" style="font-size:10px;letter-spacing:.08em;color:#94A3B8;margin-top:8px;text-align:center;line-height:1.2;">PRIORIZA</span>
+      </div>
+
+      <!-- COLUNA DIREITA: priorizadas -->
+      <div class="panel" style="border-color:#BAE6FD;">
+        <div class="panel-head" style="background:#0066CC;">
+          <i class="fas fa-list-check"></i>
+          <div>
+            <div style="font-size:17px;">Infrações priorizadas</div>
+            <div style="font-size:12px;font-weight:500;opacity:.9;letter-spacing:.04em;">EM UMA AÇÃO PRESENCIAL</div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="inciso prio prio-item" id="prio-1"><span class="prio-rank">1º</span><span class="rom">Inc. III</span><span class="txt">Alta probabilidade · alto impacto</span></div>
+          <div class="inciso prio prio-item" id="prio-2"><span class="prio-rank">2º</span><span class="rom">Inc. V</span>  <span class="txt">Alta probabilidade · impacto relevante</span></div>
+          <div class="inciso prio prio-item" id="prio-3"><span class="prio-rank">3º</span><span class="rom">Inc. VI</span> <span class="txt">Probabilidade média · impacto relevante</span></div>
+          <div class="inciso prio prio-item" id="prio-4"><span class="prio-rank">4º</span><span class="rom">Inc. II</span> <span class="txt">Probabilidade média · impacto moderado</span></div>
+          <div class="skip" id="skip-msg"><i class="fas fa-ellipsis"></i><span>Inc. I · Inc. IV — não verificados nesta ação (baixa priorização)</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">15 / 61</p>
+  </div>
+</div>
+
+<script>
+  /* ── Animação: incisos voam da esquerda para a direita ── */
+  const sequence = [
+    { from: 'inc-iii', to: 'prio-1' },
+    { from: 'inc-v',   to: 'prio-2' },
+    { from: 'inc-vi',  to: 'prio-3' },
+    { from: 'inc-ii',  to: 'prio-4' },
+  ];
+  const STEP_DELAY   = 600;  // ms entre cada inciso
+  const FLIGHT_TIME  = 480;  // ms do voo
+  const START_DELAY  = 700;  // delay inicial ao carregar
+
+  function flyInciso(fromId, toId, done) {
+    const src = document.getElementById(fromId);
+    const dst = document.getElementById(toId);
+
+    // 1. Destaque na origem
+    src.classList.add('anim-highlight');
+
+    const sRect = src.getBoundingClientRect();
+    const dRect = dst.getBoundingClientRect();
+
+    // 2. Cria clone posicionado sobre a origem
+    const clone = src.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.classList.add('flying-clone');
+    clone.style.top    = sRect.top    + 'px';
+    clone.style.left   = sRect.left   + 'px';
+    clone.style.width  = sRect.width  + 'px';
+    clone.style.height = sRect.height + 'px';
+    clone.style.opacity = '1';
+    clone.style.boxShadow = '0 8px 24px rgba(0,0,0,.22)';
+    document.body.appendChild(clone);
+
+    // 3. Dispara o voo no próximo frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        clone.style.top     = dRect.top  + 'px';
+        clone.style.left    = dRect.left + 'px';
+        clone.style.width   = dRect.width + 'px';
+        clone.style.opacity = '0';
+      });
+    });
+
+    // 4. Após o voo: mostra item na direita, desfaz highlight na origem
+    setTimeout(() => {
+      src.classList.remove('anim-highlight');
+      src.classList.add('anim-done');
+      dst.classList.add('visible');
+      clone.remove();
+      if (done) done();
+    }, FLIGHT_TIME + 80);
+  }
+
+  function runAnimation() {
+    sequence.forEach(({ from, to }, i) => {
+      setTimeout(() => {
+        flyInciso(from, to, null);
+      }, i * STEP_DELAY);
+    });
+
+    // Após todos os voos: apaga incisos não migrados e mostra nota
+    const totalTime = sequence.length * STEP_DELAY + FLIGHT_TIME + 200;
+    setTimeout(() => {
+      document.getElementById('inc-i').classList.add('anim-skip');
+      document.getElementById('inc-iv').classList.add('anim-skip');
+      document.getElementById('skip-msg').classList.add('visible');
+    }, totalTime);
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(runAnimation, START_DELAY);
+  });
+</script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

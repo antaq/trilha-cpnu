@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Benefícios do SINESP / INFOSEG</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .bg-brand-primary { background-color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .benefit-card {
+            background-color: #F8FAFC;
+            border-radius: 14px;
+            padding: 24px 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 22px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .benefit-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09);
+            background-color: #FFFFFF;
+        }
+        .benefit-card:nth-child(1) { border-left: 6px solid #3B82F6; }
+        .benefit-card:nth-child(2) { border-left: 6px solid #2563EB; }
+        .benefit-card:nth-child(3) { border-left: 6px solid #003366; }
+
+        .benefit-ico {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #ffffff;
+        }
+        .benefit-card:nth-child(1) .benefit-ico { background: linear-gradient(135deg, #3B82F6, #0066CC); }
+        .benefit-card:nth-child(2) .benefit-ico { background: linear-gradient(135deg, #2563EB, #1D4ED8); }
+        .benefit-card:nth-child(3) .benefit-ico { background: linear-gradient(135deg, #1D4ED8, #003366); }
+
+        .benefit-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #1E3A8A;
+            background-color: #DBEAFE;
+            padding: 3px 12px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .benefit-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: #0F172A;
+        }
+        .benefit-desc {
+            font-size: 16.5px;
+            color: #4B5563;
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+        .benefit-bg {
+            position: absolute;
+            right: -10px;
+            bottom: -16px;
+            font-size: 90px;
+            color: #E5E7EB;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        .photo-figure {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 18px 34px -10px rgba(0, 0, 0, 0.32);
+            border: 1px solid #E5E7EB;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .photo-figure img {
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-figure figcaption {
+            background-color: #0F172A;
+            color: #E2E8F0;
+            font-size: 14px;
+            padding: 12px 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .photo-figure figcaption i { color: #38BDF8; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div style="height:12px;background:#003366;width:100%;"></div>
+<div style="height:6px;background:#0066CC;width:100%;"></div>
+
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-9 pb-3 z-10">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<div class="w-1.5 h-9 bg-brand-secondary"></div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Benefícios do SINESP / INFOSEG</h1>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">Ganhos estratégicos, operacionais e de segurança</p>
+</div>
+<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-shield-halved text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+</div>
+</div>
+
+<!-- Conteúdo -->
+<div class="flex-1 flex items-stretch gap-10 px-16 pb-6 z-10 min-h-0">
+
+<!-- Cartões à esquerda -->
+<div class="flex flex-col justify-center gap-6" style="flex:1.15;min-width:0;">
+
+<div class="benefit-card">
+<div class="benefit-ico"><i class="fas fa-chess"></i></div>
+<div>
+<span class="benefit-tag">Estratégico</span>
+<p class="benefit-title">Planejamento aprimorado</p>
+<p class="benefit-desc">Subsidia <strong>ações conjuntas</strong> com órgãos de fiscalização e de inteligência, qualificando a priorização e a tomada de decisão.</p>
+</div>
+<i class="fas fa-chess benefit-bg"></i>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-ico"><i class="fas fa-bullseye"></i></div>
+<div>
+<span class="benefit-tag">Operacional</span>
+<p class="benefit-title">Assertividade nas intimações</p>
+<p class="benefit-desc">Aumenta a precisão na localização e na <strong>intimação dos envolvidos</strong> em processos sancionadores.</p>
+</div>
+<i class="fas fa-bullseye benefit-bg"></i>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-ico"><i class="fas fa-user-shield"></i></div>
+<div>
+<span class="benefit-tag">Segurança</span>
+<p class="benefit-title">Proteção dos agentes</p>
+<p class="benefit-desc">Eleva a <strong>segurança física dos agentes</strong> em abordagens fiscais, antecipando riscos no campo.</p>
+</div>
+<i class="fas fa-user-shield benefit-bg"></i>
+</div>
+
+</div>
+
+<!-- Foto à direita -->
+<div style="flex:0.85;min-width:0;display:flex;">
+<figure class="photo-figure">
+<img src="Imagens/parintins-ip4.jpeg" alt="IP4 de Parintins"/>
+<figcaption>
+<i class="fas fa-camera"></i>
+IP4 de Parintins — ponto de chegada e partida na terra do Festival
+</figcaption>
+</figure>
+</div>
+
+</div>
+
+<!-- Rodapé -->
+<div class="px-16 pb-6 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">50 / 61</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fiscalização em 3 Níveis — Eixos de Risco</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .top-accent { height:12px; background:#003366; width:100%; }
+  .top-accent-secondary { height:6px; background:#0066CC; width:100%; }
+
+  /* ── Concept box compact ── */
+  .concept-box {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:14px;
+    box-shadow:0 8px 20px -8px rgba(0,102,204,.15);
+    padding:10px 22px; display:flex; align-items:center; gap:16px; flex-shrink:0;
+  }
+  .concept-box .ico {
+    width:44px; height:44px; flex:none; border-radius:10px;
+    background:linear-gradient(135deg,#0066CC 0%,#003366 100%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 12px -4px rgba(0,51,102,.4);
+  }
+  .concept-box .ico i { color:#fff; font-size:20px; }
+  .concept-box p { font-size:15px; line-height:1.45; color:#374151; }
+  .concept-box strong { color:#003366; font-weight:700; }
+
+  /* ── Axis cards compact ── */
+  .axes-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+    flex-shrink:0;
+  }
+  .axis-card {
+    background:#F8FAFC; border:1px solid #E5E7EB; border-radius:16px;
+    box-shadow:0 8px 20px -8px rgba(0,0,0,.14);
+    display:flex; flex-direction:column; position:relative; overflow:hidden;
+  }
+  .axis-head {
+    display:flex; align-items:center; gap:13px;
+    padding:12px 20px 10px 20px; color:#fff; position:relative;
+  }
+  .axis-card:nth-child(1) .axis-head { background:linear-gradient(135deg,#0066CC 0%,#004C99 100%); }
+  .axis-card:nth-child(2) .axis-head { background:linear-gradient(135deg,#2563EB 0%,#1D4ED8 100%); }
+  .axis-card:nth-child(3) .axis-head { background:linear-gradient(135deg,#003366 0%,#00264D 100%); }
+
+  .axis-head .head-icon {
+    width:48px; height:48px; flex:none; border-radius:12px;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .axis-head .head-icon i { color:#fff; font-size:22px; }
+  .axis-head .head-num {
+    position:absolute; top:8px; right:14px;
+    font-family:'Montserrat',sans-serif; font-weight:900; font-size:32px;
+    line-height:1; color:rgba(255,255,255,.16); user-select:none;
+  }
+  .axis-head .eixo-lbl {
+    font-family:'Montserrat',sans-serif; font-weight:600; font-size:10px;
+    letter-spacing:.18em; text-transform:uppercase; color:#BBD6F2;
+  }
+  .axis-head .axis-title {
+    font-family:'Montserrat',sans-serif; font-weight:800; font-size:16px;
+    line-height:1.15; color:#fff; margin-top:2px;
+  }
+  .axis-body { padding:10px 18px 12px 18px; display:flex; flex-direction:column; flex:1; }
+  .axis-desc { font-size:14px; line-height:1.5; color:#4B5563; flex:1; }
+  .axis-desc strong { color:#0066CC; font-weight:700; }
+  .axis-foot { margin-top:8px; padding-top:8px; border-top:1px solid #E5E7EB; }
+  .axis-foot .foot-lbl {
+    font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px;
+    letter-spacing:.1em; text-transform:uppercase; color:#94A3B8; margin-bottom:8px;
+  }
+  .chip-row { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip {
+    display:inline-flex; align-items:center; gap:6px;
+    background:#FFFFFF; border:1px solid #DBEAFE; border-radius:999px;
+    padding:5px 11px; font-family:'Montserrat',sans-serif; font-weight:600;
+    font-size:12px; color:#1E3A8A; box-shadow:0 1px 3px rgba(0,0,0,.05);
+  }
+  .chip i { color:#0066CC; font-size:11px; }
+  .scale-row { display:flex; align-items:center; gap:8px; }
+  .scale-step {
+    flex:1; text-align:center; background:#FFFFFF; border:1px solid #DBEAFE;
+    border-radius:8px; padding:6px 4px;
+  }
+  .scale-step i { display:block; color:#0066CC; font-size:14px; margin-bottom:3px; }
+  .scale-step span { font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; color:#1E3A8A; }
+  .scale-arrow { color:#94A3B8; font-size:12px; flex:none; }
+
+  /* ── Matriz de risco ── */
+  .matrix-wrap { flex:1; display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+  .matrix-label {
+    font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px;
+    letter-spacing:.1em; text-transform:uppercase; color:#64748B; margin-bottom:6px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .rm { width:100%; height:100%; border-collapse:collapse; table-layout:fixed; font-family:'Montserrat',sans-serif; }
+
+  /* Cabeçalhos */
+  .rm-top { background:#BFDBFE; color:#1E40AF; font-weight:800; font-size:12.5px; text-align:center; padding:5px 4px; border:1px solid #93C5FD; }
+  .rm-grp  { background:#DBEAFE; color:#1D4ED8; font-weight:700; font-size:11px; text-align:center; padding:4px 2px; border:1px solid #93C5FD; }
+
+  /* Células de eixo Y */
+  .rm-yax {
+    background:#BFDBFE; color:#1E40AF; font-weight:800; font-size:11px;
+    writing-mode:vertical-rl; transform:rotate(180deg);
+    text-align:center; white-space:nowrap; padding:6px 3px;
+    border:1px solid #93C5FD; width:24px;
+  }
+  .rm-prob {
+    background:#EFF6FF; color:#1E3A8A; font-weight:800; font-size:12px;
+    text-align:center; white-space:nowrap; padding:4px 8px;
+    border:1px solid #BFDBFE; width:46px;
+  }
+
+  /* Células de dados */
+  .rm-cell { border:1px solid #CBD5E1; text-align:center; font-weight:700; font-size:11px; padding:4px 2px; }
+  .rm-a { background:#FECACA; color:#B91C1C; }
+  .rm-m { background:#FEF9C3; color:#854D0E; }
+  .rm-b { background:#D1FAE5; color:#065F46; }
+
+  /* Rótulos de impacto (rodapé) */
+  .rm-imp { background:#F8FAFC; color:#6B7280; font-size:9.5px; text-align:center; padding:3px 1px; border:1px solid #E5E7EB; white-space:nowrap; overflow:hidden; }
+  .rm-bot { background:#BFDBFE; color:#1E40AF; font-weight:800; font-size:12px; text-align:center; padding:5px 4px; border:1px solid #93C5FD; }
+  .rm-corner { background:#F1F5F9; border:1px solid #CBD5E1; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div class="top-accent"></div>
+  <div class="top-accent-secondary"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Fiscalização em 3 Níveis — Eixos de Risco</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Priorização das obrigações fiscalizáveis</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-diagram-project text-xl" aria-hidden="true"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col px-16 pb-4 z-10 min-h-0 gap-4 pt-1">
+
+    <!-- Concept box compacto -->
+    <div class="concept-box">
+      <div class="ico"><i class="fas fa-arrow-down-wide-short" aria-hidden="true"></i></div>
+      <p>As <strong>obrigações fiscalizáveis</strong> são priorizadas a partir de <strong>três eixos de risco</strong>, que combinam a chance de descumprimento, a gravidade das consequências e o esforço necessário para a verificação.</p>
+    </div>
+
+    <!-- Eixos compactos -->
+    <div class="axes-grid">
+
+      <!-- Eixo 1 -->
+      <div class="axis-card">
+        <div class="axis-head">
+          <span class="head-num">01</span>
+          <div class="head-icon"><i class="fas fa-dice" aria-hidden="true"></i></div>
+          <div><p class="eixo-lbl">Eixo 1</p><p class="axis-title">Probabilidade de Ocorrência</p></div>
+        </div>
+        <div class="axis-body">
+          <p class="axis-desc">Mede a <strong>frequência de descumprimento</strong> da obrigação pelo conjunto dos regulados — quanto mais recorrente a falha, maior o risco e a prioridade.</p>
+          <div class="axis-foot">
+            <p class="foot-lbl">Pergunta-chave</p>
+            <div class="chip-row"><span class="chip"><i class="fas fa-repeat"></i> Com que frequência se descumpre?</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eixo 2 -->
+      <div class="axis-card">
+        <div class="axis-head">
+          <span class="head-num">02</span>
+          <div class="head-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+          <div><p class="eixo-lbl">Eixo 2</p><p class="axis-title">Impacto no Mercado</p></div>
+        </div>
+        <div class="axis-body">
+          <p class="axis-desc">Avalia as <strong>consequências potenciais</strong> do descumprimento — quanto maior o dano possível, maior a prioridade de fiscalização.</p>
+          <div class="axis-foot">
+            <p class="foot-lbl">Dimensões do dano</p>
+            <div class="chip-row">
+              <span class="chip"><i class="fas fa-users"></i> Usuários</span>
+              <span class="chip"><i class="fas fa-leaf"></i> Meio ambiente</span>
+              <span class="chip"><i class="fas fa-scale-balanced"></i> Concorrência</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eixo 3 -->
+      <div class="axis-card">
+        <div class="axis-head">
+          <span class="head-num">03</span>
+          <div class="head-icon"><i class="fas fa-sack-dollar" aria-hidden="true"></i></div>
+          <div><p class="eixo-lbl">Eixo 3</p><p class="axis-title">Custo Fiscalizatório</p></div>
+        </div>
+        <div class="axis-body">
+          <p class="axis-desc">Considera os <strong>recursos necessários</strong> para verificar o cumprimento da obrigação, classificados pelo nível de esforço exigido.</p>
+          <div class="axis-foot">
+            <p class="foot-lbl">Esforço de verificação</p>
+            <div class="scale-row">
+              <div class="scale-step"><i class="fas fa-gauge-high"></i><span>Monitorável</span></div>
+              <i class="fas fa-arrow-right scale-arrow"></i>
+              <div class="scale-step"><i class="fas fa-satellite-dish"></i><span>Remoto</span></div>
+              <i class="fas fa-arrow-right scale-arrow"></i>
+              <div class="scale-step"><i class="fas fa-person-walking"></i><span>Presencial</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Matriz de risco -->
+    <div class="matrix-wrap">
+      <div class="matrix-label">
+        <i class="fas fa-table-cells text-brand-secondary"></i>
+        Matriz de Priorização — Custo × Impacto × Probabilidade de Ocorrência Infracional
+      </div>
+      <table class="rm">
+        <thead>
+          <tr>
+            <td class="rm-corner" rowspan="2" colspan="2"></td>
+            <th class="rm-top" colspan="15">Custo Fiscalizatório</th>
+          </tr>
+          <tr>
+            <th class="rm-grp" colspan="5">Baixo (Monitorável)</th>
+            <th class="rm-grp" colspan="5">Médio (Remoto)</th>
+            <th class="rm-grp" colspan="5">Alto (Presencial)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Alta -->
+          <tr>
+            <td class="rm-yax" rowspan="5">Probabilidade de Ocorrência Infracional</td>
+            <td class="rm-prob" rowspan="1">Alta</td>
+            <td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td>
+            <td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td>
+            <td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td>
+          </tr>
+          <!-- Média — 3 sub-linhas -->
+          <tr>
+            <td class="rm-prob" rowspan="3">Média</td>
+            <td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td>
+            <td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-b">Baixa</td>
+            <td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td>
+          </tr>
+          <tr>
+            <td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td>
+            <td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td>
+            <td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td>
+          </tr>
+          <tr>
+            <td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td>
+            <td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td>
+            <td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-a">Alta</td><td class="rm-cell rm-a">Alta</td>
+          </tr>
+          <!-- Baixa -->
+          <tr>
+            <td class="rm-prob" rowspan="1">Baixa</td>
+            <td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-m">Média</td>
+            <td class="rm-cell rm-m">Média</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td>
+            <td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-b">Baixa</td><td class="rm-cell rm-m">Média</td><td class="rm-cell rm-m">Média</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <!-- Rótulos de impacto -->
+          <tr>
+            <td class="rm-corner" colspan="2"></td>
+            <td class="rm-imp">Insig.</td><td class="rm-imp">Limitado</td><td class="rm-imp">Signif.</td><td class="rm-imp">Severo</td><td class="rm-imp">Catastrófico</td>
+            <td class="rm-imp">Catastrófico</td><td class="rm-imp">Severo</td><td class="rm-imp">Signif.</td><td class="rm-imp">Limitado</td><td class="rm-imp">Insig.</td>
+            <td class="rm-imp">Insig.</td><td class="rm-imp">Limitado</td><td class="rm-imp">Signif.</td><td class="rm-imp">Severo</td><td class="rm-imp">Catastrófico</td>
+          </tr>
+          <tr>
+            <td class="rm-corner" colspan="2"></td>
+            <td class="rm-bot" colspan="15">Impacto sobre a Sociedade ou Mercado</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-5 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">14 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

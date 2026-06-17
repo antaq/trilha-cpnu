@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sumário — Trilha Técnica da Fiscalização</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .module-card {
+    background:#ffffff;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    box-shadow:0 12px 28px -10px rgba(0,0,0,.18);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .module-head {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 24px;
+    color:#fff;
+  }
+  .module-head .head-icon {
+    width:48px;height:48px;border-radius:12px;
+    background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.35rem;flex-shrink:0;
+  }
+  .topic {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:9px 12px;
+    border-radius:10px;
+  }
+  .topic:nth-child(odd){ background:#F8FAFC; }
+  .topic .num {
+    width:30px;height:30px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;
+    color:#fff;flex-shrink:0;
+  }
+  .topic .txt {
+    font-family:'Montserrat',sans-serif;font-weight:600;
+    color:#1F2937;font-size:.92rem;line-height:1.2;
+  }
+  .bg-petroleo { background-color:#0E7490; }
+
+  .bg-pattern {
+    position:absolute; bottom:-60px; right:-40px;
+    opacity:0.03; z-index:0; color:#003366;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Sumário</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">O que veremos nesta trilha</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-list-check text-xl" aria-hidden="true"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">AGENDA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex items-stretch gap-8 px-16 pb-4 z-10 min-h-0">
+
+    <!-- COLUNA A — Módulo 1 -->
+    <div class="module-card flex-1">
+      <div class="module-head" style="background:linear-gradient(135deg,#0066CC 0%,#0050A8 100%);">
+        <div class="head-icon"><i class="fas fa-clipboard-list"></i></div>
+        <div>
+          <p class="font-montserrat font-extrabold text-xs tracking-widest" style="opacity:.85;">MÓDULO 1</p>
+          <p class="font-montserrat font-bold" style="font-size:1.18rem;line-height:1.15;">Planejamento da Fiscalização</p>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col justify-between px-5 py-3">
+        <div class="topic"><span class="num bg-brand-secondary">01</span><span class="txt">Premissas do PPF 2025–2028</span></div>
+        <div class="topic"><span class="num bg-brand-secondary">02</span><span class="txt">Estrutura Organizacional da SFC</span></div>
+        <div class="topic"><span class="num bg-brand-secondary">03</span><span class="txt">Competências Regimentais</span></div>
+        <div class="topic"><span class="num bg-brand-secondary">04</span><span class="txt">Perspectivas de Atuação (Responsiva, 3 Níveis, GEF)</span></div>
+        <div class="topic"><span class="num bg-brand-secondary">05</span><span class="txt">Modelo de Risco e IPR</span></div>
+        <div class="topic"><span class="num bg-brand-secondary">06</span><span class="txt">Instrumentos PPF e PAF</span></div>
+        <div class="topic"><span class="num bg-brand-secondary">07</span><span class="txt">Sistemas e Painéis (SFIS, PIF, Dados Públicos)</span></div>
+        <div class="topic"><span class="num bg-brand-secondary">08</span><span class="txt">Capacitação e Identidade Visual</span></div>
+      </div>
+    </div>
+
+    <!-- COLUNA B — Módulo 2 -->
+    <div class="module-card flex-1">
+      <div class="module-head" style="background:linear-gradient(135deg,#0E7490 0%,#0B5A70 100%);">
+        <div class="head-icon"><i class="fas fa-satellite-dish"></i></div>
+        <div>
+          <p class="font-montserrat font-extrabold text-xs tracking-widest" style="opacity:.85;">MÓDULO 2</p>
+          <p class="font-montserrat font-bold" style="font-size:1.18rem;line-height:1.15;">Inteligência da Fiscalização</p>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col justify-around px-5 py-3">
+        <div class="topic"><span class="num bg-petroleo">01</span><span class="txt">SISBIN e o Novo SISBIN (2023)</span></div>
+        <div class="topic"><span class="num bg-petroleo">02</span><span class="txt">Programa Brasil MAIS / RedeMAIS</span></div>
+        <div class="topic"><span class="num bg-petroleo">03</span><span class="txt">SINESP / INFOSEG</span></div>
+        <div class="topic"><span class="num bg-petroleo">04</span><span class="txt">Cooperação ANTAQ / PRF</span></div>
+        <div class="topic"><span class="num bg-petroleo">05</span><span class="txt">Conportos</span></div>
+        <div class="topic"><span class="num bg-petroleo">06</span><span class="txt">CEPAI/SP e o app OiBR</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">3 / 61</p>
+  </div>
+
+  <!-- Marca decorativa -->
+  <div class="bg-pattern"><i class="fas fa-list-check text-9xl"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

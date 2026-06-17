@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nova Identidade Visual — Vestuário</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .header-bar { background-color:#003366; height:12px; width:100%; }
+  .secondary-bar { background-color:#0066CC; height:6px; width:100%; }
+
+  /* Moldura institucional das pranchas */
+  .plate {
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 12px 24px -8px rgba(0,0,0,.25);
+    border:1px solid #E5E7EB;
+    background:#FFFFFF;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .plate-img {
+    flex:1;
+    min-height:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#F8FAFC;
+    padding:8px;
+  }
+  .plate-img img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+  .plate-cap {
+    background:#0F172A;
+    color:#E2E8F0;
+    font-size:13px;
+    padding:8px 14px;
+    font-family:'Montserrat', sans-serif;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .plate-cap i { color:#38BDF8; }
+
+  /* Chips de itens */
+  .chip {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#F0F9FF;
+    border:1px solid #BAE6FD;
+    color:#003366;
+    font-family:'Montserrat', sans-serif;
+    font-weight:600;
+    font-size:17px;
+    padding:11px 18px;
+    border-radius:999px;
+    box-shadow:0 1px 3px rgba(0,102,204,.06);
+  }
+  .chip i { color:#0066CC; font-size:16px; }
+
+  .manual-link {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#003366;
+    color:#FFFFFF;
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    padding:10px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    box-shadow:0 6px 14px -4px rgba(0,51,102,.45);
+    transition:all .2s ease;
+  }
+  .manual-link:hover { background:#0066CC; }
+  .manual-link .url { font-family:'Open Sans', sans-serif; font-weight:600; opacity:.9; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <div class="header-bar"></div>
+  <div class="secondary-bar"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-7 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Nova Identidade Visual — Vestuário</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Uniformes da Fiscalização ANTAQ</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-shirt text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-row gap-8 px-16 pb-4 z-10 min-h-0">
+
+    <!-- Coluna esquerda: pranchas -->
+    <div class="flex flex-row gap-6" style="flex:1.35; min-width:0;">
+      <figure class="plate" style="flex:1;">
+        <div class="plate-img">
+          <img src="Imagens/uniformes-vestuario.png" alt="Prancha de uniformes — vestuário base da Fiscalização"/>
+        </div>
+        <figcaption class="plate-cap"><i class="fas fa-shirt"></i> Vestuário base</figcaption>
+      </figure>
+      <figure class="plate" style="flex:1;">
+        <div class="plate-img">
+          <img src="Imagens/uniformes-tatico.png" alt="Prancha de uniformes — itens táticos e refletivos da Fiscalização"/>
+        </div>
+        <figcaption class="plate-cap"><i class="fas fa-vest"></i> Itens táticos e refletivos</figcaption>
+      </figure>
+    </div>
+
+    <!-- Coluna direita: legenda + chips + manual -->
+    <div class="flex flex-col min-h-0" style="flex:1;">
+
+      <!-- Legenda / conceito -->
+      <div style="background:#F0F9FF;border:2px solid #BAE6FD;border-radius:16px;box-shadow:0 10px 25px -5px rgba(0,102,204,.15);padding:18px 22px;">
+        <p class="font-montserrat font-bold text-brand-primary text-xl mb-1 flex items-center gap-3">
+          <i class="fas fa-id-badge text-brand-secondary"></i> Identidade visual da Fiscalização
+        </p>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Nova padronização do <strong>vestuário e dos itens de campo</strong> da Fiscalização ANTAQ,
+          reforçando o reconhecimento institucional, a segurança e a uniformidade da equipe em operação.
+        </p>
+      </div>
+
+      <!-- Chips de itens -->
+      <p class="text-gray-400 text-xs font-montserrat font-bold uppercase tracking-widest mt-5 mb-3 flex items-center gap-2">
+        <i class="fas fa-list-check text-brand-secondary"></i> Itens do conjunto
+      </p>
+      <div class="flex flex-wrap gap-4" style="flex:1; min-height:0; align-content:space-between;">
+        <span class="chip"><i class="fas fa-shirt"></i>Camisa Social</span>
+        <span class="chip"><i class="fas fa-shirt"></i>Camisa Polo Fiscalização</span>
+        <span class="chip"><i class="fas fa-tshirt"></i>Camiseta Básica</span>
+        <span class="chip"><i class="fas fa-person-running"></i>Segunda Pele</span>
+        <span class="chip"><i class="fas fa-person"></i>Calça Fiscalização</span>
+        <span class="chip"><i class="fas fa-vest"></i>Colete Refletivo</span>
+        <span class="chip"><i class="fas fa-vest"></i>Colete Fiscalização</span>
+        <span class="chip"><i class="fas fa-shield-halved"></i>Capa de Colete Balístico</span>
+        <span class="chip"><i class="fas fa-shoe-prints"></i>Bota Tática</span>
+        <span class="chip"><i class="fas fa-wind"></i>Corta Vento</span>
+        <span class="chip"><i class="fas fa-cloud-rain"></i>Capa de Chuva</span>
+        <span class="chip"><i class="fas fa-hat-cowboy-side"></i>Boné</span>
+        <span class="chip"><i class="fas fa-bag-shopping"></i>Mochila</span>
+      </div>
+
+      <!-- Link do manual -->
+      <a class="manual-link mt-4" href="https://bit.ly/ManualUniformesSFC" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-book-open"></i>
+        <span>Manual de Uniformes &nbsp;·&nbsp; <span class="url">bit.ly/ManualUniformesSFC</span></span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">33 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

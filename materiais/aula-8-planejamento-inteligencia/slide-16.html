@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grupos Especializados de Fiscalização (GEF)</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Intro compacto */
+  .intro-box {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:14px;
+    box-shadow:0 8px 20px -8px rgba(0,102,204,.15);
+    padding:12px 22px; display:flex; align-items:center; gap:16px;
+  }
+  .intro-icon {
+    flex:none; width:48px; height:48px; border-radius:12px;
+    background:#003366; color:#FFD700; display:flex; align-items:center; justify-content:center;
+    font-size:22px; box-shadow:0 4px 10px -3px rgba(0,51,102,.45);
+  }
+
+  /* Cards GEF — maiores */
+  .gef-card {
+    background:#F8FAFC; border-radius:18px; padding:28px 32px;
+    box-shadow:0 8px 22px -8px rgba(0,0,0,.14); position:relative; overflow:hidden;
+    display:flex; flex-direction:column; border-top:6px solid #0066CC;
+    flex:1;
+  }
+  .gef-card.two { border-top-color:#003366; }
+  .gef-head { display:flex; align-items:center; gap:18px; margin-bottom:16px; }
+  .gef-num {
+    flex:none; width:62px; height:62px; border-radius:16px;
+    background:#003366; color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:'Montserrat'; font-weight:800; font-size:30px;
+  }
+  .gef-card:first-child .gef-num { background:#0066CC; }
+  .gef-title { font-family:'Montserrat'; font-weight:800; font-size:24px; color:#003366; line-height:1.2; }
+  .gef-sub { font-family:'Montserrat'; font-weight:600; font-size:13px; color:#0066CC; text-transform:uppercase; letter-spacing:.1em; margin-bottom:3px; }
+  .gef-desc { font-size:17px; color:#4B5563; line-height:1.55; }
+  .gef-bg-icon { position:absolute; right:-14px; bottom:-18px; font-size:130px; color:#0066CC; opacity:.05; pointer-events:none; }
+
+  /* Chips maiores */
+  .chip {
+    display:flex; align-items:center; gap:14px; padding:16px 20px;
+    background:#fff; border:2px solid #BAE6FD; border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,102,204,.08);
+  }
+  .chip-ico {
+    flex:none; width:46px; height:46px; border-radius:12px;
+    background:#E0F2FE; color:#0066CC; display:flex; align-items:center; justify-content:center; font-size:20px;
+  }
+  .chip-txt { font-family:'Montserrat'; font-weight:700; font-size:18px; color:#003366; line-height:1.15; }
+
+  /* Foto lateral */
+  .photo-panel {
+    border-radius:20px; overflow:hidden;
+    box-shadow:0 16px 40px -10px rgba(0,0,0,.30);
+    position:relative;
+    flex:none;
+    width:38%;
+  }
+  @keyframes photo-pan {
+    0%   { object-position: 100% top; }
+    100% { object-position: 0% top; }
+  }
+  .photo-panel img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    animation: photo-pan 20s ease-in-out infinite alternate;
+  }
+  .photo-caption {
+    position:absolute; bottom:0; left:0; right:0;
+    background:linear-gradient(0deg, rgba(0,20,51,0.82) 0%, transparent 100%);
+    padding:28px 22px 18px 22px;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Grupos Especializados de Fiscalização (GEF)</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Execução em temas estratégicos</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-users-gear text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo: lado esquerdo (texto) + lado direito (foto) -->
+  <div class="flex-1 flex gap-8 px-16 pb-6 z-10 min-h-0">
+
+    <!-- COLUNA ESQUERDA -->
+    <div class="flex flex-col gap-5 flex-1 min-h-0 justify-center">
+
+      <!-- Intro compacto -->
+      <div class="intro-box">
+        <div class="intro-icon"><i class="fas fa-bullseye"></i></div>
+        <p class="text-gray-700 leading-snug" style="font-size:15px;">
+          Execução das atividades fiscalizatórias em <strong class="text-brand-primary">temas estratégicos</strong> para a ANTAQ,
+          por meio de equipes dedicadas a áreas específicas da fiscalização.
+        </p>
+      </div>
+
+      <!-- Cards 1 e 2 -->
+      <div class="flex gap-5" style="min-height:0;">
+        <div class="gef-card">
+          <div class="gef-head">
+            <div class="gef-num">1</div>
+            <div>
+              <p class="gef-sub">Estrutura</p>
+              <p class="gef-title">Formação de Grupos Especializados</p>
+            </div>
+          </div>
+          <p class="gef-desc">
+            Aprimorar o desempenho da Fiscalização da ANTAQ em <strong class="text-brand-primary">áreas específicas</strong>,
+            como investimentos portuários, logística de contêineres, transporte aquaviário de passageiros e cargas perigosas.
+          </p>
+          <i class="fas fa-people-group gef-bg-icon"></i>
+        </div>
+
+        <div class="gef-card two">
+          <div class="gef-head">
+            <div class="gef-num">2</div>
+            <div>
+              <p class="gef-sub">Capacidade</p>
+              <p class="gef-title">Conhecimento Aprofundado</p>
+            </div>
+          </div>
+          <p class="gef-desc">
+            Grupos compostos por <strong class="text-brand-primary">especialistas</strong> com conhecimento detalhado em suas áreas,
+            permitindo execução mais precisa das tarefas, reduzindo erros e aumentando a eficiência.
+          </p>
+          <i class="fas fa-brain gef-bg-icon"></i>
+        </div>
+      </div>
+
+      <!-- Áreas temáticas -->
+      <div>
+        <p class="font-montserrat font-bold text-gray-400 uppercase tracking-widest mb-3 ml-1" style="font-size:13px;">
+          <i class="fas fa-tags text-brand-secondary mr-2"></i>Áreas temáticas
+        </p>
+        <div class="grid grid-cols-4 gap-4">
+          <div class="chip">
+            <div class="chip-ico"><i class="fas fa-anchor"></i></div>
+            <p class="chip-txt">Investimentos Portuários</p>
+          </div>
+          <div class="chip">
+            <div class="chip-ico"><i class="fas fa-boxes-stacked"></i></div>
+            <p class="chip-txt">Contêineres</p>
+          </div>
+          <div class="chip">
+            <div class="chip-ico"><i class="fas fa-ship"></i></div>
+            <p class="chip-txt">Passageiros</p>
+          </div>
+          <div class="chip">
+            <div class="chip-ico"><i class="fas fa-triangle-exclamation"></i></div>
+            <p class="chip-txt">Cargas Perigosas</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLUNA DIREITA: foto -->
+    <div class="photo-panel">
+      <img src="Imagens/gef-equipe.webp" alt="Equipe GEF — fiscais em campo com drone"/>
+      <div class="photo-caption">
+        <p class="font-montserrat font-bold text-white" style="font-size:15px;">GEF em ação</p>
+        <p class="font-montserrat text-blue-200" style="font-size:12px; opacity:.85;">Equipes especializadas · Fiscalização em campo · <em>Imagem de IA</em></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">16 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

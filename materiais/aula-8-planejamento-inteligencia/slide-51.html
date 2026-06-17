@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>INFOSEG na Prática</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .content-wrapper {
+    display:flex; flex:1; min-height:0;
+    flex-direction:row; gap:34px;
+    padding:14px 64px 16px 64px; align-items:stretch;
+  }
+  .figure-side { flex:1.32; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+  .info-side  { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+
+  figure.shot {
+    margin:0; border-radius:16px; overflow:hidden;
+    box-shadow:0 18px 36px -12px rgba(0,0,0,.32);
+    border:1px solid #E5E7EB; background:#0F172A;
+  }
+  figure.shot .browser-bar {
+    display:flex; align-items:center; gap:8px;
+    background:#1E293B; padding:9px 16px; border-bottom:1px solid #334155;
+  }
+  figure.shot .dot { width:11px; height:11px; border-radius:999px; display:inline-block; }
+  figure.shot .url {
+    margin-left:12px; flex:1; background:#0F172A; color:#94A3B8;
+    font-family:'Montserrat',sans-serif; font-size:12px; font-weight:500;
+    padding:5px 14px; border-radius:7px; display:flex; align-items:center; gap:8px;
+    overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+  }
+  figure.shot img { width:100%; height:auto; display:block; max-height:560px; object-fit:cover; object-position:top; }
+  figure.shot figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:13px; padding:9px 16px;
+    font-family:'Montserrat',sans-serif; display:flex; align-items:center; gap:9px;
+  }
+  figure.shot figcaption i { color:#38BDF8; }
+
+  .lead-card {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:16px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15);
+    padding:14px 20px;
+  }
+
+  .bases-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .base-chip {
+    display:flex; align-items:center; gap:14px;
+    background:#F8FAFC; border:1px solid #E5E7EB; border-left:4px solid #0066CC;
+    border-radius:10px; padding:13px 16px;
+    box-shadow:0 2px 5px rgba(0,0,0,.05);
+  }
+  .base-chip i { color:#0066CC; font-size:21px; width:26px; text-align:center; }
+  .base-chip .b-name { font-family:'Montserrat',sans-serif; font-weight:700; color:#0F172A; font-size:17px; line-height:1.15; }
+  .base-chip .b-sub  { color:#6B7280; font-size:14px; line-height:1.15; }
+
+  .use-row {
+    display:flex; align-items:center; gap:18px;
+    background:#FFFFFF; border:1px solid #E5E7EB; border-radius:12px;
+    padding:12px 18px; box-shadow:0 2px 6px rgba(0,0,0,.05);
+  }
+  .use-item { display:flex; align-items:center; gap:10px; color:#374151; font-size:14px; font-weight:600; }
+  .use-item i { color:#0066CC; font-size:16px; }
+  .use-div { width:1px; height:26px; background:#E5E7EB; }
+
+  .access-note {
+    display:flex; align-items:center; gap:11px;
+    background:#FEF3C7; border:1px solid #FDE68A; border-radius:10px;
+    padding:10px 16px; color:#92400E; font-size:13.5px; font-weight:600;
+  }
+  .access-note i { color:#D97706; font-size:16px; }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-50px; font-size:24rem; color:#003366; opacity:0.03; z-index:0; pointer-events:none; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Top accents -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-2 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">INFOSEG na Prática</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Consulta integrada de bases de dados</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-display text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrapper z-10">
+    <!-- Figure -->
+    <div class="figure-side">
+      <figure class="shot">
+        <div class="browser-bar">
+          <span class="dot" style="background:#EF4444;"></span>
+          <span class="dot" style="background:#F59E0B;"></span>
+          <span class="dot" style="background:#10B981;"></span>
+          <span class="url"><i class="fas fa-lock" style="font-size:10px;"></i> sinesp.gov.br · Plataforma Infoseg — Pesquisa Integrada</span>
+        </div>
+        <img src="Imagens/infoseg-tela.png" alt="Tela de pesquisa integrada do SINESP/Infoseg"/>
+        <figcaption><i class="fas fa-magnifying-glass"></i> Tela de pesquisa do SINESP / Infoseg — uma única consulta, múltiplas bases</figcaption>
+      </figure>
+    </div>
+
+    <!-- Info -->
+    <div class="info-side">
+      <div class="lead-card">
+        <p class="text-gray-700 text-sm leading-relaxed">
+          A partir de uma <strong class="text-brand-primary">única consulta</strong>, o fiscal acessa
+          <strong class="text-brand-primary">diversas bases integradas</strong> de órgãos federais, apoiando
+          a identificação de pessoas e a avaliação de riscos em campo.
+        </p>
+      </div>
+
+      <p class="font-montserrat font-bold text-brand-primary text-sm tracking-widest uppercase mt-4 mb-2 flex items-center gap-2">
+        <i class="fas fa-database text-brand-secondary"></i> Bases consultadas (exemplos)
+      </p>
+      <div class="bases-grid">
+        <div class="base-chip">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <div><div class="b-name">Receita Federal / PF</div><div class="b-sub">CPF e cadastro civil</div></div>
+        </div>
+        <div class="base-chip">
+          <i class="fas fa-id-card"></i>
+          <div><div class="b-name">SENATRAN — RENACH</div><div class="b-sub">Condutores e habilitação</div></div>
+        </div>
+        <div class="base-chip">
+          <i class="fas fa-gavel"></i>
+          <div><div class="b-name">CNJ — BNMP</div><div class="b-sub">Mandados de prisão</div></div>
+        </div>
+        <div class="base-chip">
+          <i class="fas fa-briefcase"></i>
+          <div><div class="b-name">RAIS Trabalhador</div><div class="b-sub">Vínculos de emprego</div></div>
+        </div>
+        <div class="base-chip">
+          <i class="fas fa-diagram-project"></i>
+          <div><div class="b-name">CÓRTEX</div><div class="b-sub">Cruzamento de dados</div></div>
+        </div>
+        <div class="base-chip">
+          <i class="fas fa-baby"></i>
+          <div><div class="b-name">Registro Civil</div><div class="b-sub">Nascimento e óbito</div></div>
+        </div>
+      </div>
+
+      <div class="use-row mt-4">
+        <div class="use-item"><i class="fas fa-bell"></i> Notificações</div>
+        <div class="use-div"></div>
+        <div class="use-item"><i class="fas fa-file-signature"></i> Intimações</div>
+        <div class="use-div"></div>
+        <div class="use-item"><i class="fas fa-triangle-exclamation"></i> Avaliação de riscos</div>
+      </div>
+
+      <div class="access-note mt-3">
+        <i class="fas fa-user-shield"></i>
+        <span>Acesso restrito por perfil / função — uso vinculado à atividade de fiscalização.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">51 / 61</p>
+  </div>
+
+  <!-- Decorative pattern -->
+  <i class="fas fa-network-wired bg-pattern"></i>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

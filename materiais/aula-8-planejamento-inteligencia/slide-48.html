@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SINESP / INFOSEG</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .axis-card {
+    background:#F8FAFC;
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    border-top:5px solid #0066CC;
+    padding:16px 20px;
+    display:flex;
+    flex-direction:column;
+    transition:all .2s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .axis-card:hover { box-shadow:0 10px 20px rgba(0,0,0,.10); background:#ffffff; }
+  .axis-card:nth-child(1) { border-top-color:#3B82F6; }
+  .axis-card:nth-child(2) { border-top-color:#2563EB; }
+  .axis-card:nth-child(3) { border-top-color:#003366; }
+  .axis-icon {
+    width:46px; height:46px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    background:#E0F2FE; color:#0066CC; font-size:20px; margin-bottom:10px;
+  }
+  .axis-tag {
+    font-family:'Montserrat', sans-serif; font-weight:700; font-size:12px;
+    letter-spacing:.08em; text-transform:uppercase; color:#1E3A8A;
+    background:#DBEAFE; border-radius:999px; padding:3px 12px;
+    display:inline-block; margin-bottom:8px; align-self:flex-start;
+  }
+  .axis-bg-icon { position:absolute; right:-8px; bottom:-12px; font-size:80px; color:#EEF2F7; pointer-events:none; }
+  .bg-pattern { position:absolute; bottom:-60px; right:-40px; font-size:420px; opacity:.03; z-index:0; color:#003366; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-5 pb-2 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">SINESP / INFOSEG</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Sistema Nacional de Informações de Segurança Pública</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-magnifying-glass text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-4 z-10 min-h-0">
+
+    <!-- Bloco superior: banner + introdução -->
+    <div class="flex items-stretch gap-10">
+      <!-- Banner SINESP -->
+      <div class="flex-shrink-0" style="width:340px;">
+        <figure style="border-radius:14px;overflow:hidden;box-shadow:0 12px 24px -8px rgba(0,0,0,.25);border:1px solid #E5E7EB;">
+          <img src="Imagens/sinesp-logo.jpg" alt="Banner do SINESP — Sistema Nacional de Informações de Segurança Pública" style="width:100%;display:block;object-fit:cover;"/>
+          <figcaption style="background:#0F172A;color:#E2E8F0;font-size:13px;padding:9px 14px;font-family:'Montserrat', sans-serif;">
+            SINESP / INFOSEG · Ministério da Justiça e Segurança Pública
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Texto introdutório (caixa de destaque azul-clara) -->
+      <div class="flex-1" style="background:#F0F9FF;border:2px solid #BAE6FD;border-radius:16px;box-shadow:0 10px 25px -5px rgba(0,102,204,.15);padding:20px 26px;display:flex;flex-direction:column;justify-content:center;">
+        <p class="font-montserrat font-bold text-brand-primary text-xl mb-2 flex items-center gap-3">
+          <i class="fas fa-network-wired text-brand-secondary"></i> Plataforma nacional integrada
+        </p>
+        <p class="text-gray-700 text-base leading-relaxed mb-2">
+          O <strong>SINESP/INFOSEG</strong> é a plataforma nacional que reúne, em um único ambiente,
+          <strong>informações integradas de segurança pública</strong> oriundas de diversos órgãos federais e estaduais.
+        </p>
+        <p class="text-gray-700 text-base leading-relaxed">
+          A <strong>ANTAQ aderiu</strong> à plataforma para apoiar suas atividades de
+          <strong>fiscalização e inteligência</strong>, ampliando o acesso a bases qualificadas no planejamento e na condução das ações.
+        </p>
+      </div>
+    </div>
+
+    <!-- Antecipação dos 3 eixos -->
+    <div class="mt-5">
+      <p class="font-montserrat font-bold text-brand-primary text-base uppercase tracking-widest mb-3 flex items-center gap-3">
+        <i class="fas fa-layer-group text-brand-secondary"></i> Três eixos de consulta <span class="text-gray-400 font-medium normal-case tracking-normal text-base">(detalhados a seguir)</span>
+      </p>
+      <div class="grid grid-cols-3 gap-6">
+
+        <div class="axis-card">
+          <div class="axis-icon"><i class="fas fa-headset"></i></div>
+          <span class="axis-tag">Eixo 1</span>
+          <p class="font-montserrat font-bold text-brand-primary text-lg mb-1">Consultas operacionais</p>
+          <p class="text-gray-600 text-sm leading-snug">Apoio imediato às ações de campo e à verificação de dados durante a fiscalização.</p>
+          <i class="fas fa-headset axis-bg-icon"></i>
+        </div>
+
+        <div class="axis-card">
+          <div class="axis-icon"><i class="fas fa-fingerprint"></i></div>
+          <span class="axis-tag">Eixo 2</span>
+          <p class="font-montserrat font-bold text-brand-primary text-lg mb-1">Consultas investigativas</p>
+          <p class="text-gray-600 text-sm leading-snug">Cruzamento de informações para aprofundar análises e subsidiar apurações.</p>
+          <i class="fas fa-fingerprint axis-bg-icon"></i>
+        </div>
+
+        <div class="axis-card">
+          <div class="axis-icon"><i class="fas fa-chess-board"></i></div>
+          <span class="axis-tag">Eixo 3</span>
+          <p class="font-montserrat font-bold text-brand-primary text-lg mb-1">Consultas estratégicas</p>
+          <p class="text-gray-600 text-sm leading-snug">Visão agregada para planejamento, priorização e inteligência da fiscalização.</p>
+          <i class="fas fa-chess-board axis-bg-icon"></i>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">48 / 61</p>
+  </div>
+
+  <!-- Pattern decorativo -->
+  <div class="bg-pattern"><i class="fas fa-shield-halved"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

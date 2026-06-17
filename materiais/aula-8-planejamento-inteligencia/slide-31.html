@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dia de Fiscal</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .intro-box {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:16px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15); padding:14px 26px;
+  }
+
+  .mot-card {
+    background:#F8FAFC; border-radius:12px; padding:16px 20px;
+    border-left:5px solid #0066CC; box-shadow:0 2px 6px rgba(0,0,0,.06);
+    display:flex; align-items:flex-start; gap:14px;
+  }
+  .mot-card .ic {
+    flex:none; width:46px; height:46px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px; color:#fff;
+  }
+
+  .info-card {
+    background:#fff; border:1px solid #E5E7EB; border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.05); padding:20px 24px;
+    display:flex; align-items:center; gap:18px;
+  }
+  .info-card .badge {
+    flex:none; width:60px; height:60px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center; font-size:26px; color:#fff;
+  }
+
+  .new-card {
+    background:linear-gradient(135deg,#003366 0%,#0066CC 100%); border-radius:14px;
+    box-shadow:0 10px 22px -6px rgba(0,51,102,.35); padding:20px 26px;
+    display:flex; align-items:center; gap:20px; color:#fff; position:relative; overflow:hidden;
+  }
+  .new-card .gold-tag {
+    flex:none; background:#FFD700; color:#003366; font-family:'Montserrat',sans-serif;
+    font-weight:800; font-size:13px; letter-spacing:.08em; padding:6px 14px; border-radius:999px;
+    text-transform:uppercase;
+  }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-40px; font-size:18rem; opacity:.03; z-index:0; color:#003366; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div style="height:12px;background:#003366;width:100%;"></div>
+<div style="height:6px;background:#0066CC;width:100%;"></div>
+
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<div class="w-1.5 h-9 bg-brand-secondary"></div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Dia de Fiscal</h1>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">Visão sistêmica da fiscalização para toda a ANTAQ</p>
+</div>
+<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-chalkboard-user text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+</div>
+</div>
+
+<!-- Content -->
+<div class="flex-1 flex flex-col justify-center px-16 pb-5 z-10 min-h-0 gap-4">
+
+  <!-- Intro / descrição -->
+  <div class="intro-box">
+    <p class="text-brand-primary font-montserrat font-bold mb-1 flex items-center gap-3" style="font-size:17px;">
+      <i class="fas fa-graduation-cap text-brand-secondary" style="font-size:18px;"></i>
+      Curso de capacitação interna
+    </p>
+    <p class="text-gray-700 leading-snug" style="font-size:14px;">
+      Voltado aos servidores lotados na <strong>sede da ANTAQ que não atuam na SFC</strong> e aos
+      <strong>servidores administrativos das Unidades Regionais (URE)</strong>. Apresenta os
+      <strong>conceitos introdutórios da fiscalização</strong> e a <strong>legislação aplicável</strong>,
+      bem como a <strong>realidade da execução de uma ação fiscalizatória</strong>.
+    </p>
+  </div>
+
+  <!-- Motivação do projeto -->
+  <div>
+    <p class="text-gray-400 text-sm font-montserrat font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+      <i class="fas fa-bullseye text-brand-secondary"></i> Motivação do projeto
+    </p>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="mot-card">
+        <div class="ic" style="background:#0066CC;"><i class="fas fa-handshake-angle"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug mb-1">Aperfeiçoar a interface</p>
+          <p class="text-gray-600 text-sm leading-snug">Aproximar a SFC das demais Superintendências da Agência.</p>
+        </div>
+      </div>
+      <div class="mot-card" style="border-left-color:#2563EB;">
+        <div class="ic" style="background:#2563EB;"><i class="fas fa-share-nodes"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug mb-1">Difundir conhecimento</p>
+          <p class="text-gray-600 text-sm leading-snug">Disseminar o saber fiscalizatório por toda a ANTAQ.</p>
+        </div>
+      </div>
+      <div class="mot-card" style="border-left-color:#003366;">
+        <div class="ic" style="background:#003366;"><i class="fas fa-diagram-project"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug mb-1">Visão sistêmica</p>
+          <p class="text-gray-600 text-sm leading-snug">Proporcionar visão integrada das atividades da Agência.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Módulo teórico + Novidade 2026 -->
+  <div class="grid grid-cols-2 gap-4 items-stretch" style="margin-top:14px;">
+    <div class="info-card">
+      <div class="badge" style="background:#0066CC;"><i class="fas fa-laptop"></i></div>
+      <div>
+        <p class="text-gray-400 text-xs font-montserrat font-bold uppercase tracking-widest mb-1">Módulo teórico</p>
+        <p class="font-montserrat font-bold text-brand-primary text-xl leading-tight">EAD síncrono</p>
+        <p class="text-gray-600 text-sm mt-0.5"><i class="far fa-clock text-brand-secondary mr-1"></i>Carga horária de <strong>4 horas</strong></p>
+      </div>
+    </div>
+
+    <div class="new-card">
+      <span class="gold-tag">Novidade 2026</span>
+      <div class="flex items-center gap-4">
+        <i class="fas fa-user-plus text-3xl text-yellow-300"></i>
+        <p class="text-base leading-snug">
+          Destinação de vagas para os <strong class="text-yellow-300">30 novos servidores</strong> da ANTAQ.
+        </p>
+      </div>
+      <i class="fas fa-users absolute -right-4 -bottom-6 text-8xl opacity-10"></i>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="px-16 pb-6 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">31 / 61</p>
+</div>
+
+<!-- Decorative Background -->
+<div class="bg-pattern"><i class="fas fa-chalkboard-user"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

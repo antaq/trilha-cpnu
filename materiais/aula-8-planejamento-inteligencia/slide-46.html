@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Benefícios do RedeMAIS — Alertas de Construções</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .info-card {
+    background:#F8FAFC;
+    border-radius:16px;
+    box-shadow:0 4px 14px rgba(0,0,0,.07);
+    padding:22px 26px;
+    display:flex;
+    flex-direction:column;
+    border-top:6px solid #0066CC;
+    position:relative;
+    overflow:hidden;
+  }
+  .info-card .ghost-icon {
+    position:absolute;
+    right:-12px;
+    bottom:-18px;
+    font-size:120px;
+    color:#0066CC;
+    opacity:.05;
+    pointer-events:none;
+  }
+  .icon-badge {
+    width:52px; height:52px;
+    border-radius:12px;
+    background:#E0F2FE;
+    color:#0066CC;
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px;
+    flex-shrink:0;
+    box-shadow:0 4px 10px rgba(0,102,204,.12);
+  }
+  .pill {
+    font-family:'Montserrat', sans-serif;
+    font-weight:700; font-size:13px;
+    color:#1E3A8A;
+    padding:3px 14px;
+    border-radius:999px;
+    background:#DBEAFE;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    display:inline-block;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-9 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Benefícios do RedeMAIS — Alertas de Construções</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Relatórios Analíticos de Alertas (RAA)</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-building-circle-exclamation text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+
+    <!-- Dois cartões -->
+    <div class="grid grid-cols-2 gap-6">
+
+      <!-- Cartão 1 -->
+      <div class="info-card">
+        <i class="fas fa-helmet-safety ghost-icon"></i>
+        <div class="flex items-center gap-4 mb-4">
+          <div class="icon-badge"><i class="fas fa-helmet-safety"></i></div>
+          <div>
+            <span class="pill mb-1">Alerta de construções</span>
+            <p class="font-montserrat font-bold text-brand-primary text-xl mt-1">Relatórios diários</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Geração de <strong>relatórios diários</strong> sobre construções detectadas em
+          <strong>perímetro previamente delimitado</strong>, sinalizando novas edificações
+          assim que surgem na área monitorada.
+        </p>
+      </div>
+
+      <!-- Cartão 2 -->
+      <div class="info-card" style="border-top-color:#1D4ED8;">
+        <i class="fas fa-map-location-dot ghost-icon"></i>
+        <div class="flex items-center gap-4 mb-4">
+          <div class="icon-badge" style="background:#DBEAFE;"><i class="fas fa-map-location-dot"></i></div>
+          <div>
+            <span class="pill mb-1">Possibilidades</span>
+            <p class="font-montserrat font-bold text-brand-primary text-xl mt-1">Áreas com restrição</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-base leading-relaxed">
+          <strong>Detecção de áreas construídas em arrendamentos com restrição</strong>,
+          permitindo identificar obras em desacordo com as condições previstas para
+          aquele espaço portuário.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Caixa de destaque -->
+    <div class="mt-6" style="background:#F0F9FF;border:2px solid #BAE6FD;border-radius:16px;
+                box-shadow:0 10px 25px -5px rgba(0,102,204,.15);padding:20px 28px;">
+      <div class="flex items-start gap-5">
+        <div class="flex-shrink-0 mt-1" style="color:#0066CC;font-size:30px;">
+          <i class="fas fa-satellite-dish"></i>
+        </div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-lg mb-1">Ganho de capacidade fiscalizatória</p>
+          <p class="text-gray-700 text-base leading-relaxed">
+            Fiscalização <strong>remota e tempestiva</strong> sobre <strong>obras irregulares</strong>
+            em áreas portuárias arrendadas — a ANTAQ passa a identificar intervenções não autorizadas
+            sem depender de visita presencial, agindo logo após a detecção.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">46 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

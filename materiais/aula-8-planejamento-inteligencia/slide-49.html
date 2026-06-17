@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Adesão ao SINESP / INFOSEG</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        html { font-size: 26px; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .bg-brand-primary { background-color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .info-card {
+            background-color: #F8FAFC;
+            border-radius: 18px;
+            border-top: 6px solid #0066CC;
+            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.14);
+            display: flex;
+            flex-direction: column;
+            padding: 34px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+        .info-card:hover {
+            box-shadow: 0 16px 30px -10px rgba(0,0,0,0.2);
+            background-color: #FFFFFF;
+        }
+        .info-card:nth-child(1) { border-top-color: #60A5FA; }
+        .info-card:nth-child(2) { border-top-color: #2563EB; }
+        .info-card:nth-child(3) { border-top-color: #003366; }
+
+        .info-card .icon-circle {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+            box-shadow: 0 8px 18px -6px rgba(0,102,204,0.5);
+            margin-bottom: 22px;
+        }
+        .info-card .icon-circle i {
+            color: #ffffff;
+            font-size: 36px;
+        }
+        .card-kicker {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #0066CC;
+            margin-bottom: 4px;
+        }
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 23px;
+            color: #003366;
+            margin-bottom: 14px;
+        }
+        .card-desc {
+            font-size: 16.5px;
+            line-height: 1.55;
+            color: #4B5563;
+        }
+        .bg-watermark {
+            position: absolute;
+            bottom: -36px;
+            right: -24px;
+            font-size: 150px;
+            color: #003366;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+        .tag-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #DBEAFE;
+            color: #1E3A8A;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Barras de topo -->
+<div style="height:12px;background:#003366;width:100%;"></div>
+<div style="height:6px;background:#0066CC;width:100%;"></div>
+
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-10 pb-3 z-10">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<div class="w-1.5 h-9 bg-brand-secondary"></div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Adesão ao SINESP / INFOSEG</h1>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">Processo SEI 50300.021266/2018-17</p>
+</div>
+<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-database text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+</div>
+</div>
+
+<!-- Conteúdo -->
+<div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+<div class="grid grid-cols-3 gap-8">
+
+<!-- Cartão 1 — Objeto -->
+<div class="info-card">
+<div class="icon-circle"><i class="fas fa-layer-group"></i></div>
+<p class="card-kicker">Objeto</p>
+<p class="card-title">Plataforma integrada</p>
+<p class="card-desc">Acesso a plataforma de <strong>informações integradas</strong>, que possibilita consultas <strong>operacionais, investigativas e estratégicas</strong> sobre segurança pública.</p>
+<i class="fas fa-layer-group bg-watermark"></i>
+</div>
+
+<!-- Cartão 2 — Inteligência -->
+<div class="info-card">
+<div class="icon-circle"><i class="fas fa-user-shield"></i></div>
+<p class="card-kicker">Inteligência</p>
+<p class="card-title">Uso restrito</p>
+<p class="card-desc">Acesso restrito aos profissionais de <strong>segurança pública, justiça, fiscalização</strong> e <strong>órgãos de controle</strong>, preservando o sigilo das bases.</p>
+<i class="fas fa-user-shield bg-watermark"></i>
+</div>
+
+<!-- Cartão 3 — Dados e informações -->
+<div class="info-card">
+<div class="icon-circle"><i class="fas fa-id-card"></i></div>
+<p class="card-kicker">Dados e informações</p>
+<p class="card-title">Bases consultáveis</p>
+<p class="card-desc">Registros referentes a <strong>indivíduos, empresas, veículos</strong> (terrestres e embarcações) e <strong>armas</strong>.</p>
+<i class="fas fa-id-card bg-watermark"></i>
+</div>
+
+</div>
+
+<!-- Faixa de processo SEI -->
+<div class="mt-7 flex items-center gap-4 px-6 py-4 rounded-xl" style="background:#F0F9FF;border:2px solid #BAE6FD;box-shadow:0 8px 20px -10px rgba(0,102,204,0.18);">
+<i class="fas fa-folder-open text-brand-secondary text-2xl"></i>
+<p class="text-gray-700 text-base leading-snug">
+Adesão formalizada no <strong class="text-brand-primary">Processo SEI 50300.021266/2018-17</strong>, que viabiliza o acesso da ANTAQ às bases do SINESP / INFOSEG para apoio à fiscalização.
+</p>
+<span class="tag-chip ml-auto whitespace-nowrap"><i class="fas fa-hashtag"></i> 50300.021266/2018-17</span>
+</div>
+</div>
+
+<!-- Rodapé -->
+<div class="px-16 pb-6 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">49 / 61</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

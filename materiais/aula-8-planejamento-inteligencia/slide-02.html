@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Apresentador — Trilha Técnica da Fiscalização</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Avatar circular com iniciais */
+  .avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #004488 0%, #003366 60%, #002244 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 32px -10px rgba(0,51,102,.45);
+    position: relative;
+  }
+  .avatar::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 4px solid #FFD700;
+    opacity: .9;
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  .avatar .badge {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #FFD700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  }
+  .avatar .badge i { color: #003366; font-size: 1.4rem; }
+
+  /* Cartão de perfil */
+  .profile-card {
+    background: #F8FAFC;
+    border: 1px solid #E5E7EB;
+    border-radius: 22px;
+    box-shadow: 0 14px 30px -12px rgba(0,0,0,.18);
+  }
+
+  /* Mini-cards da trajetória */
+  .timeline-card {
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-top: 4px solid #0066CC;
+    border-radius: 14px;
+    padding: 18px 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform .2s ease;
+  }
+  .timeline-card .ic {
+    width: 58px; height: 58px; border-radius: 14px;
+    display:flex; align-items:center; justify-content:center;
+    background: #EFF6FF; color:#0066CC; font-size: 1.6rem; margin-bottom: 10px;
+  }
+  .timeline-card.dad { border-top-color:#E11D48; }
+  .timeline-card.dad .ic { background:#FFF1F2; color:#E11D48; }
+  .timeline-card .yr { margin-top:10px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:.95rem; color:#0066CC; background:#EFF6FF; padding:4px 14px; border-radius:999px; letter-spacing:.03em; }
+  .timeline-card.dad .yr { color:#E11D48; background:#FFF1F2; }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-50px; width:420px; height:420px; opacity:0.04; z-index:0; color:#003366; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-10 pb-4 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Apresentador</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Gerência de Planejamento e Inteligência da Fiscalização — GPF</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-user-tie text-xl" aria-hidden="true"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">APRESENTADOR</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+    <!-- Cartão central de perfil -->
+    <div class="profile-card w-full max-w-6xl mx-auto flex items-center gap-10 px-10 py-7">
+      <!-- Avatar -->
+      <div class="avatar flex-shrink-0">
+        <img src="Imagens/apresentador-pedro.jpg" alt="Pedro Henrique Soares"/>
+        <div class="badge"><i class="fas fa-anchor"></i></div>
+      </div>
+      <!-- Identificação -->
+      <div class="flex-1">
+        <h2 class="font-montserrat font-extrabold text-brand-primary leading-tight" style="font-size:2.4rem;">Pedro Henrique Soares</h2>
+        <p class="text-gray-700 text-xl font-semibold mt-2 flex items-center gap-3">
+          <i class="fas fa-briefcase text-brand-secondary"></i>
+          Gerente de Planejamento e Inteligência da Fiscalização (GPF)
+        </p>
+        <div class="mt-4">
+          <span style="display:inline-flex;align-items:center;gap:.5rem;font-family:'Montserrat';font-weight:700;font-size:.95rem;color:#1E3A8A;padding:7px 18px;border-radius:999px;background:#DBEAFE;text-transform:uppercase;letter-spacing:.06em;">
+            <i class="fas fa-award" style="color:#0066CC;"></i> Especialista em Regulação desde 2017
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trajetória -->
+    <div class="w-full max-w-6xl mx-auto mt-7">
+      <p class="font-montserrat font-bold text-brand-primary text-lg uppercase tracking-wide mb-3 flex items-center gap-3">
+        <i class="fas fa-route text-brand-secondary"></i> Trajetória
+      </p>
+      <div class="grid grid-cols-5 gap-5">
+        <div class="timeline-card">
+          <div class="ic"><i class="fas fa-building-columns"></i></div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug">Bancário</p>
+          <p class="text-gray-500 text-sm mt-1">Caixa e Banco do Brasil</p>
+          <span class="yr">2010</span>
+        </div>
+        <div class="timeline-card">
+          <div class="ic"><i class="fas fa-id-badge"></i></div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug">Técnico em Regulação</p>
+          <p class="text-gray-500 text-sm mt-1">ANTT</p>
+          <span class="yr">2013</span>
+        </div>
+        <div class="timeline-card">
+          <div class="ic"><i class="fas fa-anchor"></i></div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug">Especialista em Regulação</p>
+          <p class="text-gray-500 text-sm mt-1">ANTAQ</p>
+          <span class="yr">2017</span>
+        </div>
+        <div class="timeline-card">
+          <div class="ic"><i class="fas fa-code"></i></div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug">Programador</p>
+          <p class="text-gray-500 text-sm mt-1">Desenvolvimento de soluções</p>
+          <span class="yr">+20 anos</span>
+        </div>
+        <div class="timeline-card dad">
+          <div class="ic"><i class="fas fa-heart"></i></div>
+          <p class="font-montserrat font-bold text-brand-primary text-base leading-snug">Pai</p>
+          <p class="text-gray-500 text-sm mt-1">A missão mais importante</p>
+          <span class="yr">2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">2 / 61</p>
+  </div>
+
+  <!-- Marca d'água decorativa -->
+  <div class="bg-pattern"><i class="fas fa-user-tie text-9xl"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

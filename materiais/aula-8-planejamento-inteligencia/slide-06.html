@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estrutura Organizacional da Fiscalização</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* ===== Organograma ===== */
+  .org { width:100%; max-width:1620px; margin:0 auto; display:flex; flex-direction:column; align-items:center; }
+
+  /* Caixa raiz SFC */
+  .org-root {
+    background:linear-gradient(135deg,#003366 0%,#004488 100%);
+    color:#fff; border-radius:18px;
+    box-shadow:0 16px 34px -10px rgba(0,51,102,.45);
+    padding:28px 52px; text-align:center; width:1040px; max-width:92%;
+    position:relative;
+  }
+  .org-root .sigla {
+    font-family:'Montserrat',sans-serif; font-weight:900; font-size:40px; letter-spacing:.04em;
+    display:flex; align-items:center; justify-content:center; gap:16px;
+  }
+  .org-root .sigla i { color:#FFD700; font-size:34px; }
+  .org-root .desc { font-size:19px; color:#CFE3F7; margin-top:6px; line-height:1.3; }
+
+  /* Conectores */
+  .trunk { width:3px; height:40px; background:#94A3B8; }
+  .bus { width:1380px; max-width:95%; height:3px; background:#94A3B8; position:relative; }
+  .branch-row { display:flex; justify-content:space-between; width:1380px; max-width:95%; }
+  .branch { width:25%; display:flex; flex-direction:column; align-items:center; }
+  .drop { width:3px; height:30px; background:#94A3B8; }
+
+  /* Caixas de gerência */
+  .org-box {
+    background:#F8FAFC; border:1px solid #E5E7EB; border-top:6px solid #0066CC;
+    border-radius:16px; box-shadow:0 6px 16px rgba(0,0,0,.08);
+    padding:26px 20px 22px; text-align:center; width:328px; max-width:100%;
+    display:flex; flex-direction:column; align-items:center; gap:9px;
+    position:relative; min-height:266px; justify-content:flex-start;
+  }
+  .org-box .ico {
+    width:68px; height:68px; border-radius:50%; background:#EFF6FF;
+    display:flex; align-items:center; justify-content:center;
+    color:#0066CC; font-size:30px; margin-bottom:4px;
+  }
+  .org-box .sigla { font-family:'Montserrat',sans-serif; font-weight:800; font-size:30px; color:#003366; letter-spacing:.02em; }
+  .org-box .nome { font-size:16.5px; color:#4B5563; line-height:1.4; }
+
+  /* Destaque leve no GPF (dona do conteúdo) */
+  .org-box.is-gpf {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-top:6px solid #FFD700;
+    box-shadow:0 14px 30px -8px rgba(0,102,204,.30);
+  }
+  .org-box.is-gpf .ico { background:#FFF8DB; color:#003366; }
+  .org-box.is-gpf .sigla { color:#003366; }
+  .gpf-tag {
+    position:absolute; top:-15px; left:50%; transform:translateX(-50%);
+    background:#FFD700; color:#003366; font-family:'Montserrat',sans-serif; font-weight:800;
+    font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 15px; border-radius:999px; white-space:nowrap;
+    box-shadow:0 3px 8px rgba(0,0,0,.12);
+  }
+
+  /* Faixa de destaque GREs/UREs */
+  .field-band {
+    margin-top:32px; width:1380px; max-width:95%;
+    background:linear-gradient(135deg,#003366 0%,#0066CC 100%); color:#fff;
+    border-radius:16px; box-shadow:0 14px 30px -8px rgba(0,51,102,.40);
+    padding:22px 34px; display:flex; align-items:center; gap:28px;
+  }
+  .field-band .lead {
+    display:flex; align-items:center; gap:14px; flex-shrink:0;
+    border-right:1px solid rgba(255,255,255,.25); padding-right:28px;
+  }
+  .field-band .lead i { color:#FFD700; font-size:36px; }
+  .field-band .lead span { font-family:'Montserrat',sans-serif; font-weight:800; font-size:21px; line-height:1.15; }
+  .field-items { display:flex; gap:34px; flex:1; }
+  .field-items .fi { display:flex; align-items:center; gap:11px; font-size:17px; color:#EAF3FC; }
+  .field-items .fi i { color:#7FD3FF; font-size:19px; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-9 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Estrutura Organizacional da Fiscalização</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Superintendência de Fiscalização e Coordenação das Unidades Regionais (SFC)</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-sitemap text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+    <div class="org">
+
+      <!-- Raiz SFC -->
+      <div class="org-root">
+        <div class="sigla"><i class="fas fa-landmark-dome"></i> SFC</div>
+        <div class="desc">Superintendência de Fiscalização e Coordenação das Unidades Regionais</div>
+      </div>
+
+      <!-- Conectores raiz -> barramento -->
+      <div class="trunk"></div>
+      <div class="bus"></div>
+      <div class="branch-row">
+        <div class="branch"><div class="drop"></div></div>
+        <div class="branch"><div class="drop"></div></div>
+        <div class="branch"><div class="drop"></div></div>
+        <div class="branch"><div class="drop"></div></div>
+      </div>
+
+      <!-- Caixas de gerência -->
+      <div class="branch-row" style="margin-top:0;">
+        <div class="branch">
+          <div class="org-box is-gpf">
+            <span class="gpf-tag"><i class="fas fa-star"></i> Foco da trilha</span>
+            <div class="ico"><i class="fas fa-brain"></i></div>
+            <div class="sigla">GPF</div>
+            <div class="nome">Gerência de Planejamento e Inteligência da Fiscalização</div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="org-box">
+            <div class="ico"><i class="fas fa-people-arrows"></i></div>
+            <div class="sigla">GCOR</div>
+            <div class="nome">Gerência de Coordenação das Unidades Regionais</div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="org-box">
+            <div class="ico"><i class="fas fa-toolbox"></i></div>
+            <div class="sigla">GRAT</div>
+            <div class="nome">Gerência de Recursos e de Apoio Técnico</div>
+          </div>
+        </div>
+        <div class="branch">
+          <div class="org-box">
+            <div class="ico"><i class="fas fa-map-location-dot"></i></div>
+            <div class="sigla">GREs / UREs</div>
+            <div class="nome">Gerências e Unidades Regionais</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faixa de destaque sobre GREs/UREs -->
+      <div class="field-band">
+        <div class="lead">
+          <i class="fas fa-anchor"></i>
+          <span>Braço operacional<br/>da ANTAQ</span>
+        </div>
+        <div class="field-items">
+          <div class="fi"><i class="fas fa-clipboard-check"></i> Execução de inspeções e ações de campo</div>
+          <div class="fi"><i class="fas fa-magnifying-glass-location"></i> Verificações presenciais</div>
+          <div class="fi"><i class="fas fa-globe-americas"></i> Estrutura descentralizada em todo o território nacional</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">6 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SFIS Mobile — A fiscalização na palma da mão</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Requisito / download cards */
+  .info-card {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:14px;
+    box-shadow:0 6px 14px -6px rgba(0,102,204,.15);
+    padding:11px 18px; display:flex; align-items:center; gap:14px;
+  }
+  .info-card .icon-box {
+    flex-shrink:0; width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:20px;
+    background:linear-gradient(135deg,#0066CC 0%,#003366 100%);
+  }
+
+  /* Block titles */
+  .block-title {
+    font-family:'Montserrat', sans-serif; font-weight:800; font-size:18px;
+    color:#003366; text-transform:uppercase; letter-spacing:.04em;
+    display:flex; align-items:center; gap:10px; margin-bottom:12px;
+  }
+
+  /* Suprimidos — chips riscados */
+  .supr-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  .supr-chip {
+    display:flex; align-items:center; gap:12px;
+    background:#FEF2F2; border:1px solid #FECACA; border-radius:12px;
+    padding:14px 18px;
+  }
+  .supr-chip i { color:#DC2626; font-size:22px; flex-shrink:0; }
+  .supr-chip span {
+    color:#991B1B; font-weight:600; font-size:19px;
+    text-decoration:line-through; text-decoration-color:#DC2626;
+    text-decoration-thickness:2px;
+  }
+
+  /* Integrados — chips */
+  .int-grid { display:flex; flex-wrap:wrap; gap:9px; }
+  .int-chip {
+    display:inline-flex; align-items:center; gap:8px;
+    background:#EFF6FF; border:1px solid #BFDBFE; border-radius:999px;
+    padding:8px 16px; color:#1E3A8A; font-weight:700; font-size:15px;
+    font-family:'Montserrat', sans-serif;
+  }
+  .int-chip i { color:#0066CC; font-size:13px; }
+
+  /* Video panel (estilo slide-09 SisPAT) */
+  .video-panel {
+    background-color:#0F172A; border-radius:18px; border:1px solid #1E293B;
+    box-shadow:0 18px 36px -10px rgba(0,0,0,.4);
+    display:flex; flex-direction:column; overflow:hidden;
+    width:100%; height:100%; position:relative;
+  }
+  .video-header {
+    display:flex; align-items:center; gap:10px;
+    padding:12px 18px; background-color:#1E293B; border-bottom:1px solid #334155;
+  }
+  .video-header i { color:#38BDF8; font-size:16px; }
+  .video-header span {
+    color:#E2E8F0; font-family:'Montserrat', sans-serif; font-weight:600; font-size:14px;
+  }
+  .video-frame {
+    flex:1; background-color:#000; display:flex; align-items:center; justify-content:center;
+    min-height:0; overflow:hidden;
+  }
+  .video-frame video { height:100%; width:auto; max-width:100%; display:block; }
+
+  .bg-pattern { position:absolute; bottom:-70px; right:-40px; font-size:24rem; opacity:.04; color:#003366; z-index:0; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">SFIS Mobile</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">A fiscalização na palma da mão</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-mobile-screen-button text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex z-10 min-h-0 px-16 pb-6 gap-10">
+
+    <!-- ESQUERDA — Texto -->
+    <div class="flex flex-col min-h-0 justify-center gap-5" style="flex:1.25;">
+
+      <!-- Requisito -->
+      <div class="info-card">
+        <div class="icon-box"><i class="fab fa-android"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary leading-tight" style="font-size:16px;">Requisito do dispositivo</p>
+          <p class="text-gray-600 leading-snug" style="font-size:14px;">Dispositivo móvel com sistema operacional <strong>Android</strong>.</p>
+        </div>
+      </div>
+
+      <!-- Download -->
+      <div class="info-card">
+        <div class="icon-box"><i class="fas fa-cloud-arrow-down"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary leading-tight" style="font-size:16px;">Disponível para download</p>
+          <p class="text-brand-secondary leading-snug font-semibold break-all" style="font-size:14px;">web3.antaq.gov.br/sistemas/sfismobile/</p>
+        </div>
+      </div>
+
+      <!-- Itens suprimidos -->
+      <div>
+        <p class="block-title"><i class="fas fa-ban text-red-600"></i> Itens suprimidos <span class="text-gray-400 font-semibold normal-case tracking-normal text-base">— o app substitui</span></p>
+        <div class="supr-grid">
+          <div class="supr-chip"><i class="fas fa-camera"></i><span>Máquina Fotográfica</span></div>
+          <div class="supr-chip"><i class="fas fa-clipboard"></i><span>Prancheta</span></div>
+          <div class="supr-chip"><i class="fas fa-pen"></i><span>Caneta</span></div>
+          <div class="supr-chip"><i class="fas fa-print"></i><span>Impressões</span></div>
+        </div>
+      </div>
+
+      <!-- Sistemas integrados -->
+      <div>
+        <p class="block-title"><i class="fas fa-diagram-project text-brand-secondary"></i> Sistemas integrados</p>
+        <div class="int-grid">
+          <span class="int-chip"><i class="fas fa-circle"></i>SFIS</span>
+          <span class="int-chip"><i class="fas fa-circle"></i>Corporativo</span>
+          <span class="int-chip"><i class="fas fa-circle"></i>Outorga</span>
+          <span class="int-chip"><i class="fas fa-circle"></i>Arrendamento V2</span>
+          <span class="int-chip"><i class="fas fa-circle"></i>SIGTAq</span>
+          <span class="int-chip"><i class="fas fa-circle"></i>SEI</span>
+          <span class="int-chip"><i class="fas fa-circle"></i>SARH</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DIREITA — Vídeo -->
+    <div class="flex flex-col min-h-0" style="flex:1;">
+      <div class="video-panel">
+        <div class="video-header">
+          <i class="fas fa-circle-play"></i>
+          <span>Demonstração — SFIS Mobile</span>
+        </div>
+        <div class="video-frame">
+          <video autoplay loop muted playsinline preload="auto">
+            <source src="Imagens/sfis-mobile.webm" type="video/webm"/>
+            <source src="Imagens/sfis-mobile.mp4" type="video/mp4"/>
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">27 / 61</p>
+  </div>
+
+  <!-- Marca d'água decorativa -->
+  <div class="bg-pattern"><i class="fas fa-mobile-screen-button"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

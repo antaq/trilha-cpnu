@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conportos — Trilha Técnica da Fiscalização</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    html { font-size: 26px; }
+    body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+    .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+    .font-montserrat { font-family:'Montserrat', sans-serif; }
+    .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+    .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+    .header-bar { background-color:#003366; height:12px; width:100%; }
+    .secondary-bar { background-color:#0066CC; height:6px; width:100%; }
+
+    /* Marca d'água / ícone decorativo */
+    .bg-pattern {
+        position:absolute; bottom:-70px; right:-60px;
+        font-size:30rem; opacity:0.04; z-index:0; color:#003366; pointer-events:none;
+    }
+
+    /* Painel do brasão (lateral esquerda) */
+    .logo-panel {
+        background:linear-gradient(135deg,#F0F9FF 0%,#E0F2FE 100%);
+        border:2px solid #BAE6FD; border-radius:20px;
+        box-shadow:0 14px 30px -10px rgba(0,102,204,.22);
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        padding:34px 30px; text-align:center;
+    }
+    .logo-panel img {
+        width:280px; height:280px; object-fit:contain;
+        filter:drop-shadow(0 8px 16px rgba(0,0,0,.18));
+    }
+
+    /* Cartões de conteúdo */
+    .info-card {
+        background:#F8FAFC; border-radius:14px;
+        box-shadow:0 2px 6px rgba(0,0,0,.06);
+        padding:20px 26px; display:flex; gap:18px; align-items:flex-start;
+        border-left:6px solid #0066CC;
+    }
+    .info-card:nth-child(1) { border-left-color:#60A5FA; }
+    .info-card:nth-child(2) { border-left-color:#2563EB; }
+    .info-card:nth-child(3) { border-left-color:#003366; }
+
+    .info-icon {
+        flex-shrink:0; width:62px; height:62px; border-radius:14px;
+        background:#0066CC; color:#fff;
+        display:flex; align-items:center; justify-content:center;
+        font-size:26px; box-shadow:0 6px 14px -4px rgba(0,102,204,.5);
+    }
+    .info-card:nth-child(1) .info-icon { background:#3B82F6; }
+    .info-card:nth-child(2) .info-icon { background:#1D4ED8; }
+    .info-card:nth-child(3) .info-icon { background:#003366; }
+
+    .info-title {
+        font-family:'Montserrat', sans-serif; font-weight:700;
+        font-size:19px; color:#003366; text-transform:uppercase;
+        letter-spacing:.03em; margin-bottom:6px;
+    }
+    .info-desc { font-size:16px; color:#4B5563; line-height:1.5; }
+
+    .tag-pill {
+        display:inline-flex; align-items:center; gap:6px;
+        background:#DBEAFE; color:#1E3A8A;
+        font-family:'Montserrat', sans-serif; font-weight:700; font-size:12px;
+        padding:4px 12px; border-radius:999px; letter-spacing:.05em;
+        text-transform:uppercase; margin-top:4px;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Barras de topo -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-9 pb-3 z-10">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<div class="w-1.5 h-9 bg-brand-secondary"></div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Conportos</h1>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">Comissão Nacional de Segurança Pública nos Portos, Terminais e Vias Navegáveis</p>
+</div>
+<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-shield text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+</div>
+</div>
+
+<!-- Conteúdo -->
+<div class="flex-1 flex items-center px-16 pb-6 z-10 min-h-0">
+<div class="w-full grid grid-cols-12 gap-10 items-stretch">
+
+<!-- Coluna do brasão -->
+<div class="col-span-4 flex items-center">
+<div class="logo-panel w-full">
+<img src="Imagens/conportos-logo.png" alt="Brasão da Conportos"/>
+<p class="font-montserrat font-bold text-brand-primary text-xl mt-5">CONPORTOS</p>
+<span class="tag-pill"><i class="fas fa-anchor"></i> Segurança Portuária</span>
+</div>
+</div>
+
+<!-- Coluna dos blocos -->
+<div class="col-span-8 flex flex-col justify-center gap-5">
+
+<div class="info-card">
+<div class="info-icon"><i class="fas fa-shield"></i></div>
+<div>
+<p class="info-title">Apresentação</p>
+<p class="info-desc">Comissão responsável por <strong>coordenar ações para a segurança portuária</strong> em portos, terminais e vias navegáveis do país.</p>
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon"><i class="fas fa-users"></i></div>
+<div>
+<p class="info-title">Composição</p>
+<p class="info-desc">Integrada por representantes da <strong>Marinha</strong>, <strong>Polícia Federal</strong>, <strong>ANTAQ</strong> e outras entidades atuantes no setor.</p>
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon"><i class="fas fa-bullseye"></i></div>
+<div>
+<p class="info-title">Objetivos</p>
+<p class="info-desc">Desenvolver <strong>políticas e diretrizes de segurança</strong>; garantir a <strong>proteção das infraestruturas portuárias</strong>; e contribuir para o <strong>comércio e a segurança nacional</strong>.</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Rodapé -->
+<div class="px-16 pb-6 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">53 / 61</p>
+</div>
+
+<!-- Marca d'água decorativa -->
+<div class="bg-pattern"><i class="fas fa-shield"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

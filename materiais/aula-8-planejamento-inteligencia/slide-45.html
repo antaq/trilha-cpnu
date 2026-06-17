@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Benefícios do RedeMAIS — Alertas de Embarcações</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; }
+  .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; }
+  .bg-brand-secondary { background-color:#0066CC; }
+
+  .header-bar { background-color:#003366; height:12px; width:100%; }
+  .secondary-bar { background-color:#0066CC; height:6px; width:100%; }
+
+  /* Caixa de conceito (destaque azul-claro) */
+  .concept-box {
+    background:#F0F9FF;
+    border:2px solid #BAE6FD;
+    border-radius:16px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15);
+    padding:24px 32px;
+  }
+
+  /* Cartões de aplicação */
+  .app-card {
+    background:#F8FAFC;
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    padding:26px 30px;
+    position:relative;
+    overflow:hidden;
+    border-top:5px solid #0066CC;
+    display:flex;
+    flex-direction:column;
+  }
+  .app-card.first { border-top-color:#0066CC; }
+  .app-card.second { border-top-color:#003366; }
+  .app-icon {
+    width:64px; height:64px;
+    border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:30px; color:#fff;
+    margin-bottom:16px;
+    box-shadow:0 6px 14px -4px rgba(0,51,102,.45);
+  }
+  .icon-blue { background:linear-gradient(135deg,#0066CC,#003366); }
+  .icon-amber { background:linear-gradient(135deg,#F59E0B,#B45309); }
+  .card-watermark {
+    position:absolute;
+    right:-12px; bottom:-18px;
+    font-size:120px;
+    color:#003366;
+    opacity:.05;
+    pointer-events:none;
+  }
+
+  .pill {
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:4px 14px;
+    border-radius:999px;
+    background:#DBEAFE;
+    color:#1E3A8A;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+  }
+
+  .bg-pattern {
+    position:absolute;
+    bottom:-60px; right:-40px;
+    font-size:360px;
+    opacity:.03;
+    z-index:0;
+    color:#003366;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div class="header-bar"></div>
+  <div class="secondary-bar"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-9 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Benefícios do RedeMAIS — Alertas de Embarcações</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Relatórios Analíticos de Alertas (RAA)</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-ship text-xl" aria-hidden="true"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-4 z-10 min-h-0">
+
+    <!-- Conceito central -->
+    <div class="concept-box mb-6">
+      <p class="font-montserrat font-bold text-brand-primary text-xl mb-2 flex items-center gap-3">
+        <i class="fas fa-diagram-project text-brand-secondary text-2xl"></i>
+        Geração automatizada de relatórios analíticos de alertas (RAA)
+      </p>
+      <p class="text-gray-700 text-base leading-relaxed">
+        Produzidos a partir do <strong>cruzamento de dados espaciais</strong>, os RAA apoiam a
+        <strong>identificação de atividades ilícitas</strong> de forma sistemática e tempestiva,
+        transformando dados georreferenciados em inteligência para a fiscalização.
+      </p>
+    </div>
+
+    <!-- Cartões -->
+    <div class="grid grid-cols-2 gap-8">
+
+      <!-- Alerta de embarcações -->
+      <div class="app-card first">
+        <div class="app-icon icon-blue"><i class="fas fa-ship"></i></div>
+        <span class="pill mb-3"><i class="fas fa-bell"></i> Alerta de embarcações</span>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Relatórios <strong>diários</strong> sobre <strong>embarcações, dragas ou balsas</strong>
+          detectadas dentro de um <strong>perímetro previamente delimitado</strong>, permitindo
+          o acompanhamento contínuo de presenças e deslocamentos na área monitorada.
+        </p>
+        <i class="fas fa-ship card-watermark"></i>
+      </div>
+
+      <!-- Possibilidades -->
+      <div class="app-card second">
+        <div class="app-icon icon-amber"><i class="fas fa-triangle-exclamation"></i></div>
+        <span class="pill mb-3" style="background:#FEF3C7;color:#92400E;"><i class="fas fa-lightbulb"></i> Possibilidades</span>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Aplicação em <strong>áreas de restrição em portos</strong> e na
+          <strong>detecção de atividades não autorizadas</strong>, subsidiando ações
+          preventivas e a priorização de fiscalizações em pontos sensíveis.
+        </p>
+        <i class="fas fa-triangle-exclamation card-watermark"></i>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <div class="flex items-center gap-4">
+      <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+      <span class="text-gray-300 text-xs font-montserrat flex items-center gap-1.5">
+        <i class="fas fa-folder-open"></i> Processo SEI 50300.014095/2021-75
+      </span>
+    </div>
+    <p class="text-gray-300 text-xs font-mono">45 / 61</p>
+  </div>
+
+  <!-- Pattern decorativo -->
+  <div class="bg-pattern"><i class="fas fa-anchor"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

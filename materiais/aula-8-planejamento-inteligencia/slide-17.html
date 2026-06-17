@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GEF — Benefícios</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    html { font-size: 26px; }
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f3f4f6;
+        overflow: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .slide-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .text-brand-primary { color: #003366; }
+    .bg-brand-primary { background-color: #003366; }
+    .text-brand-secondary { color: #0066CC; }
+    .bg-brand-secondary { background-color: #0066CC; }
+
+    .header-bar { height: 12px; background: #003366; width: 100%; }
+    .secondary-bar { height: 6px; background: #0066CC; width: 100%; }
+
+    /* Cartões de benefício */
+    .benefit-card {
+        background: #F8FAFC;
+        border-radius: 16px;
+        padding: 28px 26px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        border-top: 5px solid #0066CC;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.25s ease;
+    }
+    .benefit-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 26px -8px rgba(0, 51, 102, 0.22);
+        background: #FFFFFF;
+    }
+    .benefit-card:nth-child(1) { border-top-color: #0066CC; }
+    .benefit-card:nth-child(2) { border-top-color: #2563EB; }
+    .benefit-card:nth-child(3) { border-top-color: #3B82F6; }
+    .benefit-card:nth-child(4) { border-top-color: #1D4ED8; }
+    .benefit-card:nth-child(5) { border-top-color: #003366; }
+
+    .benefit-icon-wrap {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+        box-shadow: 0 6px 14px -4px rgba(0, 102, 204, 0.5);
+        margin-bottom: 16px;
+    }
+    .benefit-icon-wrap i { color: #ffffff; font-size: 1.5rem; }
+
+    .benefit-num {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 2.6rem;
+        line-height: 1;
+        color: #E2E8F0;
+    }
+    .benefit-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1.18rem;
+        color: #003366;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+    .benefit-desc {
+        font-size: 0.98rem;
+        color: #4B5563;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Barras de topo -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-10 pb-4 z-10">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<div class="w-1.5 h-9 bg-brand-secondary"></div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">GEF — Benefícios</h1>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">Ganhos para a fiscalização e para os servidores</p>
+</div>
+<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-heart-circle-check text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+</div>
+</div>
+
+<!-- Conteúdo -->
+<div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+<!-- Linha 1: três cartões -->
+<div class="grid grid-cols-6 gap-7 mb-7">
+<div class="benefit-card col-span-2">
+<span class="benefit-num">01</span>
+<div class="benefit-icon-wrap"><i class="fas fa-key"></i></div>
+<p class="benefit-title">Autonomia e Confiança</p>
+<p class="benefit-desc">Autonomia para tomar decisões, aumentando a <strong>confiabilidade</strong> e a <strong>responsabilidade</strong> nas áreas de atuação.</p>
+</div>
+<div class="benefit-card col-span-2">
+<span class="benefit-num">02</span>
+<div class="benefit-icon-wrap"><i class="fas fa-piggy-bank"></i></div>
+<p class="benefit-title">Redução de Custos</p>
+<p class="benefit-desc">A longo prazo, minimizando o <strong>retrabalho</strong> e o <strong>desperdício de recursos</strong> da Agência.</p>
+</div>
+<div class="benefit-card col-span-2">
+<span class="benefit-num">03</span>
+<div class="benefit-icon-wrap"><i class="fas fa-heart-pulse"></i></div>
+<p class="benefit-title">Saúde Mental dos Servidores</p>
+<p class="benefit-desc">Promoção do <strong>reconhecimento</strong> e do valor dos servidores, contribuindo para a motivação e a satisfação no trabalho.</p>
+</div>
+</div>
+
+<!-- Linha 2: dois cartões centralizados -->
+<div class="grid grid-cols-6 gap-7">
+<div class="benefit-card col-span-2 col-start-2">
+<span class="benefit-num">04</span>
+<div class="benefit-icon-wrap"><i class="fas fa-arrow-trend-up"></i></div>
+<p class="benefit-title">Crescimento Profissional</p>
+<p class="benefit-desc">Oportunidades de desenvolvimento, incentivando o <strong>engajamento</strong> e a aquisição de novos conhecimentos.</p>
+</div>
+<div class="benefit-card col-span-2">
+<span class="benefit-num">05</span>
+<div class="benefit-icon-wrap"><i class="fas fa-face-smile"></i></div>
+<p class="benefit-title">Satisfação no Trabalho</p>
+<p class="benefit-desc">O conhecimento aprofundado permite a execução de tarefas mais <strong>desafiadoras e interessantes</strong>.</p>
+</div>
+</div>
+</div>
+
+<!-- Rodapé -->
+<div class="px-16 pb-6 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">17 / 61</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

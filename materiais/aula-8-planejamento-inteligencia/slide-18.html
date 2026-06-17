@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fiscalização em 3 Níveis</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Quiz */
+  .quiz-opt {
+    cursor:pointer;
+    transition:all .2s ease;
+    background:#F8FAFC;
+    border:2px solid #E5E7EB;
+    border-radius:12px;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .quiz-opt:hover { border-color:#0066CC; background:#F0F9FF; box-shadow:0 4px 12px rgba(0,102,204,.10); }
+  .quiz-badge {
+    flex:0 0 auto;
+    width:42px; height:42px;
+    border-radius:999px;
+    background:#003366;
+    color:#fff;
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:18px;
+    display:flex; align-items:center; justify-content:center;
+    transition:all .2s ease;
+  }
+  .quiz-text { font-size:17.5px; line-height:1.4; color:#374151; }
+  .quiz-mark { margin-left:auto; flex:0 0 auto; font-size:22px; opacity:0; transition:opacity .2s ease; }
+
+  .quiz-opt.correct { background:#DCFCE7; border-color:#16A34A; }
+  .quiz-opt.correct .quiz-badge { background:#16A34A; }
+  .quiz-opt.correct .quiz-text { color:#14532D; font-weight:600; }
+  .quiz-opt.correct .quiz-mark { opacity:1; color:#16A34A; }
+  .quiz-opt.wrong { background:#FEE2E2; border-color:#DC2626; }
+  .quiz-opt.wrong .quiz-badge { background:#DC2626; }
+  .quiz-opt.wrong .quiz-text { color:#7F1D1D; }
+  .quiz-opt.wrong .quiz-mark { opacity:1; color:#DC2626; }
+  .quiz-opt.locked { pointer-events:none; }
+  .quiz-opt.locked:not(.correct):not(.wrong) { opacity:.5; }
+
+  .reset-btn {
+    background:#003366; color:#fff;
+    font-family:'Montserrat', sans-serif; font-weight:700; font-size:13px;
+    padding:9px 20px; border-radius:999px; border:none; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px;
+    letter-spacing:.04em; transition:all .2s ease;
+  }
+  .reset-btn:hover { background:#0066CC; }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-40px; opacity:0.04; z-index:0; color:#003366; pointer-events:none; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Fiscalização em 3 Níveis</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Selecione a alternativa correta</p>
+    </div>
+    <img src="Imagens/meme2.gif" alt="" style="height:180px;" />
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-4 z-10 min-h-0">
+
+    <!-- Enunciado -->
+    <div style="background:#F0F9FF;border:2px solid #BAE6FD;border-radius:16px;box-shadow:0 8px 20px -8px rgba(0,102,204,.18);padding:16px 24px;" class="flex items-start gap-4 mb-4">
+      <div style="flex:0 0 auto;width:48px;height:48px;border-radius:12px;background:#0066CC;color:#fff;display:flex;align-items:center;justify-content:center;">
+        <i class="fas fa-lightbulb text-2xl"></i>
+      </div>
+      <div>
+        <p class="font-montserrat font-bold text-brand-primary text-sm uppercase tracking-widest mb-1">Questão</p>
+        <p class="text-gray-700" style="font-size:20px;line-height:1.45;">
+          A metodologia de <strong>Fiscalização em 3 Níveis</strong> classifica as obrigações regulatórias conforme a intensidade de verificação necessária. Sobre o <strong>Nível 2 (Ação à Distância)</strong>, é correto afirmar que:
+        </p>
+      </div>
+    </div>
+
+    <!-- Alternativas -->
+    <div class="flex flex-col gap-3">
+      <div class="quiz-opt" data-letter="A" onclick="answer(this)">
+        <div class="quiz-badge">A</div>
+        <p class="quiz-text">Consiste na realização de inspeções presenciais direcionadas, com coleta de evidências in loco nas instalações do regulado.</p>
+        <i class="fas fa-circle-xmark quiz-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="B" onclick="answer(this)">
+        <div class="quiz-badge">B</div>
+        <p class="quiz-text">Utiliza exclusivamente sistemas automatizados de cruzamento de dados em tempo real, sem qualquer intervenção humana direta.</p>
+        <i class="fas fa-circle-xmark quiz-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="C" onclick="answer(this)">
+        <div class="quiz-badge">C</div>
+        <p class="quiz-text">É reservado às situações em que a verificação remota é insuficiente, em razão da natureza da obrigação ou da necessidade de constatar fatos presencialmente.</p>
+        <i class="fas fa-circle-xmark quiz-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="D" onclick="answer(this)">
+        <div class="quiz-badge">D</div>
+        <p class="quiz-text">Compreende a verificação documental, audiovisual ou por meio de sistemas de informação, sem necessidade de deslocamento físico da equipe de fiscalização.</p>
+        <i class="fas fa-circle-check quiz-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="E" onclick="answer(this)">
+        <div class="quiz-badge">E</div>
+        <p class="quiz-text">Aplica-se exclusivamente a empresas classificadas no Grupo C (Alto Risco) do Modelo Quantitativo de Risco.</p>
+        <i class="fas fa-circle-xmark quiz-mark"></i>
+      </div>
+    </div>
+
+    <!-- Feedback + Reiniciar -->
+    <div class="flex items-center justify-between mt-4">
+      <div id="quizFeedback" style="display:none;align-items:center;gap:12px;background:#DCFCE7;border:2px solid #16A34A;border-radius:12px;padding:8px 18px;">
+        <i class="fas fa-circle-check" style="color:#16A34A;font-size:20px;"></i>
+        <p class="text-sm" style="color:#14532D;">
+          <strong class="font-montserrat">Resposta correta: D.</strong>
+          O <strong>Nível 2 (Ação à Distância)</strong> verifica obrigações de forma documental, audiovisual ou por sistemas, <strong>sem deslocamento físico</strong> da equipe.
+        </p>
+      </div>
+      <button class="reset-btn ml-auto" onclick="resetQuiz()">
+        <i class="fas fa-rotate-left"></i> Reiniciar
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-5 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">18 / 61</p>
+  </div>
+
+  <!-- Padrão decorativo -->
+  <div class="bg-pattern"><i class="fas fa-circle-question text-9xl"></i></div>
+</div>
+
+<script>
+  const CORRECT = 'D';
+  function answer(el){
+    document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.add('locked'));
+    const L = el.dataset.letter;
+    document.querySelectorAll('.quiz-opt').forEach(o=>{
+      if(o.dataset.letter===CORRECT) o.classList.add('correct');
+    });
+    if(L!==CORRECT) el.classList.add('wrong');
+    document.getElementById('quizFeedback').style.display='flex';
+  }
+  function resetQuiz(){
+    document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('locked','correct','wrong'));
+    document.getElementById('quizFeedback').style.display='none';
+  }
+</script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

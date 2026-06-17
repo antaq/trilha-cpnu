@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sistema de Fiscalização (SFIS)</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Linha do tempo */
+  .timeline { position:relative; padding-left:48px; }
+  .timeline::before {
+    content:""; position:absolute; left:21px; top:14px; bottom:14px; width:4px;
+    background:linear-gradient(180deg,#94A3B8 0%,#3B82F6 50%,#003366 100%); border-radius:4px;
+  }
+  .tl-item { position:relative; padding-bottom:22px; }
+  .tl-item:last-child { padding-bottom:0; }
+  .tl-node {
+    position:absolute; left:-42px; top:2px; width:52px; height:52px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    font-family:'Montserrat', sans-serif; font-weight:800; font-size:15px;
+    box-shadow:0 4px 10px -2px rgba(0,51,102,.35); z-index:2;
+  }
+  .tl-item:nth-child(1) .tl-node { background:#60A5FA; }
+  .tl-item:nth-child(2) .tl-node { background:#2563EB; }
+  .tl-item:nth-child(3) .tl-node { background:#003366; }
+  .tl-card {
+    background:#F8FAFC; border-radius:14px; padding:18px 26px;
+    box-shadow:0 4px 12px rgba(0,0,0,.07); border-left:6px solid #0066CC;
+  }
+  .tl-item:nth-child(1) .tl-card { border-left-color:#60A5FA; }
+  .tl-item:nth-child(2) .tl-card { border-left-color:#2563EB; }
+  .tl-item:nth-child(3) .tl-card { border-left-color:#003366; }
+  .tl-year {
+    font-family:'Montserrat', sans-serif; font-weight:800; font-size:24px; color:#003366;
+    display:flex; align-items:center; gap:12px; margin-bottom:6px;
+  }
+  .tl-year i { color:#0066CC; font-size:22px; }
+  .tl-desc { font-size:17px; color:#4B5563; line-height:1.5; }
+
+  /* Moldura institucional da captura */
+  .fig {
+    border-radius:14px; overflow:hidden; box-shadow:0 16px 30px -10px rgba(0,0,0,.32);
+    border:1px solid #E5E7EB; display:flex; flex-direction:column; background:#fff;
+  }
+  .fig img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+  .fig figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:13px; padding:9px 16px;
+    font-family:'Montserrat', sans-serif; display:flex; align-items:center; gap:9px;
+  }
+  .fig figcaption i { color:#38BDF8; }
+
+  /* Chip de acesso */
+  .access-chip {
+    display:inline-flex; align-items:center; gap:12px;
+    background:linear-gradient(135deg,#003366 0%,#0066CC 100%);
+    border-radius:999px; padding:11px 22px;
+    box-shadow:0 8px 18px -6px rgba(0,51,102,.5);
+  }
+  .access-chip .badge {
+    width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.16);
+    display:flex; align-items:center; justify-content:center; color:#FFD700; font-size:16px;
+  }
+  .access-chip .url { color:#fff; font-family:'Montserrat', sans-serif; font-weight:700; font-size:17px; letter-spacing:.01em; }
+
+  .bg-pattern { position:absolute; bottom:-70px; right:-50px; font-size:26rem; opacity:.04; color:#003366; z-index:0; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Sistema de Fiscalização (SFIS)</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Cadastro e controle dos processos de fiscalização</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-desktop text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex z-10 min-h-0 px-16 pb-5 gap-12">
+
+    <!-- ESQUERDA — Linha do tempo / evolução -->
+    <div class="flex flex-col min-h-0 justify-center" style="flex:1.05;">
+      <div class="flex items-center gap-3 mb-5">
+        <i class="fas fa-timeline text-brand-secondary text-2xl"></i>
+        <h2 class="font-montserrat font-extrabold text-brand-primary text-2xl">Evolução do sistema</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-node">2009</div>
+          <div class="tl-card">
+            <p class="tl-year"><i class="fas fa-folder-open"></i> Implementação</p>
+            <p class="tl-desc">Sistema implantado para o <strong>cadastro dos dados dos processos de fiscalização</strong>.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-node">2014</div>
+          <div class="tl-card">
+            <p class="tl-year"><i class="fas fa-gavel"></i> Penalidades e TAC</p>
+            <p class="tl-desc">Módulo <strong>Penalidades</strong> para os processos sancionadores e, em seguida, módulo para os <strong>Termos de Ajuste de Conduta (TAC)</strong>.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-node">2018</div>
+          <div class="tl-card">
+            <p class="tl-year"><i class="fas fa-file-invoice-dollar"></i> Arrecadação de Multas</p>
+            <p class="tl-desc">Integração ao <strong>Sistema de Arrecadação de Multas</strong>: a partir das fiscalizações cadastradas no SFIS, efetua a <strong>geração do boleto</strong> e todo o <strong>controle da arrecadação</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIREITA — Captura do SFIS + chip de acesso -->
+    <div class="flex flex-col min-h-0 justify-center items-center" style="flex:1;">
+      <figure class="fig" style="margin:0; max-height:74%;">
+        <img src="Imagens/sfis-tela.png" alt="Captura do Sistema de Fiscalização (SFIS) — Consulta de Processos"/>
+        <figcaption><i class="fas fa-magnifying-glass"></i> SFIS — Consulta de Processos</figcaption>
+      </figure>
+
+      <a class="access-chip mt-5" href="https://sfis.antaq.gov.br/Fiscalizacao/" target="_blank" rel="noopener">
+        <span class="badge"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <span class="url">sfis.antaq.gov.br/Fiscalizacao</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">26 / 61</p>
+  </div>
+
+  <!-- Marca d'água decorativa -->
+  <div class="bg-pattern"><i class="fas fa-desktop"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard de Alertas</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .content-wrapper {
+    display:flex; flex:1; min-height:0;
+    padding:14px 64px 18px 64px;
+    flex-direction:row; gap:40px; align-items:stretch;
+  }
+  .figure-side { flex:1.15; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+  .text-side   { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; gap:28px; }
+
+  .portal-figure {
+    border-radius:14px; overflow:hidden;
+    box-shadow:0 16px 30px -10px rgba(0,0,0,.30);
+    border:1px solid #E5E7EB;
+  }
+  .portal-figure img { width:100%; height:auto; display:block; object-fit:cover; }
+  .portal-figure figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:14px; padding:9px 16px;
+    font-family:'Montserrat', sans-serif; display:flex; align-items:center; gap:10px;
+  }
+  .portal-figure figcaption i { color:#38BDF8; }
+
+  .lead-box {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:16px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15); padding:22px 28px;
+  }
+
+  .feature-card {
+    background:#F8FAFC; border-left:5px solid #0066CC; border-radius:12px;
+    padding:14px 20px; box-shadow:0 2px 6px rgba(0,0,0,.06);
+    display:flex; align-items:flex-start; gap:14px;
+  }
+  .feature-card .ic {
+    flex:0 0 auto; width:44px; height:44px; border-radius:10px;
+    background:#E0F2FE; color:#0066CC; display:flex; align-items:center; justify-content:center;
+    font-size:20px;
+  }
+  .feature-card:nth-child(1){ border-left-color:#3B82F6; }
+  .feature-card:nth-child(2){ border-left-color:#1D4ED8; }
+
+  .raa-box {
+    background:#FFFBEB; border:1px solid #FDE68A; border-left:5px solid #F59E0B;
+    border-radius:12px; padding:16px 22px; display:flex; align-items:center; gap:16px;
+  }
+  .raa-box .ic {
+    flex:0 0 auto; width:46px; height:46px; border-radius:10px;
+    background:#FEF3C7; color:#B45309; display:flex; align-items:center; justify-content:center; font-size:22px;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Dashboard de Alertas</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Monitoramento contínuo via RedeMAIS</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-bell text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="content-wrapper">
+    <!-- Figura -->
+    <div class="figure-side">
+      <figure class="portal-figure">
+        <img src="Imagens/redemais-portal.gif" alt="Portal RedeMAIS com o Dashboard de Alertas"/>
+        <figcaption><i class="fas fa-display"></i> Portal RedeMAIS — Dashboard de Alertas</figcaption>
+      </figure>
+    </div>
+
+    <!-- Texto -->
+    <div class="text-side">
+      <div class="lead-box">
+        <p class="text-brand-primary font-montserrat font-bold text-lg mb-2 flex items-center gap-3">
+          <i class="fas fa-bell text-brand-secondary text-xl"></i> Visualização centralizada
+        </p>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          O <strong>Dashboard de Alertas</strong> centraliza a visualização e o acompanhamento dos
+          alertas gerados pela plataforma — <strong>alterações detectadas por sensoriamento remoto</strong> —
+          permitindo priorizar as verificações da fiscalização.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="ic"><i class="fas fa-satellite"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-base mb-0.5">Alertas por sensoriamento remoto</p>
+          <p class="text-gray-600 text-sm leading-snug">Mudanças identificadas em imagens de satélite são sinalizadas automaticamente para análise.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="ic"><i class="fas fa-list-check"></i></div>
+        <div>
+          <p class="font-montserrat font-bold text-brand-primary text-base mb-0.5">Priorização das verificações</p>
+          <p class="text-gray-600 text-sm leading-snug">Acompanhamento contínuo orienta onde concentrar esforços e atuar de forma tempestiva.</p>
+        </div>
+      </div>
+
+      <div class="raa-box">
+        <div class="ic"><i class="fas fa-file-lines"></i></div>
+        <p class="text-sm leading-snug" style="color:#92400E;">
+          Os alertas alimentam os <strong>Relatórios Analíticos de Alertas (RAA)</strong>,
+          detalhados <strong>a seguir</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">44 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

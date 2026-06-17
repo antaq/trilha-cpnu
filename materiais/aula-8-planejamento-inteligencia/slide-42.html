@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programa Brasil MAIS — RedeMAIS</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Termos compactos (esquerda) */
+  .term-card {
+    background:#F8FAFC; border-left:4px solid #0066CC; border-radius:10px;
+    padding:12px 16px; box-shadow:0 1px 4px rgba(0,0,0,.05);
+    display:flex; gap:13px; align-items:center;
+  }
+  .term-card:nth-child(1) { border-left-color:#2563EB; }
+  .term-card:nth-child(2) { border-left-color:#3B82F6; }
+  .term-card:nth-child(3) { border-left-color:#60A5FA; }
+  .term-ico {
+    flex:none; width:42px; height:42px; border-radius:8px;
+    background:#E0F2FE; color:#0066CC;
+    display:flex; align-items:center; justify-content:center; font-size:19px;
+  }
+
+  /* Gif em destaque */
+  .gif-frame {
+    border-radius:14px; overflow:hidden;
+    box-shadow:0 14px 28px -8px rgba(0,0,0,.30);
+    border:1px solid #E5E7EB; flex:1; min-height:0;
+    display:flex; flex-direction:column;
+  }
+  .gif-frame img { width:100%; flex:1; min-height:0; object-fit:cover; display:block; }
+  .gif-frame figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:13px; padding:8px 14px;
+    font-family:'Montserrat', sans-serif; display:flex; align-items:center; gap:8px;
+  }
+  .gif-frame figcaption i { color:#38BDF8; }
+
+  /* Serviços maiores */
+  .svc-card {
+    background:#F0F9FF; border:1.5px solid #BAE6FD; border-radius:12px;
+    padding:22px 22px; display:flex; align-items:center; gap:18px;
+    box-shadow:0 2px 6px rgba(0,102,204,.06);
+  }
+  .svc-card i { color:#0066CC; font-size:30px; width:34px; text-align:center; flex:none; }
+  .svc-card span { color:#0F172A; font-weight:600; font-size:21px; line-height:1.25;
+    font-family:'Montserrat', sans-serif; }
+
+  .bg-watermark {
+    position:absolute; bottom:-60px; right:-50px;
+    font-size:24rem; color:#003366; opacity:.035; z-index:0; pointer-events:none;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Programa Brasil MAIS — RedeMAIS</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Adesão à Rede do Programa Brasil MAIS</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-satellite text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex gap-8 px-16 pb-5 z-10 min-h-0">
+
+    <!-- COLUNA ESQUERDA: banner + objeto + termos -->
+    <div class="flex flex-col gap-3 min-h-0" style="width:40%;">
+
+      <!-- Banner -->
+      <figure style="border-radius:14px;overflow:hidden;box-shadow:0 12px 24px -8px rgba(0,0,0,.25);border:1px solid #E5E7EB;flex-shrink:0;">
+        <img src="Imagens/brasilmais-banner.png" alt="Banner do Programa Brasil MAIS"
+             style="width:100%;height:200px;object-fit:cover;object-position:center;display:block;"/>
+        <figcaption style="background:#0F172A;color:#E2E8F0;font-size:13px;padding:8px 14px;font-family:'Montserrat';">
+          Programa Brasil MAIS — plataforma RedeMAIS de imagens geoespaciais
+        </figcaption>
+      </figure>
+
+      <!-- Objeto -->
+      <div style="background:#F0F9FF;border:2px solid #BAE6FD;border-radius:14px;box-shadow:0 8px 20px -5px rgba(0,102,204,.15);padding:14px 20px;flex-shrink:0;">
+        <p class="font-montserrat font-bold text-brand-primary text-lg mb-1 flex items-center gap-2">
+          <i class="fas fa-bullseye text-brand-secondary"></i> Objeto
+        </p>
+        <p class="text-gray-700 text-base leading-snug">
+          Acesso a plataforma de <strong>imagens geoespaciais de todo o Brasil</strong>, com
+          <strong>imagens diárias</strong> e <strong>alertas de alterações</strong>.
+        </p>
+      </div>
+
+      <!-- Termos compactos -->
+      <div class="flex flex-col gap-2">
+        <div class="term-card">
+          <div class="term-ico"><i class="fas fa-calendar-check"></i></div>
+          <div>
+            <p class="font-montserrat font-bold text-brand-primary leading-tight" style="font-size:16px;">Prazo</p>
+            <p class="text-gray-600 leading-snug" style="font-size:14px;"><strong>60 meses</strong>, prorrogável no interesse mútuo dos partícipes.</p>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-ico"><i class="fas fa-hand-holding-dollar"></i></div>
+          <div>
+            <p class="font-montserrat font-bold text-brand-primary leading-tight" style="font-size:16px;">Recursos</p>
+            <p class="text-gray-600 leading-snug" style="font-size:14px;"><strong>Não</strong> envolve transferência de recursos financeiros entre os órgãos cooperados.</p>
+          </div>
+        </div>
+        <div class="term-card">
+          <div class="term-ico"><i class="fas fa-folder-open"></i></div>
+          <div>
+            <p class="font-montserrat font-bold text-brand-primary leading-tight" style="font-size:16px;">Processo SEI</p>
+            <p class="text-gray-600 font-mono" style="font-size:14px;">50300.014095/2021-75</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLUNA DIREITA: serviços -->
+    <div class="flex flex-col gap-3 min-h-0" style="width:60%;">
+
+      <!-- Serviços do portal -->
+      <div class="flex flex-col flex-1 min-h-0">
+        <p class="text-gray-400 text-xs font-montserrat font-bold uppercase tracking-widest mb-2.5 flex items-center gap-2">
+          <i class="fas fa-layer-group text-brand-secondary"></i> Serviços do portal RedeMAIS
+        </p>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:1fr; gap:14px; flex:1; min-height:0;">
+          <div class="svc-card"><i class="fas fa-images"></i><span>Imagens Diárias e Mosaicos Planet</span></div>
+          <div class="svc-card"><i class="fas fa-bell"></i><span>Dashboard de Alertas</span></div>
+          <div class="svc-card"><i class="fas fa-graduation-cap"></i><span>Plataforma EAD</span></div>
+          <div class="svc-card"><i class="fas fa-map-location-dot"></i><span>Geo Serviços e Plugin QGIS</span></div>
+          <div class="svc-card"><i class="fas fa-chart-line"></i><span>Indicadores</span></div>
+          <div class="svc-card"><i class="fas fa-question-circle"></i><span>Perguntas Frequentes</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">42 / 61</p>
+  </div>
+
+  <i class="fas fa-satellite bg-watermark"></i>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

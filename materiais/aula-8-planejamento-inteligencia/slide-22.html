@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestão e Acompanhamento — RACI e EPAF</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* RACI rows */
+  .raci-row {
+    display:flex; align-items:center; gap:18px;
+    background:#F8FAFC; border-radius:12px; padding:14px 20px;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+    border-left:5px solid #0066CC;
+  }
+  .raci-row:nth-child(1) { border-left-color:#003366; }
+  .raci-row:nth-child(2) { border-left-color:#2563EB; }
+  .raci-row:nth-child(3) { border-left-color:#3B82F6; }
+  .raci-row:nth-child(4) { border-left-color:#60A5FA; }
+  .raci-badge {
+    flex-shrink:0; width:58px; height:58px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Montserrat', sans-serif; font-weight:900; font-size:28px; color:#fff;
+  }
+  .raci-row:nth-child(1) .raci-badge { background:#003366; }
+  .raci-row:nth-child(2) .raci-badge { background:#2563EB; }
+  .raci-row:nth-child(3) .raci-badge { background:#3B82F6; }
+  .raci-row:nth-child(4) .raci-badge { background:#60A5FA; }
+
+  /* EPAF card */
+  .epaf-card {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:18px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15);
+    display:flex; flex-direction:column; height:100%;
+    padding:26px 30px;
+  }
+  .formula-box {
+    background:#003366; border-radius:14px; padding:20px 24px;
+    box-shadow:0 8px 18px -6px rgba(0,51,102,.5);
+    display:flex; align-items:center; justify-content:center; gap:18px;
+  }
+  .frac { display:flex; flex-direction:column; align-items:center; line-height:1.15; }
+  .frac .num { border-bottom:2px solid #FFD700; padding-bottom:4px; }
+  .meta-chip {
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    background:linear-gradient(135deg,#FFF7D6 0%,#FFEFA8 100%);
+    border:2px solid #FFD700; border-radius:14px; padding:12px 18px;
+  }
+  .epaf-item {
+    display:flex; align-items:center; gap:14px;
+    background:#fff; border:1px solid #E0F2FE; border-radius:10px; padding:11px 16px;
+  }
+  .epaf-item i { color:#0066CC; }
+  .bg-pattern { position:absolute; bottom:-60px; right:-50px; font-size:26rem; opacity:.04; color:#003366; z-index:0; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Gestão e Acompanhamento</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Matriz de Responsabilidade (RACI) e Indicador EPAF</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-list-check text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex z-10 min-h-0 px-16 pb-6 gap-10">
+
+    <!-- ESQUERDA — Matriz RACI -->
+    <div class="flex flex-col min-h-0" style="flex:1.15;">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fas fa-sitemap text-brand-secondary text-2xl"></i>
+        <h2 class="font-montserrat font-extrabold text-brand-primary text-2xl">Matriz de Responsabilidade · RACI</h2>
+      </div>
+      <div class="flex flex-col gap-3 flex-1 justify-center">
+
+        <div class="raci-row">
+          <div class="raci-badge">R</div>
+          <div class="flex-1">
+            <p class="font-montserrat font-bold text-brand-primary text-xl leading-tight">Responsible <span class="text-gray-400 font-semibold text-base">· Executa</span></p>
+            <p class="text-gray-600 text-base leading-snug">Unidade que <strong>executa</strong> a fiscalização — <strong>GPF / UREs</strong></p>
+          </div>
+        </div>
+
+        <div class="raci-row">
+          <div class="raci-badge">A</div>
+          <div class="flex-1">
+            <p class="font-montserrat font-bold text-brand-primary text-xl leading-tight">Accountable <span class="text-gray-400 font-semibold text-base">· Aprova</span></p>
+            <p class="text-gray-600 text-base leading-snug">Quem <strong>aprova e responde</strong> pelo resultado — <strong>SFC</strong></p>
+          </div>
+        </div>
+
+        <div class="raci-row">
+          <div class="raci-badge">C</div>
+          <div class="flex-1">
+            <p class="font-montserrat font-bold text-brand-primary text-xl leading-tight">Consulted <span class="text-gray-400 font-semibold text-base">· Consultada</span></p>
+            <p class="text-gray-600 text-base leading-snug">Consultada <strong>antes</strong> da decisão — <strong>GCOR / GRAT</strong></p>
+          </div>
+        </div>
+
+        <div class="raci-row">
+          <div class="raci-badge">I</div>
+          <div class="flex-1">
+            <p class="font-montserrat font-bold text-brand-primary text-xl leading-tight">Informed <span class="text-gray-400 font-semibold text-base">· Informada</span></p>
+            <p class="text-gray-600 text-base leading-snug">Informada <strong>após</strong> a execução — <strong>Diretoria</strong></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DIREITA — Indicador EPAF -->
+    <div class="flex flex-col min-h-0" style="flex:1;">
+      <div class="epaf-card">
+        <div class="flex items-center gap-3 mb-1">
+          <i class="fas fa-gauge-high text-brand-secondary text-2xl"></i>
+          <h2 class="font-montserrat font-extrabold text-brand-primary text-2xl">Indicador EPAF</h2>
+        </div>
+        <p class="text-gray-500 text-sm font-medium mb-4 ml-9">Execução do Plano Anual de Fiscalização</p>
+
+        <!-- Fórmula -->
+        <div class="formula-box mb-4">
+          <span class="font-montserrat font-extrabold text-white text-2xl">EPAF =</span>
+          <div class="frac font-montserrat font-bold text-white" style="font-size:17px;">
+            <span class="num px-2 pb-1">Processos Instaurados</span>
+            <span class="pt-1">Processos Previstos</span>
+          </div>
+          <span class="font-montserrat font-extrabold text-2xl" style="color:#FFD700;">× 100</span>
+        </div>
+
+        <!-- Meta -->
+        <div class="meta-chip mb-5">
+          <i class="fas fa-bullseye text-2xl" style="color:#B8860B;"></i>
+          <p class="font-montserrat font-extrabold text-brand-primary text-2xl">Meta: <span style="color:#0066CC;">&ge; 90%</span></p>
+        </div>
+
+        <!-- Itens de acompanhamento -->
+        <div class="flex flex-col gap-3 flex-1 justify-center">
+          <div class="epaf-item">
+            <i class="fas fa-calendar-check text-xl"></i>
+            <p class="text-gray-700 text-base"><strong class="text-brand-primary">Acompanhamento mensal</strong> da execução</p>
+          </div>
+          <div class="epaf-item">
+            <i class="fas fa-file-signature text-xl"></i>
+            <p class="text-gray-700 text-base"><strong class="text-brand-primary">Reporte à SFC</strong> e à <strong class="text-brand-primary">Diretoria Colegiada</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">22 / 61</p>
+  </div>
+
+  <!-- Marca d'água decorativa -->
+  <div class="bg-pattern"><i class="fas fa-list-check"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curso de Pilotagem de Drones</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .content-wrapper {
+    display:flex; flex:1; min-height:0;
+    flex-direction:row; gap:34px;
+    padding:8px 64px 12px 64px;
+  }
+  .left-col { flex:1.18; min-width:0; display:flex; flex-direction:column; gap:24px; justify-content:center; }
+  .right-col { flex:1; min-width:0; display:flex; flex-direction:column; gap:18px; justify-content:center; }
+
+  .info-card {
+    background:#F8FAFC; border-left:5px solid #0066CC; border-radius:12px;
+    padding:16px 22px; box-shadow:0 2px 6px rgba(0,0,0,.06);
+  }
+  .info-card .card-title {
+    font-family:'Montserrat', sans-serif; font-weight:700; color:#003366;
+    font-size:1.05rem; display:flex; align-items:center; gap:12px; margin-bottom:8px;
+    letter-spacing:.01em;
+  }
+  .info-card .card-title i { color:#0066CC; font-size:1.05rem; }
+
+  .motiv-item { display:flex; align-items:flex-start; gap:10px; color:#4B5563; font-size:.82rem; line-height:1.35; margin-bottom:5px; }
+  .motiv-item:last-child { margin-bottom:0; }
+  .motiv-item i { color:#0066CC; font-size:.72rem; margin-top:.32rem; flex-shrink:0; }
+
+  .stat-row { display:flex; gap:14px; }
+  .stat-box {
+    flex:1; background:#F0F9FF; border:1.5px solid #BAE6FD; border-radius:12px;
+    padding:10px 14px; display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .stat-num { font-family:'Montserrat', sans-serif; font-weight:800; color:#003366; font-size:1.9rem; line-height:1; }
+  .stat-lbl { color:#4B5563; font-size:.66rem; font-weight:600; margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
+
+  .guests { color:#4B5563; font-size:.78rem; line-height:1.4; margin-top:10px; }
+  .guest-tag {
+    display:inline-flex; align-items:center; gap:6px; background:#003366; color:#fff;
+    font-family:'Montserrat', sans-serif; font-weight:600; font-size:.66rem;
+    padding:4px 11px; border-radius:999px; margin:3px 4px 0 0; letter-spacing:.02em;
+  }
+
+  .news-card {
+    background:linear-gradient(135deg,#003366 0%,#0066CC 100%); color:#fff;
+    border-radius:14px; padding:16px 22px; box-shadow:0 10px 22px -8px rgba(0,51,102,.45);
+    position:relative; overflow:hidden;
+  }
+  .news-card .news-badge {
+    display:inline-flex; align-items:center; gap:7px; background:#FFD700; color:#003366;
+    font-family:'Montserrat', sans-serif; font-weight:800; font-size:.62rem;
+    padding:3px 12px; border-radius:999px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px;
+  }
+  .news-card .news-title { font-family:'Montserrat', sans-serif; font-weight:700; font-size:1.02rem; margin-bottom:3px; }
+  .news-card .news-sub { color:#DBEAFE; font-size:.78rem; line-height:1.35; }
+  .news-card .news-deco { position:absolute; right:-10px; bottom:-18px; font-size:5.6rem; opacity:.12; color:#fff; }
+
+  .photo-fig {
+    border-radius:14px; overflow:hidden; box-shadow:0 12px 24px -8px rgba(0,0,0,.28);
+    border:1px solid #E5E7EB; display:flex; flex-direction:column;
+  }
+  .photo-fig img { width:100%; height:100%; object-fit:cover; display:block; }
+  .photo-fig.tall img { height:240px; }
+  .photo-fig.short img { height:270px; }
+  .photo-fig figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:.62rem; padding:7px 13px;
+    font-family:'Montserrat', sans-serif; font-weight:500; display:flex; align-items:center; gap:8px;
+  }
+  .photo-fig figcaption i { color:#38BDF8; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Curso de Pilotagem de Drones</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Tecnologia a serviço da fiscalização</p>
+    </div>
+    <div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+      <i class="fas fa-helicopter text-xl"></i>
+      <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="content-wrapper z-10">
+    <!-- Coluna esquerda: texto -->
+    <div class="left-col">
+      <!-- Motivação -->
+      <div class="info-card">
+        <p class="card-title"><i class="fas fa-bullseye"></i> Motivação do projeto</p>
+        <div class="motiv-item"><i class="fas fa-circle"></i><span><strong>Ampliação do escopo fiscalizatório</strong> da Agência.</span></div>
+        <div class="motiv-item"><i class="fas fa-circle"></i><span><strong>Agilidade</strong> nas inspeções de grandes áreas.</span></div>
+        <div class="motiv-item"><i class="fas fa-circle"></i><span>Acesso a <strong>áreas remotas ou de difícil acesso</strong>.</span></div>
+      </div>
+
+      <!-- Módulo teórico e prático -->
+      <div class="info-card">
+        <p class="card-title"><i class="fas fa-chalkboard-user"></i> Módulo teórico e prático presenciais</p>
+        <div class="stat-row">
+          <div class="stat-box">
+            <span class="stat-num">15</span>
+            <span class="stat-lbl">Participantes</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">4</span>
+            <span class="stat-lbl">Convidados externos</span>
+          </div>
+        </div>
+        <p class="guests">Convidados de outros órgãos parceiros:</p>
+        <div>
+          <span class="guest-tag"><i class="fas fa-anchor"></i> Marinha do Brasil</span>
+          <span class="guest-tag"><i class="fas fa-road"></i> ANTT</span>
+          <span class="guest-tag"><i class="fas fa-shield-halved"></i> PRF</span>
+        </div>
+      </div>
+
+      <!-- Novidades 2026 -->
+      <div class="news-card">
+        <span class="news-badge"><i class="fas fa-star"></i> Novidade 2026</span>
+        <p class="news-title">Curso Intermediário de Pilotagem Avançada</p>
+        <p class="news-sub">Voltado exclusivamente aos pilotos veteranos, aprofundando técnicas de operação em campo.</p>
+        <i class="fas fa-tower-broadcast news-deco"></i>
+      </div>
+    </div>
+
+    <!-- Coluna direita: fotos -->
+    <div class="right-col">
+      <figure class="photo-fig tall">
+        <img src="Imagens/drones-equip.jpeg" alt="Equipamentos do curso de drones" style="transform:rotate(180deg);"/>
+        <figcaption><i class="fas fa-toolbox"></i> Equipamentos do curso — DJI Mavic e tablets de campo</figcaption>
+      </figure>
+      <figure class="photo-fig short">
+        <img src="Imagens/drones-campo.jpeg" alt="Atividade de campo com drones"/>
+        <figcaption><i class="fas fa-mountain-sun"></i> Atividade prática de campo com aeronaves remotamente pilotadas</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">32 / 61</p>
+  </div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

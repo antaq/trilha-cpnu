@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RedeMAIS / Brasil MAIS</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  /* Enunciado */
+  .question-box {
+    background:#F0F9FF; border:2px solid #BAE6FD; border-radius:16px;
+    box-shadow:0 10px 25px -5px rgba(0,102,204,.15); padding:18px 28px;
+  }
+
+  /* Alternativas */
+  .quiz-opt {
+    cursor:pointer; transition:.2s; background:#F8FAFC;
+    border:2px solid #E5E7EB; border-radius:12px;
+    padding:11px 18px; display:flex; align-items:center; gap:16px;
+    box-shadow:0 2px 5px rgba(0,0,0,.05);
+  }
+  .quiz-opt:hover { background:#FFFFFF; border-color:#BAE6FD; box-shadow:0 6px 14px rgba(0,0,0,.08); }
+  .quiz-opt .letter {
+    flex-shrink:0; width:42px; height:42px; border-radius:999px;
+    background:#003366; color:#fff; font-family:'Montserrat',sans-serif; font-weight:700;
+    font-size:19px; display:flex; align-items:center; justify-content:center; transition:.2s;
+  }
+  .quiz-opt .opt-text { font-size:17.5px; color:#374151; line-height:1.35; }
+  .quiz-opt .opt-mark { margin-left:auto; flex-shrink:0; font-size:22px; opacity:0; transition:.2s; }
+
+  .quiz-opt.locked { pointer-events:none; }
+  .quiz-opt.correct { background:#DCFCE7; border-color:#16A34A; }
+  .quiz-opt.correct .letter { background:#16A34A; }
+  .quiz-opt.correct .opt-mark { opacity:1; color:#16A34A; }
+  .quiz-opt.correct .opt-text { color:#14532D; font-weight:600; }
+  .quiz-opt.wrong { background:#FEE2E2; border-color:#DC2626; }
+  .quiz-opt.wrong .letter { background:#DC2626; }
+  .quiz-opt.wrong .opt-mark { opacity:1; color:#DC2626; }
+  .quiz-opt.locked:not(.correct):not(.wrong) { opacity:.55; }
+
+  /* Feedback */
+  #quizFeedback { display:none; }
+  .reset-btn {
+    cursor:pointer; background:#003366; color:#fff; border:none;
+    font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px;
+    padding:9px 20px; border-radius:999px; display:inline-flex; align-items:center; gap:9px;
+    transition:.2s; letter-spacing:.04em;
+  }
+  .reset-btn:hover { background:#0066CC; }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-40px; opacity:.04; z-index:0; color:#003366; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Barras de topo -->
+  <div style="height:12px;background:#003366;width:100%;"></div>
+  <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+    <div>
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-1.5 h-9 bg-brand-secondary"></div>
+        <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">RedeMAIS / Brasil MAIS</h1>
+      </div>
+      <p class="text-gray-500 font-medium ml-4 text-lg">Selecione a alternativa correta</p>
+    </div>
+    <img src="Imagens/meme5.gif" alt="" style="height:180px;" />
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-1 flex flex-col justify-center px-16 pb-4 z-10 min-h-0">
+    <!-- Enunciado -->
+    <div class="question-box mb-5">
+      <p class="text-brand-primary font-montserrat font-bold text-lg mb-1 flex items-center gap-3">
+        <i class="fas fa-satellite-dish text-brand-secondary text-xl"></i> Pergunta
+      </p>
+      <p class="text-gray-700 text-lg leading-snug">
+        A adesão da ANTAQ ao Programa <strong>Brasil MAIS</strong>, por meio da <strong>RedeMAIS</strong>, trouxe diversas melhorias na fiscalização do transporte aquaviário no Brasil. Entre as principais funcionalidades da plataforma, destaca-se:
+      </p>
+    </div>
+
+    <!-- Alternativas -->
+    <div class="flex flex-col gap-3">
+      <div class="quiz-opt" data-letter="A" onclick="answer(this)">
+        <div class="letter">A</div>
+        <p class="opt-text">O monitoramento em tempo real das embarcações por meio de chips de rastreamento implantados nos cascos das embarcações fiscalizadas.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="B" onclick="answer(this)">
+        <div class="letter">B</div>
+        <p class="opt-text">A geração automatizada de <strong>Relatórios Analíticos de Alertas (RAA)</strong> com base no cruzamento de dados espaciais para identificação de atividades ilícitas.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="C" onclick="answer(this)">
+        <div class="letter">C</div>
+        <p class="opt-text">A substituição completa da fiscalização presencial por um sistema 100% automatizado baseado em inteligência artificial.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="D" onclick="answer(this)">
+        <div class="letter">D</div>
+        <p class="opt-text">O uso exclusivo da tecnologia para monitoramento de áreas costeiras, sem cobertura de áreas terrestres.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+      <div class="quiz-opt" data-letter="E" onclick="answer(this)">
+        <div class="letter">E</div>
+        <p class="opt-text">A restrição do uso das imagens de satélite apenas a instituições policiais e militares, sem compartilhamento com órgãos reguladores.</p>
+        <i class="fas opt-mark"></i>
+      </div>
+    </div>
+
+    <!-- Feedback -->
+    <div id="quizFeedback" class="mt-4 items-center justify-between">
+      <div class="flex items-center gap-3" style="background:#DCFCE7;border:1px solid #16A34A;border-radius:12px;padding:10px 20px;">
+        <i class="fas fa-circle-check text-2xl" style="color:#16A34A;"></i>
+        <p class="text-base" style="color:#14532D;">
+          <strong>Resposta correta: B.</strong> A RedeMAIS gera <strong>Relatórios Analíticos de Alertas (RAA)</strong> de forma automatizada, cruzando dados espaciais (imagens de satélite) para apoiar a identificação de atividades ilícitas.
+        </p>
+      </div>
+      <button class="reset-btn ml-4" onclick="resetQuiz()">
+        <i class="fas fa-rotate-left"></i> Reiniciar
+      </button>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="px-16 pb-6 flex justify-between items-center z-10">
+    <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+    <p class="text-gray-300 text-xs font-mono">47 / 61</p>
+  </div>
+
+  <!-- Marca decorativa -->
+  <div class="bg-pattern"><i class="fas fa-circle-question text-9xl"></i></div>
+</div>
+
+<script>
+  const CORRECT = 'B';
+  function answer(el){
+    document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.add('locked'));
+    const L = el.dataset.letter;
+    document.querySelectorAll('.quiz-opt').forEach(o=>{
+      if(o.dataset.letter===CORRECT){ o.classList.add('correct'); o.querySelector('.opt-mark').classList.add('fa-circle-check'); }
+    });
+    if(L!==CORRECT){ el.classList.add('wrong'); el.querySelector('.opt-mark').classList.add('fa-circle-xmark'); }
+    document.getElementById('quizFeedback').style.display='flex';
+  }
+  function resetQuiz(){
+    document.querySelectorAll('.quiz-opt').forEach(o=>{
+      o.classList.remove('locked','correct','wrong');
+      const m=o.querySelector('.opt-mark'); m.classList.remove('fa-circle-check','fa-circle-xmark');
+    });
+    document.getElementById('quizFeedback').style.display='none';
+  }
+</script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

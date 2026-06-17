@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conportos</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    html { font-size: 26px; }
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f3f4f6;
+        overflow: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .slide-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .text-brand-primary { color: #003366; }
+    .bg-brand-primary { background-color: #003366; }
+    .text-brand-secondary { color: #0066CC; }
+    .bg-brand-secondary { background-color: #0066CC; }
+
+    /* Decorative giant icon */
+    .bg-pattern {
+        position: absolute;
+        bottom: -70px;
+        right: -50px;
+        opacity: 0.04;
+        z-index: 0;
+        color: #003366;
+    }
+
+    /* Quiz options */
+    .quiz-opt {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        background: #F8FAFC;
+        border: 2px solid #E5E7EB;
+        border-radius: 14px;
+        padding: 14px 22px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .quiz-opt:hover {
+        border-color: #0066CC;
+        background: #F0F9FF;
+        transform: translateX(4px);
+    }
+    .quiz-badge {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #003366;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 1.05rem;
+        transition: all 0.2s ease;
+    }
+    .quiz-text {
+        color: #374151;
+        font-size: 0.86rem;
+        line-height: 1.4;
+        flex: 1;
+    }
+    .quiz-mark {
+        flex-shrink: 0;
+        font-size: 1.4rem;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    .quiz-opt.locked { pointer-events: none; }
+    .quiz-opt.correct {
+        background: #DCFCE7;
+        border-color: #16A34A;
+    }
+    .quiz-opt.correct .quiz-badge { background: #16A34A; }
+    .quiz-opt.correct .quiz-mark { opacity: 1; color: #16A34A; }
+    .quiz-opt.wrong {
+        background: #FEE2E2;
+        border-color: #DC2626;
+    }
+    .quiz-opt.wrong .quiz-badge { background: #DC2626; }
+    .quiz-opt.wrong .quiz-mark { opacity: 1; color: #DC2626; }
+
+    #quizFeedback { display: none; }
+    .reset-btn {
+        background: #003366;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        border: none;
+        border-radius: 999px;
+        padding: 10px 26px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .reset-btn:hover { background: #0066CC; transform: translateY(-2px); }
+</style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Top Accents -->
+    <div style="height:12px;background:#003366;width:100%;"></div>
+    <div style="height:6px;background:#0066CC;width:100%;"></div>
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-16 pt-8 pb-3 z-10">
+        <div>
+            <div class="flex items-center gap-3 mb-1">
+                <div class="w-1.5 h-9 bg-brand-secondary"></div>
+                <h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Conportos</h1>
+            </div>
+            <p class="text-gray-500 font-medium ml-4 text-lg">Selecione a alternativa correta</p>
+        </div>
+    <img src="Imagens/meme7.gif" alt="" style="height:180px;" />
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 flex flex-col justify-center px-16 pb-4 z-10 min-h-0">
+        <!-- Question box -->
+        <div style="background:#F0F9FF;border:2px solid #BAE6FD;border-radius:16px;box-shadow:0 10px 25px -5px rgba(0,102,204,0.15);padding:16px 28px;" class="mb-4 flex items-center gap-4">
+            <div style="flex-shrink:0;width:54px;height:54px;border-radius:14px;background:#0066CC;display:flex;align-items:center;justify-content:center;">
+                <i class="fas fa-anchor text-white text-2xl"></i>
+            </div>
+            <p class="text-brand-primary font-montserrat font-bold text-lg leading-snug">
+                A Comissão Nacional de Segurança Pública nos Portos, Terminais e Vias Navegáveis (Conportos) desempenha papel essencial na segurança portuária no Brasil. Dentre suas atribuições, destaca-se:
+            </p>
+        </div>
+
+        <!-- Options -->
+        <div class="flex flex-col gap-3">
+            <div class="quiz-opt" data-letter="A" onclick="answer(this)">
+                <div class="quiz-badge">A</div>
+                <p class="quiz-text">A fiscalização direta das operações de carga e descarga nos portos brasileiros, garantindo o cumprimento das normas trabalhistas pelas operadoras portuárias.</p>
+                <i class="fas quiz-mark"></i>
+            </div>
+            <div class="quiz-opt" data-letter="B" onclick="answer(this)">
+                <div class="quiz-badge">B</div>
+                <p class="quiz-text">A elaboração de normas e regulamentos alfandegários para controle da entrada e saída de mercadorias nos portos nacionais.</p>
+                <i class="fas quiz-mark"></i>
+            </div>
+            <div class="quiz-opt" data-letter="C" onclick="answer(this)">
+                <div class="quiz-badge">C</div>
+                <p class="quiz-text">A coordenação de ações para mitigar riscos e prevenir ameaças em portos, terminais e vias navegáveis, atuando em parceria com diversas entidades governamentais.</p>
+                <i class="fas quiz-mark"></i>
+            </div>
+            <div class="quiz-opt" data-letter="D" onclick="answer(this)">
+                <div class="quiz-badge">D</div>
+                <p class="quiz-text">O licenciamento e a concessão de autorizações para funcionamento de terminais portuários privados, garantindo conformidade com padrões ambientais.</p>
+                <i class="fas quiz-mark"></i>
+            </div>
+            <div class="quiz-opt" data-letter="E" onclick="answer(this)">
+                <div class="quiz-badge">E</div>
+                <p class="quiz-text">A gestão exclusiva dos certificados de segurança emitidos para instalações portuárias, sem envolvimento de outras entidades reguladoras como a ANTAQ.</p>
+                <i class="fas quiz-mark"></i>
+            </div>
+        </div>
+
+        <!-- Feedback + Reset -->
+        <div class="flex items-center justify-between mt-4">
+            <div id="quizFeedback" class="items-center gap-3" style="align-items:center;">
+                <span style="background:#16A34A;color:#fff;font-family:'Montserrat';font-weight:700;font-size:0.7rem;letter-spacing:0.06em;padding:5px 14px;border-radius:999px;text-transform:uppercase;">
+                    <i class="fas fa-circle-check mr-1"></i> Resposta
+                </span>
+                <p class="text-gray-700 text-base ml-3">
+                    <strong class="text-brand-primary">Correta: C.</strong> A Conportos coordena ações para mitigar riscos e prevenir ameaças em portos, terminais e vias navegáveis, atuando em parceria com diversas entidades governamentais.
+                </p>
+            </div>
+            <button class="reset-btn ml-auto" onclick="resetQuiz()">
+                <i class="fas fa-rotate-right"></i> Reiniciar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="px-16 pb-6 flex justify-between items-center z-10">
+        <p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+        <p class="text-gray-300 text-xs font-mono">57 / 61</p>
+    </div>
+
+    <!-- Decorative Background -->
+    <div class="bg-pattern">
+        <i class="fas fa-circle-question text-9xl"></i>
+    </div>
+</div>
+
+<script>
+    const CORRECT = 'C';
+    function answer(el){
+        document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.add('locked'));
+        const L = el.dataset.letter;
+        document.querySelectorAll('.quiz-opt').forEach(o=>{
+            if(o.dataset.letter===CORRECT){
+                o.classList.add('correct');
+                o.querySelector('.quiz-mark').classList.add('fa-circle-check');
+            }
+        });
+        if(L!==CORRECT){
+            el.classList.add('wrong');
+            el.querySelector('.quiz-mark').classList.add('fa-circle-xmark');
+        }
+        document.getElementById('quizFeedback').style.display='flex';
+    }
+    function resetQuiz(){
+        document.querySelectorAll('.quiz-opt').forEach(o=>{
+            o.classList.remove('locked','correct','wrong');
+            o.querySelector('.quiz-mark').classList.remove('fa-circle-check','fa-circle-xmark');
+        });
+        document.getElementById('quizFeedback').style.display='none';
+    }
+</script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fiscalização Responsiva — Inovações do modelo</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    html { font-size: 26px; }
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f3f4f6;
+        overflow: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .slide-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+    .header-bar { background-color: #003366; height: 12px; width: 100%; }
+    .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .text-brand-primary { color: #003366; }
+    .bg-brand-primary { background-color: #003366; }
+    .text-brand-secondary { color: #0066CC; }
+    .bg-brand-secondary { background-color: #0066CC; }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        width: 100%;
+    }
+
+    .innovation-card {
+        background-color: #F8FAFC;
+        border-radius: 18px;
+        border: 1px solid #E5E7EB;
+        border-top: 6px solid #0066CC;
+        box-shadow: 0 12px 28px -10px rgba(0, 51, 102, 0.18);
+        padding: 38px 32px 34px 32px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.2s ease;
+    }
+    .innovation-card:nth-child(1) { border-top-color: #60A5FA; }
+    .innovation-card:nth-child(2) { border-top-color: #2563EB; }
+    .innovation-card:nth-child(3) { border-top-color: #003366; }
+
+    .card-num {
+        position: absolute;
+        top: 18px;
+        right: 26px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 64px;
+        line-height: 1;
+        color: #0066CC;
+        opacity: 0.08;
+    }
+    .card-icon {
+        width: 92px;
+        height: 92px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 42px;
+        box-shadow: 0 10px 20px -6px rgba(0, 102, 204, 0.45);
+        margin-bottom: 24px;
+    }
+    .card-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        color: #003366;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+    .card-desc {
+        font-size: 17px;
+        color: #4B5563;
+        line-height: 1.55;
+    }
+    .card-desc strong { color: #1E3A8A; font-weight: 700; }
+
+    .lead-box {
+        background-color: #F0F9FF;
+        border: 2px solid #BAE6FD;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.12);
+        padding: 18px 30px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+    .lead-box i { color: #0066CC; font-size: 30px; }
+    .lead-box p { font-size: 18px; color: #374151; line-height: 1.45; }
+    .lead-box strong { color: #003366; font-weight: 700; }
+
+    .bg-pattern {
+        position: absolute;
+        bottom: -60px;
+        right: -40px;
+        font-size: 360px;
+        opacity: 0.03;
+        z-index: 0;
+        color: #003366;
+        pointer-events: none;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+
+<!-- Header -->
+<div class="px-16 pt-9 pb-2 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-12 bg-brand-secondary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Fiscalização Responsiva</h1>
+<p class="text-gray-500 font-medium text-lg mt-0.5">Inovações do modelo</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-scale-balanced text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+</div>
+</div>
+</div>
+
+<!-- Content -->
+<div class="flex-1 flex flex-col justify-center px-16 pb-6 z-10 min-h-0">
+<!-- Lead box -->
+<div class="lead-box">
+<i class="fas fa-arrow-trend-up"></i>
+<p>O modelo evolui continuamente para acompanhar as <strong>crescentes complexidades do ambiente regulatório</strong>, ampliando dados, indicadores e ferramentas de fiscalização.</p>
+</div>
+
+<!-- 3 innovation cards -->
+<div class="cards-grid">
+<div class="innovation-card">
+<span class="card-num">01</span>
+<div class="card-icon"><i class="fas fa-chart-line"></i></div>
+<p class="card-title">Incorporação de Novos Indicadores</p>
+<p class="card-desc">Introdução de <strong>indicadores qualitativos</strong> que consideram aspectos <strong>comportamentais, socioeconômicos e ambientais</strong> dos regulados.</p>
+</div>
+
+<div class="innovation-card">
+<span class="card-num">02</span>
+<div class="card-icon"><i class="fas fa-database"></i></div>
+<p class="card-title">Integração de Dados no Data Lake</p>
+<p class="card-desc">Ampliação do <strong>uso de dados</strong> para garantir uma avaliação <strong>mais abrangente e precisa</strong> dos regulados.</p>
+</div>
+
+<div class="innovation-card">
+<span class="card-num">03</span>
+<div class="card-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+<p class="card-title">Desenvolvimento de Ferramentas Inovadoras</p>
+<p class="card-desc">Criação de <strong>roteiros fiscalizatórios</strong> e uso ampliado de <strong>dados comportamentais</strong> para adaptar o modelo às complexidades regulatórias.</p>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<div class="px-16 pb-6 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">9 / 61</p>
+</div>
+
+<!-- Decorative Background -->
+<div class="bg-pattern"><i class="fas fa-scale-balanced"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

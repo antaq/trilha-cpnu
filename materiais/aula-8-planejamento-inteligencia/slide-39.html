@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estrutura do Novo SISBIN</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  html { font-size: 26px; }
+  body { margin:0; padding:0; background-color:#f3f4f6; overflow:hidden; font-family:'Open Sans', sans-serif; }
+  .slide-container { width:100vw; height:100vh; position:relative; display:flex; flex-direction:column; background-color:#ffffff; overflow:hidden; }
+  .font-montserrat { font-family:'Montserrat', sans-serif; }
+  .text-brand-primary { color:#003366; } .bg-brand-primary { background-color:#003366; }
+  .text-brand-secondary { color:#0066CC; } .bg-brand-secondary { background-color:#0066CC; }
+
+  .header-bar { background-color:#003366; height:12px; width:100%; }
+  .secondary-bar { background-color:#0066CC; height:6px; width:100%; }
+
+  .content-wrapper {
+    display:flex; flex:1; flex-direction:row; gap:34px;
+    padding:14px 56px 8px 56px; min-height:0; align-items:stretch;
+  }
+
+  /* Coluna do diagrama */
+  .diagram-side { flex:0 0 53%; display:flex; flex-direction:column; min-width:0; }
+  .diagram-frame {
+    flex:1; min-height:0;
+    border-radius:14px; overflow:hidden;
+    box-shadow:0 12px 24px -8px rgba(0,0,0,.25);
+    border:1px solid #E5E7EB; background:#0F172A;
+    display:flex; flex-direction:column;
+  }
+  .diagram-frame img { width:100%; height:100%; object-fit:contain; display:block; background:#1e2937; }
+  .diagram-frame figcaption {
+    background:#0F172A; color:#E2E8F0; font-size:13px; padding:8px 14px;
+    font-family:'Montserrat', sans-serif; display:flex; align-items:center; gap:8px;
+  }
+
+  /* Coluna da legenda */
+  .legend-side { flex:1; min-width:0; display:flex; flex-direction:column; min-height:0; }
+
+  .legend-title {
+    font-family:'Montserrat', sans-serif; font-weight:700; font-size:15px;
+    color:#6B7280; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;
+    display:flex; align-items:center; gap:8px;
+  }
+
+  .level-row {
+    display:flex; align-items:flex-start; gap:14px;
+    background:#F8FAFC; border-left:5px solid #0066CC; border-radius:10px;
+    padding:14px 18px; box-shadow:0 1px 4px rgba(0,0,0,.05);
+  }
+  .level-row.l1 { border-left-color:#003366; }
+  .level-row.l2 { border-left-color:#1D4ED8; }
+  .level-row.l3 { border-left-color:#FFD700; background:#FFFBEB; box-shadow:0 4px 10px -2px rgba(255,196,0,.3); }
+  .level-row.l4 { border-left-color:#60A5FA; }
+  .level-row.l5 { border-left-color:#94A3B8; }
+
+  .level-dot {
+    flex:0 0 auto; width:36px; height:36px; border-radius:999px;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:15px; font-family:'Montserrat', sans-serif; font-weight:700;
+    margin-top:1px;
+  }
+  .level-dot.l1 { background:#003366; }
+  .level-dot.l2 { background:#1D4ED8; }
+  .level-dot.l3 { background:#B8860B; }
+  .level-dot.l4 { background:#60A5FA; }
+  .level-dot.l5 { background:#94A3B8; }
+
+  .level-name {
+    font-family:'Montserrat', sans-serif; font-weight:700; font-size:19px;
+    color:#0F172A; line-height:1.2;
+  }
+  .level-desc { font-size:15.5px; color:#4B5563; line-height:1.35; margin-top:3px; }
+  .level-name .badge-antaq {
+    display:inline-flex; align-items:center; gap:5px; vertical-align:middle;
+    background:#003366; color:#FFD700; font-size:11px; font-weight:700;
+    padding:2px 9px; border-radius:999px; margin-left:8px; letter-spacing:.04em;
+  }
+
+  .axes-box {
+    margin-top:20px; background:#F0F9FF; border:2px solid #BAE6FD; border-radius:14px;
+    box-shadow:0 8px 20px -6px rgba(0,102,204,.15); padding:16px 20px;
+  }
+  .axes-box .axes-title {
+    font-family:'Montserrat', sans-serif; font-weight:700; font-size:16px;
+    color:#003366; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .axes-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .axis-pill {
+    display:flex; align-items:center; gap:11px;
+    background:#fff; border:1px solid #DBEAFE; border-radius:10px; padding:10px 14px;
+  }
+  .axis-pill i { color:#0066CC; font-size:18px; width:20px; text-align:center; }
+  .axis-pill span { font-family:'Montserrat', sans-serif; font-weight:600; font-size:16px; color:#1E3A8A; }
+
+  .bg-pattern { position:absolute; bottom:-60px; right:-50px; width:380px; height:380px; opacity:0.03; z-index:0; color:#003366; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Barras de topo -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-8 pb-2 z-10">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<div class="w-1.5 h-9 bg-brand-secondary"></div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Estrutura do Novo SISBIN</h1>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">Órgãos por nível de integração</p>
+</div>
+<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-circle-nodes text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTELIGÊNCIA</p>
+</div>
+</div>
+
+<!-- Conteúdo -->
+<div class="content-wrapper z-10">
+<!-- Diagrama -->
+<div class="diagram-side">
+<figure class="diagram-frame">
+<img src="Imagens/sisbin-estrutura.png" alt="Diagrama em arcos da estrutura do Novo SISBIN, com órgãos distribuídos do centro para fora por nível de integração."/>
+<figcaption><i class="fas fa-sitemap text-sky-400"></i> Sistema Brasileiro de Inteligência (SISBIN) — órgãos integrados em arcos concêntricos</figcaption>
+</figure>
+</div>
+
+<!-- Legenda -->
+<div class="legend-side">
+<p class="legend-title"><i class="fas fa-layer-group text-brand-secondary"></i> Níveis de integração (do centro para fora)</p>
+
+<div class="flex flex-col gap-3">
+<div class="level-row l1">
+<div class="level-dot l1">1</div>
+<div>
+<p class="level-name">Órgão Central</p>
+<p class="level-desc">Agência Brasileira de Inteligência (ABIN) — coordena o Sistema.</p>
+</div>
+</div>
+
+<div class="level-row l2">
+<div class="level-dot l2">2</div>
+<div>
+<p class="level-name">Órgãos Permanentes</p>
+<p class="level-desc">Núcleo estável da inteligência de Estado (ANAC, ANTT, Polícia Federal, entre outros).</p>
+</div>
+</div>
+
+<div class="level-row l3">
+<div class="level-dot l3">3</div>
+<div>
+<p class="level-name">Órgãos Dedicados <span class="badge-antaq"><i class="fas fa-anchor"></i> ANTAQ / MPOR</span></p>
+<p class="level-desc">Órgãos com atuação dedicada em inteligência setorial — a <strong>ANTAQ</strong> integra este nível.</p>
+</div>
+</div>
+
+<div class="level-row l4">
+<div class="level-dot l4">4</div>
+<div>
+<p class="level-name">Órgãos Associados</p>
+<p class="level-desc">Entes que cooperam de forma complementar (SE/MTE, AGU, CGU, ANVISA, entre outros).</p>
+</div>
+</div>
+
+<div class="level-row l5">
+<div class="level-dot l5">5</div>
+<div>
+<p class="level-name">Unidades da Federação</p>
+<p class="level-desc">Estados e o Distrito Federal, na camada mais externa de integração.</p>
+</div>
+</div>
+</div>
+
+<!-- Eixos transversais -->
+<div class="axes-box">
+<p class="axes-title"><i class="fas fa-compass text-brand-secondary"></i> Eixos transversais de atuação</p>
+<div class="axes-grid">
+<div class="axis-pill"><i class="fas fa-shield-halved"></i><span>Defesa Externa</span></div>
+<div class="axis-pill"><i class="fas fa-user-shield"></i><span>Segurança Interna</span></div>
+<div class="axis-pill"><i class="fas fa-globe"></i><span>Relações Exteriores</span></div>
+<div class="axis-pill"><i class="fas fa-landmark"></i><span>Governabilidade</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Rodapé -->
+<div class="px-16 pb-6 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">39 / 61</p>
+</div>
+
+<!-- Marca d'água decorativa -->
+<div class="bg-pattern"><i class="fas fa-circle-nodes text-9xl"></i></div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>

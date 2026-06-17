@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel de Dados Públicos da Fiscalização</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    html { font-size: 26px; }
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f3f4f6;
+        overflow: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .slide-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .text-brand-primary { color: #003366; }
+    .bg-brand-primary { background-color: #003366; }
+    .text-brand-secondary { color: #0066CC; }
+    .bg-brand-secondary { background-color: #0066CC; }
+
+    .header-bar { height: 12px; background: #003366; width: 100%; }
+    .secondary-bar { height: 6px; background: #0066CC; width: 100%; }
+
+    /* Cartão de texto com borda lateral */
+    .info-card {
+        background: #F8FAFC;
+        border-left: 5px solid #0066CC;
+        border-radius: 12px;
+        padding: 18px 24px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .info-card:nth-child(1) { border-left-color: #0066CC; }
+    .info-card:nth-child(2) { border-left-color: #2563EB; }
+    .info-card .icon-box {
+        flex: 0 0 auto;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+        box-shadow: 0 6px 14px -4px rgba(0, 102, 204, 0.5);
+    }
+    .info-card .icon-box i { color: #fff; font-size: 1.2rem; }
+    .info-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1.12rem;
+        color: #003366;
+        margin-bottom: 4px;
+    }
+    .info-desc { font-size: 0.96rem; color: #4B5563; line-height: 1.5; }
+
+    /* Caixa de destaque azul-clara */
+    .highlight-box {
+        background: #F0F9FF;
+        border: 2px solid #BAE6FD;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.15);
+        padding: 20px 26px;
+    }
+
+    /* Breadcrumb / caminho de acesso */
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        background: #003366;
+        border-radius: 999px;
+        padding: 12px 22px;
+        box-shadow: 0 8px 18px -6px rgba(0, 51, 102, 0.45);
+    }
+    .crumb {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: #fff;
+        white-space: nowrap;
+    }
+    .crumb.last { color: #FFD700; font-weight: 700; }
+    .breadcrumb .sep { color: #60A5FA; font-size: 0.8rem; }
+
+    /* Moldura institucional da figura */
+    figure.frame {
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.35);
+        border: 1px solid #E5E7EB;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        max-height: 100%;
+    }
+    figure.frame img {
+        width: 100%;
+        height: auto;
+        max-height: 78vh;
+        object-fit: cover;
+        display: block;
+        min-height: 0;
+    }
+    figure.frame figcaption {
+        background: #0F172A;
+        color: #E2E8F0;
+        font-size: 0.72rem;
+        padding: 9px 16px;
+        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    figure.frame figcaption i { color: #38BDF8; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Barras de topo -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-9 pb-3 z-10">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<div class="w-1.5 h-9 bg-brand-secondary"></div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Painel de Dados Públicos da Fiscalização</h1>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">Transparência ativa para a sociedade</p>
+</div>
+<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
+<i class="fas fa-chart-pie text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PLANEJAMENTO</p>
+</div>
+</div>
+
+<!-- Conteúdo -->
+<div class="flex-1 flex flex-row items-stretch gap-10 px-16 pb-4 z-10 min-h-0">
+
+<!-- Coluna esquerda: texto -->
+<div class="flex flex-col justify-center gap-5" style="flex: 0 0 50%; min-width:0;">
+
+<!-- Destaque: dado aberto ao público -->
+<div class="highlight-box">
+<p class="font-montserrat font-bold text-brand-primary text-xl mb-2 flex items-center gap-3">
+<i class="fas fa-globe text-brand-secondary"></i> Dados abertos à sociedade
+</p>
+<p class="text-gray-700 text-base leading-relaxed">
+Disponível ao <strong>público em geral</strong>, reúne todas as <strong>infrações transitadas em julgado</strong> e os <strong>processos sancionadores arquivados sem irregularidade</strong> presentes nas bases de dados da ANTAQ.
+</p>
+</div>
+
+<!-- Cartão: o que o painel oferece -->
+<div class="info-card">
+<div class="icon-box"><i class="fas fa-chart-column"></i></div>
+<div>
+<p class="info-title">Gráficos e tabelas consolidados</p>
+<p class="info-desc">Resumo executivo com gráficos e <strong>tabelas gerais</strong> sobre processos e normas aplicadas, em uma visão clara e navegável.</p>
+</div>
+</div>
+
+<!-- Cartão: download -->
+<div class="info-card">
+<div class="icon-box"><i class="fas fa-cloud-arrow-down"></i></div>
+<div>
+<p class="info-title">Base de dados para download</p>
+<p class="info-desc">É possível <strong>baixar a base completa</strong> para análises mais detalhadas, apoiando estudos e o controle social.</p>
+</div>
+</div>
+
+<!-- Breadcrumb / caminho de acesso -->
+<div>
+<p class="text-gray-400 text-xs font-montserrat font-bold uppercase tracking-widest mb-2 ml-1">
+<i class="fas fa-route mr-1 text-brand-secondary"></i> Caminho de acesso
+</p>
+<div class="breadcrumb">
+<span class="crumb">Portal da ANTAQ</span>
+<i class="fas fa-chevron-right sep"></i>
+<span class="crumb">Central de Conteúdo</span>
+<i class="fas fa-chevron-right sep"></i>
+<span class="crumb">Painéis</span>
+<i class="fas fa-chevron-right sep"></i>
+<span class="crumb last">Fiscalização</span>
+</div>
+</div>
+
+</div>
+
+<!-- Coluna direita: figura -->
+<div class="flex flex-col justify-center items-center" style="flex: 0 0 50%; min-width:0;">
+<figure class="frame">
+<img src="Imagens/painel-publico.png" alt="Captura do Painel de Dados Públicos da Fiscalização da ANTAQ"/>
+<figcaption><i class="fas fa-up-right-from-square"></i> Painel de Dados Públicos da Fiscalização — Portal da ANTAQ</figcaption>
+</figure>
+</div>
+
+</div>
+
+<!-- Rodapé -->
+<div class="px-16 pb-6 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Trilha Técnica da Fiscalização · SFC / GPF — ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">24 / 61</p>
+</div>
+</div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
+</body>
+</html>
