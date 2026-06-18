@@ -405,7 +405,8 @@ const DISCIPLINAS = [
          materiais:[{label:"Apresentação",arq:"materiais/aula-3-navegacao/navegacao-hidrovias-pgo.pptx",ext:"pptx"}]},
   {n:13, nome:"Navegação, Hidrovias e Plano Geral de Outorgas", ch:3, data:"2026-06-19", inicio:"15:00", fim:"18:00", turno:"Vespertino", instrutor:"Rodrigo Português", icon:"fa-ship"},
   {n:9,  nome:"Gestão Ambiental no Setor Aquaviário", ch:2, data:"2026-06-19", inicio:"13:00", fim:"15:00", turno:"Vespertino", instrutor:"Uirá Cavalcante Oliveira", icon:"fa-leaf"},
-  {n:10, nome:"Planejamento da Fiscalização", ch:2, data:"2026-06-18", inicio:"14:00", fim:"16:00", turno:"Vespertino", instrutor:"Pedro Henrique Soares", icon:"fa-clipboard-list"},
+  {n:10, nome:"Planejamento da Fiscalização", ch:2, data:"2026-06-18", inicio:"14:00", fim:"16:00", turno:"Vespertino", instrutor:"Pedro Henrique Soares", icon:"fa-clipboard-list",
+         materiais:[{label:"Apresentação",url:"https://antaq.github.io/trilha-cpnu/materiais/aula-8-planejamento-inteligencia/",ext:"html"}]},
   {n:11, nome:"Boas Relações de Trabalho e Gestão de Pessoas", ch:2, data:"2026-06-18", inicio:"16:00", fim:"18:00", turno:"Vespertino", instrutor:"Joelson Miranda", icon:"fa-users"},
   {n:12, nome:"Serviço Público, Concessões, Outorgas e Processo Administrativo no Setor Aquaviário", ch:4, data:"2026-06-16", inicio:"14:00", fim:"18:00", turno:"Vespertino", instrutor:"Ygor Di Paula Julliano Silva da Costa", icon:"fa-file-contract"},
 ];
@@ -521,7 +522,7 @@ function cardNode(a){
   const done = concluida(a);
   const mats = a.materiais || [];
   const mostraDl = mats.length && diaPassado(a.data);
-  const icoExt = e => e==="pdf" ? "fa-file-pdf" : e==="docx" ? "fa-file-word" : "fa-file-powerpoint";
+  const icoExt = e => e==="pdf" ? "fa-file-pdf" : e==="docx" ? "fa-file-word" : e==="html" ? "fa-chalkboard" : "fa-file-powerpoint";
   const icone = h("div",{class:"aula__icone"}, fa(`fa-solid ${a.icon}`));
   if(done) icone.append(h("span",{class:"aula__check",title:"Aula concluída"}, fa("fa-solid fa-check")));
   return h("article",{class:"aula aula--"+cls+(done?" aula--concluida":"")},
@@ -545,7 +546,9 @@ function cardNode(a){
       h("span",{class:`tag tag--${cls}`}, fa(`fa-solid ${ico}`), " "+a.turno),
       h("span",{class:"tag tag--ch"}, fmtHA(a.ch)),
       mostraDl ? h("div",{class:"aula__dl"},
-        ...mats.map(m=>h("a",{class:"aula__dl-btn",href:m.arq,download:"",title:"Baixar: "+m.label},
+        ...mats.map(m=>h("a",{class:"aula__dl-btn",href:m.url||m.arq,
+          download:m.url?null:"",target:"_blank",rel:"noopener noreferrer",
+          title:(m.url?"Ver: ":"Baixar: ")+m.label},
           fa(`fa-solid ${icoExt(m.ext)}`), " "+m.label
         ))
       ) : null
