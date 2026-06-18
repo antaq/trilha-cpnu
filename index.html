@@ -521,7 +521,7 @@ function cardNode(a){
   const ico = a.turno==="Manhã" ? "fa-sun" : "fa-cloud-sun";
   const done = concluida(a);
   const mats = a.materiais || [];
-  const mostraDl = mats.length && diaPassado(a.data);
+  const mostraDl = mats.length && concluida(a);
   const icoExt = e => e==="pdf" ? "fa-file-pdf" : e==="docx" ? "fa-file-word" : e==="html" ? "fa-chalkboard" : "fa-file-powerpoint";
   const icone = h("div",{class:"aula__icone"}, fa(`fa-solid ${a.icon}`));
   if(done) icone.append(h("span",{class:"aula__check",title:"Aula concluída"}, fa("fa-solid fa-check")));
